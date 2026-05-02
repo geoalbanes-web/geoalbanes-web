@@ -48,9 +48,32 @@
       justify-content: flex-end;
       padding-bottom: 0;
       position: relative;
-      background-image: url('img/hero-bg.webp');
-      background-size: cover;
-      background-position: center top;
+      background: var(--bg);
+      overflow: hidden;
+    }
+    #neural-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      opacity: 0.85;
+    }
+    .hero-fade-top {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(to bottom, var(--bg), transparent);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .hero-fade-bottom {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 200px;
+      background: linear-gradient(to top, var(--bg), transparent);
+      z-index: 1;
+      pointer-events: none;
     }
 
     .hero-grid {
@@ -502,6 +525,36 @@
 
 <body>
 
+  <!-- ══════ Page Loader ══════ -->
+  <div class="page-loader" id="page-loader">
+    <div class="loader-inner">
+      <div class="loader-mark">GA</div>
+      <div class="loader-meta">
+        <span class="loader-tag">GEOALBANES.COM</span>
+        <span class="loader-tag-r">v3.0 · LATAM</span>
+      </div>
+      <div class="loader-bar"><div class="loader-bar-fill" id="loader-bar-fill"></div></div>
+      <div class="loader-foot">
+        <span class="loader-pct" id="loader-pct">0%</span>
+        <span class="loader-status" id="loader-status">Inicializando · neural · stack · datos</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════ Section Index ══════ -->
+  <nav class="section-index" id="section-index" aria-hidden="true">
+    <a href="#hero" class="si-item active" data-section="hero"><span class="si-line"></span><span class="si-label">01 · Hero</span></a>
+    <a href="#pillars" class="si-item" data-section="pillars"><span class="si-line"></span><span class="si-label">02 · Temas</span></a>
+    <a href="#terminal-section" class="si-item" data-section="terminal-section"><span class="si-line"></span><span class="si-label">03 · Lab IA</span></a>
+    <a href="#stack-section" class="si-item" data-section="stack-section"><span class="si-line"></span><span class="si-label">04 · Stack</span></a>
+    <a href="#metrics-section" class="si-item" data-section="metrics-section"><span class="si-line"></span><span class="si-label">05 · Datos</span></a>
+    <a href="#articles" class="si-item" data-section="articles"><span class="si-line"></span><span class="si-label">06 · Blog</span></a>
+    <a href="#manifesto" class="si-item" data-section="manifesto"><span class="si-line"></span><span class="si-label">07 · Manifesto</span></a>
+  </nav>
+
+  <!-- Scroll Progress -->
+  <div id="scroll-progress"></div>
+
   <!-- Custom Cursor -->
   <div id="cursor"></div>
 
@@ -546,7 +599,10 @@
   </div>
 
   <!-- ══════════════════════ HERO ══════════════════════ -->
-  <section class="hero">
+  <section class="hero" id="hero">
+    <canvas id="neural-canvas"></canvas>
+    <div class="hero-fade-top"></div>
+    <div class="hero-fade-bottom"></div>
     <div class="container">
       <div class="hero-grid">
         <!-- Left: texto -->
@@ -589,20 +645,20 @@
     <div class="hero-stats">
       <div class="stat">
         <div>
-          <div class="stat-val"><em>#</em>IA</div>
-          <div class="stat-desc">Inteligencia Artificial aplicada</div>
+          <div class="stat-val"><em data-count="15">0</em><span style="color:var(--text-3);font-size:1rem"> arts</span></div>
+          <div class="stat-desc">Artículos publicados sobre IA, finanzas y sistemas</div>
         </div>
       </div>
       <div class="stat">
         <div>
-          <div class="stat-val"><em>#</em>Finanzas</div>
-          <div class="stat-desc">Finanzas personales con criterio</div>
+          <div class="stat-val"><em data-count="3">0</em><span style="color:var(--text-3);font-size:1rem">×/sem</span></div>
+          <div class="stat-desc">Publicaciones semanales con estrategias reales</div>
         </div>
       </div>
       <div class="stat">
         <div>
-          <div class="stat-val"><em>#</em>Sistemas</div>
-          <div class="stat-desc">Productividad y frameworks reales</div>
+          <div class="stat-val"><em data-count="4">0</em><span style="color:var(--text-3);font-size:1rem"> temas</span></div>
+          <div class="stat-desc">IA · Finanzas · Productividad · Emprendimiento</div>
         </div>
       </div>
     </div>
@@ -658,7 +714,7 @@
   </div>
 
   <!-- ══════════════════════ PILARES ══════════════════════ -->
-  <section class="section">
+  <section class="section" id="pillars">
     <div class="container">
       <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px;">
         <div>
@@ -707,12 +763,180 @@
     </div>
   </section>
 
+  <!-- ══════════════════════ TERMINAL ══════════════════════ -->
+  <section class="section" id="terminal-section" style="padding-top:0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap; gap:24px;">
+        <div>
+          <p class="sec-num">— 02</p>
+          <h2 class="fade-in">Así uso la IA<br><em>cada día.</em></h2>
+        </div>
+        <p style="max-width:300px;font-size:0.9rem;" class="fade-in d2">
+          No teoría. Prompts reales que uso para analizar datos, tomar decisiones y ahorrar tiempo.
+        </p>
+      </div>
+      <div class="terminal-window fade-in d1">
+        <div class="terminal-bar">
+          <span class="tb-dot red"></span>
+          <span class="tb-dot yellow"></span>
+          <span class="tb-dot green"></span>
+          <span class="tb-title">geo@studio — prompt-lab v2.4</span>
+          <span class="tb-scenario" id="terminal-scenario">— escenario: cargando</span>
+          <span class="tb-rec"><span class="tb-rec-dot"></span>LIVE</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-output" id="terminal-output"></div>
+          <div class="terminal-cursor-line">
+            <span class="t-prompt">geo@studio:~$</span>
+            <span class="t-input" id="terminal-input"></span>
+            <span class="t-cursor">▊</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ STACK ══════════════════════ -->
+  <section class="section stack-section" style="padding-top:0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap; gap:24px;">
+        <div>
+          <p class="sec-num">— 03</p>
+          <h2 class="fade-in">Mi stack<br><em>de cada día.</em></h2>
+        </div>
+        <p style="max-width:300px;font-size:0.9rem;" class="fade-in d2">
+          Las herramientas que uso para pensar, crear y operar. Sin lock-in, sin hype. Lo que de verdad funciona.
+        </p>
+      </div>
+      <div class="stack-grid">
+        <div class="stack-card fade-in" data-color="#10A37F" data-label="LLM">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M22.28 9.82a5.94 5.94 0 0 0-.51-4.91 6 6 0 0 0-6.5-2.88A6 6 0 0 0 4.91 4.18 5.95 5.95 0 0 0 1.71 14.18a6 6 0 0 0 .51 4.91 6 6 0 0 0 6.5 2.88 6 6 0 0 0 10.36-2.13 5.94 5.94 0 0 0 3.2-9.99zM13.49 20.91a4.45 4.45 0 0 1-2.86-1.04l.14-.08 4.79-2.77a.79.79 0 0 0 .39-.68v-6.76l2.03 1.17a.07.07 0 0 1 .04.05v5.6a4.46 4.46 0 0 1-4.53 4.51zM3.84 16.79a4.43 4.43 0 0 1-.53-2.97l.14.08 4.79 2.77a.78.78 0 0 0 .79 0l5.84-3.38v2.34a.07.07 0 0 1-.03.06l-4.84 2.79a4.45 4.45 0 0 1-6.16-1.69zm-1.27-10.5a4.43 4.43 0 0 1 2.34-1.95v5.7a.78.78 0 0 0 .39.68l5.84 3.38-2.03 1.17a.07.07 0 0 1-.07 0l-4.85-2.81a4.45 4.45 0 0 1-1.62-6.17zm16.59 3.86l-5.84-3.41 2.03-1.17a.07.07 0 0 1 .07 0l4.85 2.79a4.45 4.45 0 0 1-.67 8.04v-5.7a.79.79 0 0 0-.43-.65zm2.02-3.04l-.14-.09-4.79-2.79a.78.78 0 0 0-.79 0l-5.84 3.38V5.27a.07.07 0 0 1 .03-.06l4.85-2.79a4.45 4.45 0 0 1 6.69 4.62zm-12.66 4.18L8.49 10.12V7.79a.07.07 0 0 1 .03-.06l4.85-2.79a4.45 4.45 0 0 1 6.6 4.61l-.14-.08-4.79-2.77a.78.78 0 0 0-.79 0l-5.84 3.38zm1.1-2.43l2.6-1.5 2.6 1.5v3l-2.6 1.5-2.6-1.5z"/></svg>
+          </div>
+          <h4>ChatGPT</h4>
+          <p>Pensar más rápido</p>
+          <span class="stack-tag">Diario</span>
+        </div>
+        <div class="stack-card fade-in d1" data-color="#D97757" data-label="LLM">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M4.5 4.5h6.4l4 8.6 4-8.6h6.4v15h-3.5V9.7L17.4 19.5h-2L11.5 9.7v9.8H4.5z" transform="translate(-2.5 0)"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+          </div>
+          <h4>Claude</h4>
+          <p>Análisis profundo</p>
+          <span class="stack-tag">Diario</span>
+        </div>
+        <div class="stack-card fade-in d2" data-color="#000000" data-label="EDITOR">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M3 4l9 16 9-16H3zm3.4 2h11.2L12 16.4 6.4 6z"/></svg>
+          </div>
+          <h4>Notion</h4>
+          <p>Segundo cerebro</p>
+          <span class="stack-tag">Diario</span>
+        </div>
+        <div class="stack-card fade-in d3" data-color="#000" data-label="DEV">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
+          </div>
+          <h4>Cursor</h4>
+          <p>Código con IA</p>
+          <span class="stack-tag">Semanal</span>
+        </div>
+        <div class="stack-card fade-in d4" data-color="#22C55E" data-label="FINANZAS">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h4>Wise / Mercury</h4>
+          <p>Banca multi-divisa</p>
+          <span class="stack-tag">Semanal</span>
+        </div>
+        <div class="stack-card fade-in d5" data-color="#A78BFA" data-label="GRAFOS">
+          <div class="stack-icon">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="9" x2="6" y2="6"/><line x1="12" y1="9" x2="18" y2="6"/><line x1="12" y1="15" x2="6" y2="18"/><line x1="12" y1="15" x2="18" y2="18"/></svg>
+          </div>
+          <h4>Obsidian</h4>
+          <p>Conexión de ideas</p>
+          <span class="stack-tag">Diario</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════ MÉTRICAS ══════════════════════ -->
+  <section class="section metrics-section" style="padding-top:0;">
+    <div class="container">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap; gap:24px;">
+        <div>
+          <p class="sec-num">— 04</p>
+          <h2 class="fade-in">Datos que importan<br><em>en LATAM 2026.</em></h2>
+        </div>
+        <p style="max-width:300px;font-size:0.9rem;" class="fade-in d2">
+          La realidad financiera de la región en números. Los puntos de partida para tomar mejores decisiones.
+        </p>
+      </div>
+      <div class="metrics-grid">
+        <!-- Card 1: Inflación -->
+        <div class="metric-card fade-in">
+          <div class="metric-head">
+            <span class="metric-label">Inflación promedio LATAM</span>
+            <span class="metric-trend up">↑ 5.8%</span>
+          </div>
+          <div class="metric-value"><span data-count="58">0</span><small>‰ × 10</small></div>
+          <svg class="metric-chart" viewBox="0 0 280 80" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="grdRed" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FF5F57" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#FF5F57" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path class="chart-area" d="M0,55 L40,52 L80,48 L120,42 L160,36 L200,30 L240,22 L280,15 L280,80 L0,80 Z" fill="url(#grdRed)"/>
+            <path class="chart-line" d="M0,55 L40,52 L80,48 L120,42 L160,36 L200,30 L240,22 L280,15" fill="none" stroke="#FF5F57" stroke-width="2"/>
+          </svg>
+          <p class="metric-foot">Tu cuenta de ahorro paga 1.2%. Pierdes 4.6% real al año.</p>
+        </div>
+
+        <!-- Card 2: Sin fondo de emergencia -->
+        <div class="metric-card fade-in d1">
+          <div class="metric-head">
+            <span class="metric-label">Sin fondo de emergencia</span>
+            <span class="metric-trend warn">⚠ Alto</span>
+          </div>
+          <div class="metric-value"><span data-count="68">0</span><small>%</small></div>
+          <div class="metric-donut">
+            <svg viewBox="0 0 120 120" width="120" height="120">
+              <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="12"/>
+              <circle class="donut-arc" cx="60" cy="60" r="48" fill="none" stroke="#FBBF24" stroke-width="12"
+                stroke-dasharray="301.6" stroke-dashoffset="301.6" stroke-linecap="round" data-pct="0.68"
+                transform="rotate(-90 60 60)"/>
+            </svg>
+          </div>
+          <p class="metric-foot">7 de cada 10 adultos en LATAM viven al borde del riesgo financiero.</p>
+        </div>
+
+        <!-- Card 3: AI adoption -->
+        <div class="metric-card fade-in d2">
+          <div class="metric-head">
+            <span class="metric-label">Adopción IA en LATAM</span>
+            <span class="metric-trend up">↑ +146%</span>
+          </div>
+          <div class="metric-value"><span data-count="34">0</span><small>%</small></div>
+          <div class="metric-bars">
+            <div class="bar"><span class="bar-label">2023</span><div class="bar-fill" style="--w:14%; --c:var(--blue-dim);"></div></div>
+            <div class="bar"><span class="bar-label">2024</span><div class="bar-fill" style="--w:22%; --c:rgba(36,96,232,0.4);"></div></div>
+            <div class="bar"><span class="bar-label">2025</span><div class="bar-fill" style="--w:28%; --c:rgba(36,96,232,0.65);"></div></div>
+            <div class="bar"><span class="bar-label">2026</span><div class="bar-fill" style="--w:34%; --c:var(--blue);"></div></div>
+          </div>
+          <p class="metric-foot">El gap entre quienes usan IA y quienes no se ensancha cada trimestre.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════════════════ ARTÍCULOS ══════════════════════ -->
-  <section class="section" style="padding-top:0;">
+  <section class="section" id="articles" style="padding-top:0;">
     <div class="container">
       <div class="articles-header">
         <div>
-          <p class="sec-num">— 02</p>
+          <p class="sec-num">— 05</p>
           <h2 class="fade-in">Últimas publicaciones</h2>
         </div>
         <a href="blog/" class="read-more fade-in d2">Ver todos los artículos <svg width="14" height="14"
@@ -723,6 +947,14 @@
       <div class="articles-layout fade-in d1">
         <!-- Artículo principal -->
         <a href="blog/los-3-niveles-de-ia.html" class="art-main">
+          <div class="art-thumb">
+            <div class="art-thumb-grid"></div>
+            <div class="art-thumb-gradient" style="background:linear-gradient(135deg,rgba(36,96,232,0.2),rgba(91,142,244,0.08),transparent)"></div>
+            <div class="art-thumb-scan"></div>
+            <span class="art-thumb-badge">IA · ANÁLISIS</span>
+            <div class="art-thumb-nodes" id="thumb-canvas-1"></div>
+            <span class="art-thumb-topic">Los 3 niveles de IA que cambian todo</span>
+          </div>
           <div class="big-num" data-text="01">01</div>
           <span class="badge badge-ia">IA Aplicada</span>
           <h3>Los 3 niveles de uso de IA que nadie te explica</h3>
@@ -734,20 +966,30 @@
         </a>
         <!-- Artículos secundarios -->
         <a href="blog/por-que-ahorrar-no-es-estrategia.html" class="art-small">
+          <div class="art-thumb" style="height:120px;">
+            <div class="art-thumb-grid"></div>
+            <div class="art-thumb-gradient" style="background:linear-gradient(135deg,rgba(34,197,94,0.15),rgba(74,222,128,0.05),transparent)"></div>
+            <div class="art-thumb-scan" style="animation-delay:-1s;"></div>
+            <span class="art-thumb-badge" style="color:#4ADE80;">FINANZAS · LATAM</span>
+          </div>
           <span class="badge badge-finanzas">Finanzas</span>
           <h4>Por qué ahorrar no es una estrategia financiera</h4>
-          <p style="font-size:0.84rem;">La inflación promedia 4-6% en LATAM. Tu cuenta de ahorro paga 1%. Hacé la resta.
-          </p>
+          <p style="font-size:0.84rem;">La inflación promedia 4-6% en LATAM. Tu cuenta de ahorro paga 1%. Hacé la resta.</p>
           <span class="read-more" style="font-size:0.78rem; margin-top: auto;">Leer <svg width="14" height="14"
               stroke="currentColor">
               <use href="img/icons.svg#icon-arrow" />
             </svg></span>
         </a>
         <a href="blog/sistema-4-pasos-habitos.html" class="art-small">
+          <div class="art-thumb" style="height:120px;">
+            <div class="art-thumb-grid"></div>
+            <div class="art-thumb-gradient" style="background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(251,191,36,0.05),transparent)"></div>
+            <div class="art-thumb-scan" style="animation-delay:-2s;"></div>
+            <span class="art-thumb-badge" style="color:#FBBF24;">SISTEMAS · HÁBITOS</span>
+          </div>
           <span class="badge badge-sistemas">Sistemas</span>
           <h4>El sistema de 4 pasos para instalar cualquier hábito</h4>
-          <p style="font-size:0.84rem;">No es disciplina. Es estructura. La diferencia entre quien logra lo que se
-            propone y quien no.</p>
+          <p style="font-size:0.84rem;">No es disciplina. Es estructura. La diferencia entre quien logra lo que se propone y quien no.</p>
           <span class="read-more" style="font-size:0.78rem; margin-top: auto;">Leer <svg width="14" height="14"
               stroke="currentColor">
               <use href="img/icons.svg#icon-arrow" />
@@ -757,12 +999,45 @@
     </div>
   </section>
 
+  <!-- ══════════════════════ MANIFESTO ══════════════════════ -->
+  <section class="manifesto" id="manifesto">
+    <div class="manifesto-bg" aria-hidden="true">
+      <span>GEO</span><span>ALBANES</span><span>GEO</span><span>ALBANES</span>
+    </div>
+    <div class="container">
+      <div class="manifesto-meta">
+        <p class="sec-num">— 07 · Manifesto</p>
+        <span class="manifesto-loc">San Salvador · 13.6929° N</span>
+      </div>
+      <h2 class="manifesto-text">
+        <span class="m-line"><span>La diferencia</span></span>
+        <span class="m-line"><span>entre quien lo <em>logra</em></span></span>
+        <span class="m-line"><span>y quien no</span></span>
+        <span class="m-line"><span>es saber <em>pensar.</em></span></span>
+      </h2>
+      <div class="manifesto-foot">
+        <div class="mf-col">
+          <span class="mf-num">01</span>
+          <p>No vendemos atajos. Construimos sistemas.</p>
+        </div>
+        <div class="mf-col">
+          <span class="mf-num">02</span>
+          <p>No es disciplina. Es estructura, fricción y diseño.</p>
+        </div>
+        <div class="mf-col">
+          <span class="mf-num">03</span>
+          <p>No es teoría de libro. Es lo que funciona en LATAM.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ══════════════════════ NEWSLETTER ══════════════════════ -->
   <section class="section" style="padding-top:0;">
     <div class="container">
       <div class="nl-section">
         <div>
-          <p class="sec-num">— 03</p>
+          <p class="sec-num">— 06</p>
           <h2 class="fade-in" style="margin-bottom:16px;">Una idea útil.<br>Cada semana.</h2>
           <p class="fade-in d1">Sin spam. Solo estrategias reales de IA, finanzas y sistemas que podás aplicar de
             inmediato. Te podés dar de baja cuando quieras.</p>
