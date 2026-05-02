@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo uso IA para revisar mis finanzas personales — Geo Albanés</title>
+  <meta name="description" content="Descubrí $127 al mes en suscripciones que ya no usaba. Lo encontré pidiéndole a una IA que revisara mis estados de cuenta. Acá el workflow exacto.">
+  <meta name="author" content="Geo Albanés">
+  <meta property="og:title" content="Cómo uso IA para revisar mis finanzas personales">
+  <meta property="og:description" content="Workflow real para auditar tus gastos con IA. Encontré $127/mes en gastos hormiga.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://geoalbanes.com/blog/uso-ia-para-mis-finanzas.html">
+  <meta property="og:image" content="https://geoalbanes.com/img/og-home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://geoalbanes.com/img/og-home.png">
+  <meta name="theme-color" content="#060608">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://geoalbanes.com/blog/uso-ia-para-mis-finanzas.html">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="apple-touch-icon" href="../img/favicon-512.png">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Cómo uso IA para revisar mis finanzas personales",
+    "image": "https://geoalbanes.com/img/og-home.png",
+    "author": { "@type": "Person", "name": "Geo Albanés", "url": "https://geoalbanes.com/sobre-mi.html" },
+    "publisher": { "@type": "Organization", "name": "Geo Albanés", "logo": { "@type": "ImageObject", "url": "https://geoalbanes.com/img/favicon-512.png" } },
+    "datePublished": "2026-05-08",
+    "dateModified": "2026-05-08",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geoalbanes.com/blog/uso-ia-para-mis-finanzas.html" },
+    "description": "Workflow real para auditar gastos personales con IA."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://geoalbanes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://geoalbanes.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Cómo uso IA para revisar mis finanzas personales" }
+    ]
+  }
+  </script>
+  <style>
+  .article-hero { padding: 160px 0 60px; }
+  .article-back { display: inline-flex; align-items: center; gap: 8px; font-family: var(--f-mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-3); margin-bottom: 40px; transition: color 0.2s, gap 0.25s var(--ease-out); }
+  .article-back:hover { color: var(--text-2); gap: 12px; }
+  .article-headline { font-family: var(--f-display); font-size: clamp(2rem, 5vw, 3.8rem); font-weight: 700; line-height: 1.05; letter-spacing: -0.03em; color: var(--text); max-width: 820px; margin: 20px 0 24px; }
+  .article-lead { font-size: 1.12rem; max-width: 640px; line-height: 1.8; margin-bottom: 48px; }
+  .article-byline { display: flex; align-items: center; gap: 16px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); max-width: 460px; }
+  .article-byline img { width: 48px; height: 48px; border-radius: 50%; border: 2px solid var(--blue); object-fit: cover; object-position: center top; flex-shrink: 0; }
+  .byline-name { font-family: var(--f-ui); font-size: 0.9rem; font-weight: 700; color: var(--text); line-height: 1.2; }
+  .byline-meta { font-family: var(--f-mono); font-size: 0.63rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 4px; }
+  .article-layout { display: grid; grid-template-columns: 1fr 280px; gap: 64px; align-items: start; padding-bottom: 120px; }
+  .article-content { min-width: 0; }
+  .article-content h2 { font-family: var(--f-display); font-size: 1.7rem; font-weight: 600; color: var(--text); margin: 56px 0 16px; letter-spacing: -0.02em; line-height: 1.15; }
+  .article-content p { font-size: 1rem; line-height: 1.85; margin-bottom: 20px; }
+  .article-content strong { color: var(--text); font-weight: 600; }
+  .article-content em { font-style: italic; }
+  .article-content blockquote { border-left: 2px solid var(--blue); padding: 20px 28px; margin: 36px 0; background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; }
+  .article-content blockquote p { color: var(--text); font-style: italic; margin: 0; }
+  .article-content hr { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+  .prompt-box { background: var(--bg-2); border: 1px solid var(--border-2); border-radius: var(--radius-lg); padding: 28px; margin: 28px 0; font-family: var(--f-mono); font-size: 0.85rem; line-height: 1.7; color: var(--text); white-space: pre-wrap; overflow-x: auto; }
+  .prompt-box .label { font-family: var(--f-mono); font-size: 0.62rem; color: var(--blue-light); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; display: block; }
+  .article-cta { margin-top: 56px; padding: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
+  .article-cta a { color: var(--blue-light); text-decoration: underline; text-underline-offset: 3px; }
+  .article-cta strong { color: var(--text); }
+  .article-sidebar { position: sticky; top: 100px; display: flex; flex-direction: column; gap: 16px; }
+  .sidebar-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; }
+  .sidebar-box h5 { font-family: var(--f-mono); font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-3); margin-bottom: 16px; }
+  .sidebar-box img { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--blue); object-fit: cover; object-position: center top; margin-bottom: 12px; }
+  .sidebar-box p { font-size: 0.82rem; margin-bottom: 16px; }
+  @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { display: none; } }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="../" class="nav-logo"><div class="mark">GA</div>Geo Albanés</a>
+    <ul class="nav-links">
+      <li><a href="../blog/" class="active">Blog</a></li>
+      <li><a href="../sobre-mi.html">Sobre mí</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav-status"><span class="status-dot"></span>IA Aplicada</div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu">✕</button>
+  <a href="../">Inicio</a><a href="../blog/">Blog</a><a href="../sobre-mi.html">Sobre mí</a><a href="../contacto.html">Contacto</a>
+</div>
+
+<header class="article-hero">
+  <div class="container">
+    <a href="../blog/" class="article-back">← Volver al blog</a>
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+      <span class="badge badge-ia">IA Aplicada</span>
+      <span style="font-family:var(--f-mono);font-size:0.63rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;">5 min · 8 Mayo 2026</span>
+    </div>
+    <h1 class="article-headline">Cómo uso IA para revisar mis finanzas personales</h1>
+    <p class="article-lead">El mes pasado descubrí que gastaba $127 al mes en suscripciones que ya no usaba. Lo descubrí porque le pedí a una IA que revisara mis estados de cuenta. Acá el workflow exacto.</p>
+    <div class="article-byline">
+      <img src="../img/geo-azul.webp" alt="Geo Albanés">
+      <div>
+        <div class="byline-name">Geo Albanés</div>
+        <div class="byline-meta">IA + Finanzas · El Salvador · LATAM</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="article-layout">
+    <article class="article-content">
+
+      <p>Antes me tomaba tres horas al mes hacer esto. Descargaba los estados de cuenta, los abría en una hoja de cálculo, categorizaba a mano, sacaba conclusiones, decidía qué ajustar. Después dejé de hacerlo dos meses seguidos porque no me daban los tiempos, y volví a sentir que no sabía dónde estaba parado.</p>
+
+      <p>Hoy lo cierro en 15 minutos un sábado por la mañana. La diferencia es la IA usada en serio. Esto es lo que llamo <a href="los-3-niveles-de-ia.html" style="color:var(--blue-light);">nivel 3 en mi framework</a>: pasar de pedirle tareas a darle datos reales para tomar decisiones reales.</p>
+
+      <p>Y no, no estoy hablando de la última app de finanzas con "AI inside". Estoy hablando de pegar tus estados de cuenta directo en ChatGPT o Claude y aprender a preguntar bien.</p>
+
+      <h2>El descubrimiento que pagó la suscripción</h2>
+
+      <p>Hace tres meses, después de leer un libro sobre auditoría financiera personal, hice una prueba: pegué mis últimos tres meses de estados de cuenta en una IA y le hice una pregunta bastante simple:</p>
+
+      <blockquote>
+        <p>"Identificá todas las suscripciones recurrentes que aparecen mes a mes. Decime monto, frecuencia y nombre del proveedor."</p>
+      </blockquote>
+
+      <p>El resultado me dejó callado: 14 suscripciones activas. Yo te hubiera jurado que tenía 6.</p>
+
+      <p>Cuatro de esas no las usaba hacía meses. Una era una prueba gratuita que se renovó sola y nunca cancelé. Otra era para una herramienta que reemplacé hacía medio año, pero la suscripción seguía corriendo. En total, <strong>$127 al mes que no me daban absolutamente ningún valor</strong>. $1,524 al año, que es plata seria.</p>
+
+      <p>Cancelé todo esa misma tarde. Lo loco es que esa información estaba siempre ahí, en mis estados de cuenta. Yo nunca me sentaba a cruzarla porque me daba pereza.</p>
+
+      <h2>Mi workflow mensual</h2>
+
+      <p>Hoy tengo un ritual fijo el primer sábado de cada mes. Toma 15 minutos.</p>
+
+      <p><strong>Paso 1.</strong> Descargo los estados de cuenta del mes anterior. Banco, tarjeta, cuenta de inversión. Todo lo que tenga movimiento.</p>
+
+      <p><strong>Paso 2.</strong> Abro Claude o ChatGPT, los uso indistintamente, los dos rinden bien acá. Pego los datos.</p>
+
+      <p><strong>Paso 3.</strong> Corro cuatro prompts en orden, que te paso abajo.</p>
+
+      <h2>Los 4 prompts que uso</h2>
+
+      <div class="prompt-box">
+        <span class="label">Prompt 01 — Categorización</span>
+Te voy a pegar mis estados de cuenta del último mes. Categorizá cada gasto en una de estas categorías: Vivienda, Alimentación, Transporte, Salud, Suscripciones, Entretenimiento, Educación, Inversión, Otros. Devolveme una tabla con: fecha, descripción, monto, categoría. Y un resumen al final con el total por categoría y el porcentaje del gasto total.
+      </div>
+
+      <div class="prompt-box">
+        <span class="label">Prompt 02 — Suscripciones</span>
+Identificá todos los cobros recurrentes (suscripciones, membresías, servicios automáticos) que aparezcan en estos estados de cuenta. Para cada uno, dame: nombre del proveedor, monto, frecuencia, monto anualizado. Ordená de mayor a menor monto anualizado.
+      </div>
+
+      <div class="prompt-box">
+        <span class="label">Prompt 03 — Anomalías</span>
+Comparado con el promedio de mis últimos 3 meses, ¿qué gastos de este mes son anómalos (significativamente más altos o más bajos de lo normal)? Decime el gasto, el monto de este mes, el promedio histórico, y la diferencia porcentual.
+      </div>
+
+      <div class="prompt-box">
+        <span class="label">Prompt 04 — Recomendaciones</span>
+Basado en los datos que te di, identificá las 3 oportunidades más claras de optimización financiera. Por cada una: el problema específico, la acción concreta que puedo tomar, y el ahorro mensual estimado.
+      </div>
+
+      <h2>Lo que aprendí en 6 meses haciéndolo</h2>
+
+      <p><strong>Los gastos hormiga existen y son enormes.</strong> Café, Uber, suscripciones olvidadas, snacks de Rappi cuando trabajo hasta tarde. En mi caso eso solo sumaba más de 300 dólares al mes. No era escasez, era una fuga lenta que nunca había mirado de frente.</p>
+
+      <p><strong>La categoría más cara casi nunca es la que pensás.</strong> Yo hubiera apostado plata a que mi mayor gasto era comida. La IA me mostró que era transporte: Uber, combustible y estacionamiento sumados. Me llevé una sorpresa.</p>
+
+      <p><strong>Las anomalías son señales tempranas.</strong> Si un mes gastaste 40% más en algo, hay una historia detrás de ese número. Detectarla a tiempo te permite ajustar antes de que se vuelva tu nuevo normal.</p>
+
+      <p><strong>El ejercicio cambia tu comportamiento aunque no quieras.</strong> Saber que el sábado vas a sentarte a auditar te hace dudar el viernes antes de comprar algo que no necesitás. Eso es un side effect que vale más que el ahorro mismo.</p>
+
+      <h2>Sobre la privacidad</h2>
+
+      <p>Pregunta válida que me hicieron varias veces: ¿es seguro pegarle a una IA tus datos financieros?</p>
+
+      <p>Mi posición personal, no asesoría legal:</p>
+
+      <ul style="margin:16px 0;padding:0;list-style:none;">
+        <li style="padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:flex-start;line-height:1.6;font-size:0.95rem;"><span style="color:var(--blue-light);font-family:var(--f-mono);">—</span>Nunca pego números de cuenta, números de tarjeta, ni passwords. Solo descripciones de transacciones y montos.</li>
+        <li style="padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:flex-start;line-height:1.6;font-size:0.95rem;"><span style="color:var(--blue-light);font-family:var(--f-mono);">—</span>Uso versiones pagas de las IAs (ChatGPT Plus, Claude Pro). No usan tu data para entrenamiento.</li>
+        <li style="padding:10px 0;border-bottom:1px solid var(--border);display:flex;gap:14px;align-items:flex-start;line-height:1.6;font-size:0.95rem;"><span style="color:var(--blue-light);font-family:var(--f-mono);">—</span>Borro la conversación al terminar el análisis.</li>
+        <li style="padding:10px 0;display:flex;gap:14px;align-items:flex-start;line-height:1.6;font-size:0.95rem;"><span style="color:var(--blue-light);font-family:var(--f-mono);">—</span>Si querés más privacidad, podés correr modelos open-source localmente (Llama, Mistral). Más complicado pero 100% privado.</li>
+      </ul>
+
+      <h2>Por qué esto importa</h2>
+
+      <p>La gente que conoce sus números toma mejores decisiones con su plata. Eso no es una opinión, es una constatación de cualquiera que haya trabajado en finanzas un rato. El problema histórico era que conocer tus números requería un tiempo que casi nadie estaba dispuesto a invertir.</p>
+
+      <p>La IA bajó esa barrera de manera brutal. Hoy podés tener visibilidad nivel CFO sobre tu plata en 15 minutos al mes. La pregunta ya no es si vale la pena. Es por qué seguís sin hacerlo.</p>
+
+      <p>Si todavía no leíste <a href="por-que-ahorrar-no-es-estrategia.html" style="color:var(--blue-light);">por qué ahorrar no es una estrategia financiera</a>, ese artículo es la base que conecta con todo este ejercicio.</p>
+
+      <hr>
+
+      <p><strong>¿Cuántas suscripciones recurrentes pensás que tenés activas? ¿Y cuántas crees que realmente usás?</strong></p>
+
+      <div class="article-cta">
+        <p><strong>¿Te fue útil este artículo?</strong></p>
+        <p>Si querés más casos prácticos de IA aplicada, seguime en <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank">LinkedIn</a> o <a href="https://www.instagram.com/geoalbanes/" target="_blank">Instagram</a>.</p>
+      </div>
+
+    </article>
+
+    <aside class="article-sidebar">
+      <div class="sidebar-box">
+        <h5>Autor</h5>
+        <img src="../img/geo-azul.webp" alt="Geo Albanés">
+        <p>Geo comparte estrategias de IA aplicada, finanzas y sistemas para emprendedores en LATAM.</p>
+        <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;font-size:0.78rem;padding:11px 16px;">Seguir en LinkedIn</a>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p>© 2026 Geo Albanés · geoalbanes.com</p>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a href="https://www.instagram.com/geoalbanes/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+        <a href="mailto:geoalbanes@geoalbanes.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

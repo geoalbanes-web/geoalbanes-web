@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Los 3 niveles de uso de IA que nadie te explica — Geo Albanés</title>
+  <meta name="description" content="La mayoría usa ChatGPT para tareas básicas. Pero hay tres niveles reales de uso de inteligencia artificial. Descubrí en cuál estás y cómo avanzar.">
+  <meta name="author" content="Geo Albanés">
+  <meta property="og:title" content="Los 3 niveles de uso de IA que nadie te explica">
+  <meta property="og:description" content="La mayoría usa ChatGPT para tareas básicas. Hay tres niveles reales. ¿En cuál estás?">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://geoalbanes.com/blog/los-3-niveles-de-ia.html">
+  <meta property="og:image" content="https://geoalbanes.com/img/og-home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://geoalbanes.com/img/og-home.png">
+  <meta name="theme-color" content="#060608">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://geoalbanes.com/blog/los-3-niveles-de-ia.html">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="apple-touch-icon" href="../img/favicon-512.png">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Los 3 niveles de uso de IA que nadie te explica",
+    "image": "https://geoalbanes.com/img/og-home.png",
+    "author": { "@type": "Person", "name": "Geo Albanés", "url": "https://geoalbanes.com/sobre-mi.html" },
+    "publisher": { "@type": "Organization", "name": "Geo Albanés", "logo": { "@type": "ImageObject", "url": "https://geoalbanes.com/img/favicon-512.png" } },
+    "datePublished": "2026-04-29",
+    "dateModified": "2026-04-29",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geoalbanes.com/blog/los-3-niveles-de-ia.html" },
+    "description": "La mayoría usa ChatGPT para tareas básicas. Hay tres niveles reales de uso de inteligencia artificial."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://geoalbanes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://geoalbanes.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Los 3 niveles de uso de IA que nadie te explica" }
+    ]
+  }
+  </script>
+  <style>
+  /* ── Article Layout ── */
+  .article-hero {
+    padding: 160px 0 60px;
+  }
+  .article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 40px;
+    transition: color 0.2s, gap 0.25s var(--ease-out);
+  }
+  .article-back:hover { color: var(--text-2); gap: 12px; }
+  .article-headline {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    max-width: 820px;
+    margin: 20px 0 24px;
+  }
+  .article-lead {
+    font-size: 1.12rem;
+    max-width: 640px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+  .article-byline {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    max-width: 460px;
+  }
+  .article-byline img {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+  }
+  .byline-name {
+    font-family: var(--f-ui);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .byline-meta {
+    font-family: var(--f-mono);
+    font-size: 0.63rem;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  /* Layout */
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 64px;
+    align-items: start;
+    padding-bottom: 120px;
+  }
+  .article-content { min-width: 0; }
+
+  /* Level cards */
+  .level-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin: 36px 0;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+  .level-card:hover { border-color: var(--border-2); }
+  .level-card.active {
+    border-color: var(--blue);
+    background: var(--blue-dim);
+  }
+  .level-num {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    color: var(--text-3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .level-card.active .level-num { color: var(--blue-light); }
+  .level-card h3 {
+    font-family: var(--f-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.015em;
+    margin-bottom: 12px;
+  }
+  .level-card p { font-size: 0.92rem; }
+  .level-card strong { color: var(--text); }
+
+  /* Article body overrides */
+  .article-content blockquote {
+    border-left: 2px solid var(--blue);
+    padding: 20px 28px;
+    margin: 36px 0;
+    background: var(--surface);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .article-content blockquote p { color: var(--text); font-style: italic; margin: 0; }
+  .article-content h2 {
+    font-family: var(--f-display);
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 56px 0 16px;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .article-content p { font-size: 1rem; line-height: 1.85; margin-bottom: 20px; }
+  .article-content strong { color: var(--text); font-weight: 600; }
+  .article-content em { font-style: italic; }
+  .article-content hr { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+
+  /* Share / CTA box */
+  .article-cta {
+    margin-top: 56px;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .article-cta p { margin-bottom: 12px; }
+  .article-cta a { color: var(--blue-light); text-decoration: underline; text-underline-offset: 3px; }
+  .article-cta strong { color: var(--text); }
+
+  /* Related */
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  .related-card {
+    background: var(--bg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background 0.3s;
+    text-decoration: none;
+  }
+  .related-card:hover { background: var(--surface); }
+  .related-card h4 {
+    font-family: var(--f-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .related-card .rc-cta {
+    font-family: var(--f-ui);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-3);
+    margin-top: auto;
+    transition: color 0.25s;
+  }
+  .related-card:hover .rc-cta { color: var(--blue-light); }
+
+  /* Sidebar */
+  .article-sidebar {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .sidebar-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  .sidebar-box h5 {
+    font-family: var(--f-mono);
+    font-size: 0.63rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-3);
+    margin-bottom: 16px;
+  }
+  .sidebar-toc a {
+    display: block;
+    font-size: 0.84rem;
+    color: var(--text-2);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .sidebar-toc a:last-child { border-bottom: none; }
+  .sidebar-toc a:hover { color: var(--text); }
+  .sidebar-author img {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    object-fit: cover;
+    object-position: center top;
+    margin-bottom: 12px;
+  }
+  .sidebar-author p { font-size: 0.82rem; margin-bottom: 16px; }
+  .sidebar-adsense {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .sidebar-adsense span {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    color: var(--text-3);
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 900px) {
+    .article-layout { grid-template-columns: 1fr; }
+    .article-sidebar { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+
+<!-- Ambient Orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="../" class="nav-logo">
+      <div class="mark">GA</div>
+      Geo Albanés
+    </a>
+    <ul class="nav-links">
+      <li><a href="../blog/" class="active">Blog</a></li>
+      <li><a href="../sobre-mi.html">Sobre mí</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      IA Aplicada
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu"><svg width="24" height="24" stroke="currentColor"><use href="../img/icons.svg#icon-close"/></svg></button>
+  <a href="../">Inicio</a>
+  <a href="../blog/">Blog</a>
+  <a href="../sobre-mi.html">Sobre mí</a>
+  <a href="../contacto.html">Contacto</a>
+</div>
+
+<!-- ══════════════════════ ARTICLE HERO ══════════════════════ -->
+<header class="article-hero">
+  <div class="container">
+    <a href="../blog/" class="article-back">← Volver al blog</a>
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+      <span class="badge badge-ia">IA Aplicada</span>
+      <span style="font-family:var(--f-mono);font-size:0.63rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;">6 min · 29 Abril 2026</span>
+    </div>
+    <h1 class="article-headline">Los 3 niveles de uso de IA que nadie te explica</h1>
+    <p class="article-lead">La mayoría usa ChatGPT para escribir emails más rápido. Eso no es IA aplicada. Eso es autocomplete caro. Hay tres niveles que cambian completamente lo que podés hacer con estas herramientas.</p>
+    <div class="article-byline">
+      <img src="../img/geo-azul.webp" alt="Geo Albanés">
+      <div>
+        <div class="byline-name">Geo Albanés</div>
+        <div class="byline-meta">IA aplicada · El Salvador · LATAM</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════ ARTICLE BODY ══════════════════════ -->
+<div class="container">
+  <div class="article-layout">
+    <!-- Contenido principal -->
+    <article class="article-content">
+
+      <p>La primera vez que abrí ChatGPT le pedí que me corrigiera un email de cliente. Lo hizo bien, copié el texto, cerré la pestaña. Durante varios meses la usé exactamente así: como un Word con corrector mejorado.</p>
+
+      <p>Ese era mi nivel 1. Y mirando alrededor, es donde se queda la mayoría.</p>
+
+      <p>El salto a un uso que cambió en serio mi forma de trabajar no vino de un curso ni de un libro. Vino del día que dejé de pedirle tareas y empecé a hacerle preguntas. Visto en perspectiva suena obvio, pero me tomó como ocho meses caer en cuenta. Te lo escribo para que vos no tardes lo mismo.</p>
+
+      <h2>Por qué la mayoría se queda en el nivel 1</h2>
+
+      <p>Mirá cómo te las venden. "Ahorrá tiempo." "Escribí más rápido." "Generá contenido en segundos." Todo el marketing apunta a velocidad. Productividad. Eficiencia.</p>
+
+      <p>Y entonces la usás así. Tirás lo que necesitás, copiás lo que sale, cerrás la pestaña. Te la pasás haciendo lo mismo que hacías antes pero un poco más rápido. Eso no es transformación, es atajo.</p>
+
+      <p>El problema no está en la herramienta. Está en cómo te enseñaron a verla.</p>
+
+      <h2>Los 3 niveles explicados</h2>
+
+      <div class="level-card">
+        <div class="level-num">Nivel 01 — Ejecutar</div>
+        <h3>La IA hace la tarea</h3>
+        <p>Le pedís algo puntual y te lo entrega. Que te redacte un correo, que te resuma un PDF, que te traduzca un mensaje. Es rápido y resuelve.</p>
+        <p style="margin-top:12px;"><strong>El techo:</strong> seguís pensando igual que antes, solo tercerizás la ejecución. Si el prompt que tirás es vago, el resultado es indistinguible del de cualquier otro. Y como cualquier otro tiene acceso a la misma herramienta, no estás creando nada propio.</p>
+      </div>
+
+      <div class="level-card active">
+        <div class="level-num">Nivel 02 — Pensar</div>
+        <h3>La IA como interlocutor</h3>
+        <p>Acá empieza lo interesante. Dejás de pedirle que haga algo y empezás a pedirle que piense <em>con vos</em>. Le tirás un razonamiento que estás armando y le pedís que lo cuestione. Le contás un dilema y le pedís que te diga qué supuestos estás dando por hecho sin probar.</p>
+        <p style="margin-top:12px;"><strong>La diferencia:</strong> el valor no está en el texto que sale. Está en la claridad que ganaste vos durante la conversación. Es como tener un sparring que nunca se cansa y que te devuelve los argumentos que vos mismo no querés mirar.</p>
+        <p style="margin-top:12px;"><strong>Caso real:</strong> en vez de tirar "dame 5 ideas para mi negocio", probá con "¿qué supuestos estoy haciendo sobre mi cliente que podrían estar equivocados?". La conversación que sigue te va a doler un poco. También te va a ahorrar meses.</p>
+      </div>
+
+      <div class="level-card">
+        <div class="level-num">Nivel 03 — Decidir</div>
+        <h3>La IA procesa, vos decidís</h3>
+        <p>Acá ya no le pedís ideas. Le pegás datos reales: tus estados de cuenta del mes, las métricas de tu negocio, transcripciones de las últimas reuniones con clientes. Le pedís que te diga qué ve.</p>
+        <p style="margin-top:12px;"><strong>El salto real:</strong> dejás de usarla para producir contenido y empezás a usarla para tomar mejores decisiones. Y la calidad de las decisiones que tomás termina definiendo los resultados de tu negocio bastante más que cualquier campaña de marketing que se te ocurra.</p>
+      </div>
+
+      <h2>¿En qué nivel estás hoy?</h2>
+
+      <p>Ser honesto con esta pregunta es más difícil de lo que parece. La mayoría dice estar en el nivel 2 porque "a veces le pido opiniones". Pero si la herramienta no está cambiando cómo pensás o cómo decidís, seguís en el nivel 1 con una interfaz diferente.</p>
+
+      <p>Un indicador simple: ¿podría cualquier otra persona con tu mismo prompt obtener exactamente el mismo resultado que vos? Si la respuesta es sí, estás en el nivel 1.</p>
+
+      <p>El nivel 2 requiere que tu conversación con la IA tenga contexto, que traigas tus propias ideas y que uses las respuestas para refinar tu pensamiento, no para reemplazarlo.</p>
+
+      <p>El nivel 3 requiere datos reales. No prompts genéricos, sino información específica de tu situación, tu negocio, tu contexto. (<a href="uso-ia-para-mis-finanzas.html" style="color:var(--blue-light);">Acá te muestro un caso real</a>: cómo audito mis finanzas mensuales con IA usando exactamente este enfoque.)</p>
+
+      <h2>Cómo avanzar de nivel en esta semana</h2>
+
+      <p>No necesitás un curso de 30 horas. Necesitás cambiar el tipo de pregunta que le hacés.</p>
+
+      <blockquote>
+        <p>Del nivel 1 al 2: en lugar de pedirle que haga algo, pedile que cuestione algo. "¿Qué estoy asumiendo que podría estar equivocado?" o "Dame tres razones por las que esta idea podría fallar."</p>
+      </blockquote>
+
+      <blockquote>
+        <p>Del nivel 2 al 3: empezá a darle datos reales. Pegá tus últimos 3 meses de gastos y preguntale qué patrones ve. Pegá el feedback de tus últimos 5 clientes y pedile que identifique temas comunes.</p>
+      </blockquote>
+
+      <p>El cambio acá no es tecnológico, es de mentalidad. La herramienta es la misma para todos. Lo que cambia es la pregunta que le hacés y los datos que le metés. Y eso depende cien por ciento de vos.</p>
+
+      <h2>Lo que esto significa para tu negocio</h2>
+
+      <p>Si la usás solo para producir contenido más rápido, estás compitiendo contra millones de personas que tienen literalmente la misma herramienta abierta en otra pestaña. Esa ventaja se evapora en meses.</p>
+
+      <p>Pero si la usás para pensar mejor y decidir con más información, ahí la cosa cambia. Eso depende de tu contexto, de tu experiencia y de las preguntas que sepas hacer. Y eso ya no lo tiene cualquiera.</p>
+
+      <p>El acceso a la herramienta hoy es commodity. La diferencia la marcás vos.</p>
+
+      <hr>
+
+      <p><strong>¿En qué nivel estás hoy? ¿Y cuál es el próximo paso concreto que podés dar esta semana?</strong></p>
+
+      <!-- Tags -->
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:36px;">
+        <span class="badge badge-ia">IA Aplicada</span>
+        <span class="badge badge-sistemas">Productividad</span>
+      </div>
+
+      <!-- CTA -->
+      <div class="article-cta">
+        <p><strong>¿Te fue útil este artículo?</strong></p>
+        <p>Compartilo en LinkedIn con alguien que todavía está en el nivel 1. Y si querés más contenido como este, seguime en <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank">LinkedIn</a> o <a href="https://www.instagram.com/geoalbanes/" target="_blank">Instagram</a>.</p>
+      </div>
+
+      <!-- Artículos relacionados -->
+      <div style="margin-top:60px;">
+        <p class="sec-num" style="margin-bottom:16px;">— Seguí leyendo</p>
+        <div class="related-grid">
+          <a href="por-que-ahorrar-no-es-estrategia.html" class="related-card">
+            <span class="badge badge-finanzas">Finanzas</span>
+            <h4>Por qué ahorrar no es una estrategia financiera</h4>
+            <span class="rc-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+          </a>
+          <a href="sistema-4-pasos-habitos.html" class="related-card">
+            <span class="badge badge-sistemas">Sistemas</span>
+            <h4>El sistema de 4 pasos para instalar cualquier hábito</h4>
+            <span class="rc-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="article-sidebar">
+      <div class="sidebar-box sidebar-toc">
+        <h5>En este artículo</h5>
+        <a href="#">Por qué el nivel 1 no alcanza</a>
+        <a href="#">Los 3 niveles</a>
+        <a href="#">Nivel 1: Ejecutar</a>
+        <a href="#">Nivel 2: Pensar</a>
+        <a href="#">Nivel 3: Decidir</a>
+        <a href="#">Cómo avanzar</a>
+      </div>
+      <div class="sidebar-box sidebar-author">
+        <h5>Autor</h5>
+        <img src="../img/geo-azul.webp" alt="Geo Albanés">
+        <p>Geo comparte estrategias de IA aplicada, finanzas y sistemas para emprendedores en LATAM.</p>
+        <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;font-size:0.78rem;padding:11px 16px;">Seguir en LinkedIn</a>
+      </div>
+      <!-- AdSense placeholder -->
+      <div class="sidebar-adsense">
+        <span>AdSense</span>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../" class="nav-logo"><div class="mark">GA</div>Geo Albanés</a>
+        <p>Estrategias reales de IA, finanzas y sistemas para emprendedores en LATAM que quieren tomar el control de su vida profesional.</p>
+      </div>
+      <div class="footer-col">
+        <h6>Contenido</h6>
+        <a href="../blog/">Blog</a>
+        <a href="../sobre-mi.html">Sobre mí</a>
+        <a href="../contacto.html">Contacto</a>
+      </div>
+      <div class="footer-col">
+        <h6>Redes</h6>
+        <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener">LinkedIn <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-external"/></svg></a>
+        <a href="https://www.instagram.com/geoalbanes/" target="_blank" rel="noopener">Instagram <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-external"/></svg></a>
+        <a href="../privacidad.html">Privacidad</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Geo Albanés · geoalbanes.com</p>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a href="https://www.instagram.com/geoalbanes/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+        <a href="mailto:geoalbanes@geoalbanes.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

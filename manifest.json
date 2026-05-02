@@ -1,0 +1,21 @@
+{
+  "name": "Geo Albanés",
+  "short_name": "Geo Albanés",
+  "description": "IA, Finanzas y Sistemas para LATAM",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#060608",
+  "theme_color": "#060608",
+  "icons": [
+    {
+      "src": "/img/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/img/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

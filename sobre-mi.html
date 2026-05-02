@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre mí — Geo Albanés</title>
+  <meta name="description" content="Geo Albanés — emprendedor de El Salvador que comparte estrategias reales de IA aplicada, finanzas personales y sistemas de productividad para LATAM.">
+  <link rel="canonical" href="https://geoalbanes.com/sobre-mi.html">
+  <meta name="theme-color" content="#060608">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://geoalbanes.com/sobre-mi.html">
+  <meta property="og:title" content="Sobre mí — Geo Albanés">
+  <meta property="og:description" content="Geo Albanés, emprendedor de El Salvador. Comparto estrategias reales de IA, finanzas y sistemas para LATAM.">
+  <meta property="og:image" content="https://geoalbanes.com/img/og-home.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://geoalbanes.com/img/og-home.png">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="apple-touch-icon" href="img/favicon-512.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+  /* ── About Hero ── */
+  .about-hero {
+    padding: 160px 0 100px;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 80px;
+    align-items: center;
+    margin-bottom: 80px;
+  }
+  .about-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .about-title {
+    margin-bottom: 32px;
+  }
+  .about-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .about-body p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+  }
+  .about-body strong { color: var(--text); }
+
+  /* Photo */
+  .about-photo-wrap {
+    position: relative;
+  }
+  .about-photo-frame {
+    position: relative;
+    width: 100%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-2);
+  }
+  .about-photo-frame img {
+    width: 100%;
+    display: block;
+    border-radius: var(--radius-lg);
+  }
+  .about-photo-glow {
+    position: absolute;
+    bottom: -60px; left: 50%;
+    transform: translateX(-50%);
+    width: 70%; height: 100px;
+    background: var(--blue-glow);
+    filter: blur(50px);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .about-photo-tag {
+    position: absolute;
+    bottom: 24px; right: -20px;
+    background: var(--bg-2);
+    border: 1px solid var(--border-2);
+    border-radius: var(--radius);
+    padding: 12px 18px;
+    backdrop-filter: blur(8px);
+  }
+  .about-photo-tag .pt-val {
+    font-family: var(--f-mono);
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1;
+  }
+  .about-photo-tag .pt-desc {
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    color: var(--text-2);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  /* Valores */
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .value-item {
+    background: var(--bg);
+    padding: 40px 32px;
+    position: relative;
+    transition: background 0.3s;
+  }
+  .value-item:hover { background: var(--surface); }
+  .value-item::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--blue);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease-out);
+  }
+  .value-item:hover::after { transform: scaleX(1); }
+  .value-num {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    color: var(--text-3);
+    letter-spacing: 0.1em;
+    margin-bottom: 28px;
+  }
+  .value-item h3 { font-size: 1rem; margin-bottom: 12px; }
+
+  /* Redes sociales */
+  .social-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .social-card {
+    background: var(--bg);
+    padding: 40px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: background 0.3s;
+    text-decoration: none;
+    position: relative;
+  }
+  .social-card:hover { background: var(--surface); }
+  .sc-platform {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    color: var(--text-3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .sc-name {
+    font-family: var(--f-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.1;
+  }
+  .sc-handle {
+    font-family: var(--f-mono);
+    font-size: 0.72rem;
+    color: var(--blue-light);
+    margin-top: 4px;
+  }
+  .sc-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--f-ui);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--text-3);
+    margin-top: auto;
+    padding-top: 24px;
+    transition: color 0.25s, gap 0.25s var(--ease-out);
+  }
+  .social-card:hover .sc-action {
+    color: var(--blue-light);
+    gap: 14px;
+  }
+
+  @media (max-width: 1024px) {
+    .about-grid { grid-template-columns: 1fr; }
+    .about-photo-wrap { max-width: 380px; }
+    .about-photo-tag { right: 0; }
+    .values-grid { grid-template-columns: 1fr; }
+    .social-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .about-hero { padding: 140px 0 80px; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+
+<!-- Ambient Orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="/" class="nav-logo">
+      <div class="mark">GA</div>
+      Geo Albanés
+    </a>
+    <ul class="nav-links">
+      <li><a href="blog/">Blog</a></li>
+      <li><a href="sobre-mi.html" class="active">Sobre mí</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      El Salvador · LATAM
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu"><svg width="24" height="24" stroke="currentColor"><use href="img/icons.svg#icon-close"/></svg></button>
+  <a href="/">Inicio</a>
+  <a href="blog/">Blog</a>
+  <a href="sobre-mi.html">Sobre mí</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank">LinkedIn <svg width="14" height="14" stroke="currentColor"><use href="img/icons.svg#icon-external"/></svg></a>
+</div>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<div class="about-hero">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Texto -->
+      <div>
+        <div class="about-eyebrow">
+          <span class="label">El Salvador · LATAM</span>
+        </div>
+        <h1 class="display about-title fade-in">Geo<br><em>Albanés.</em></h1>
+        <div class="about-body fade-in d2">
+          <p>Creo contenido sobre <strong>inteligencia artificial aplicada</strong>, <strong>finanzas personales con criterio</strong> y <strong>sistemas de productividad</strong> para emprendedores que quieren tomar el control de su vida profesional.</p>
+          <p>No teoría de libro. No motivación vacía. Lo que comparto es lo que experimento, aplico y compruebo en mi propio negocio y mis propias finanzas.</p>
+          <p>Creo que en LATAM hay un déficit enorme de contenido práctico sobre estos temas en español. Eso es lo que estoy resolviendo.</p>
+          <div style="display:flex; gap:14px; margin-top:8px;">
+            <a href="blog/" class="btn btn-primary">Leer el blog <svg width="14" height="14" stroke="currentColor"><use href="img/icons.svg#icon-arrow"/></svg></a>
+            <a href="contacto.html" class="btn btn-ghost">Escribirme</a>
+          </div>
+        </div>
+      </div>
+      <!-- Foto -->
+      <div class="about-photo-wrap fade-in d3">
+        <div class="about-photo-frame">
+          <img src="img/geo-principal.webp" alt="Geo Albanés — emprendedor LATAM">
+        </div>
+        <div class="about-photo-tag">
+          <div class="pt-val">LATAM</div>
+          <div class="pt-desc">El Salvador · 2026</div>
+        </div>
+        <div class="about-photo-glow"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════ VALORES ══════════════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px;">
+      <div>
+        <p class="sec-num">— 01</p>
+        <h2 class="fade-in">Cómo pienso</h2>
+      </div>
+      <p style="max-width:260px; font-size:0.88rem;" class="fade-in d2">
+        Los principios que guían lo que publico y cómo lo publico.
+      </p>
+    </div>
+    <div class="values-grid">
+      <div class="value-item fade-in">
+        <div class="value-num">01</div>
+        <h3>Claridad sobre cantidad</h3>
+        <p>Prefiero un artículo que cambia cómo pensás a diez que solo llenás de información.</p>
+      </div>
+      <div class="value-item fade-in d1">
+        <div class="value-num">02</div>
+        <h3>Primero lo pruebo yo</h3>
+        <p>No comparto estrategias que no haya aplicado a mi propia vida o negocio. Sin excepciones.</p>
+      </div>
+      <div class="value-item fade-in d2">
+        <div class="value-num">03</div>
+        <h3>Contexto LATAM</h3>
+        <p>El dinero, los bancos y los negocios funcionan diferente aquí. El contenido tiene que reflejarlo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ REDES ══════════════════════ -->
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px;">
+      <div>
+        <p class="sec-num">— 02</p>
+        <h2 class="fade-in">Encontrame en</h2>
+      </div>
+    </div>
+    <div class="social-grid fade-in d1">
+      <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener" class="social-card" data-platform="linkedin">
+        <svg class="sc-icon" width="32" height="32"><use href="img/icons.svg#icon-linkedin"/></svg>
+        <div class="sc-platform">LinkedIn</div>
+        <div class="sc-name">Profesional<br>y contenido</div>
+        <div class="sc-handle">@geoalbanes</div>
+        <span class="sc-action">Conectar <svg width="14" height="14" stroke="currentColor"><use href="img/icons.svg#icon-arrow"/></svg></span>
+      </a>
+      <a href="https://www.instagram.com/geoalbanes/" target="_blank" rel="noopener" class="social-card" data-platform="instagram">
+        <svg class="sc-icon" width="32" height="32" stroke="currentColor"><use href="img/icons.svg#icon-instagram"/></svg>
+        <div class="sc-platform">Instagram</div>
+        <div class="sc-name">Historias<br>y posts</div>
+        <div class="sc-handle">@geoalbanes</div>
+        <span class="sc-action">Seguir <svg width="14" height="14" stroke="currentColor"><use href="img/icons.svg#icon-arrow"/></svg></span>
+      </a>
+      <a href="contacto.html" class="social-card" data-platform="email">
+        <svg class="sc-icon" width="32" height="32" stroke="currentColor"><use href="img/icons.svg#icon-email"/></svg>
+        <div class="sc-platform">Email</div>
+        <div class="sc-name">Escribime<br>directo</div>
+        <div class="sc-handle">geoalbanes@geoalbanes.com</div>
+        <span class="sc-action">Escribir <svg width="14" height="14" stroke="currentColor"><use href="img/icons.svg#icon-arrow"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="nav-logo"><div class="mark">GA</div>Geo Albanés</a>
+        <p>Estrategias reales de IA, finanzas y sistemas para emprendedores en LATAM que quieren tomar el control de su vida profesional.</p>
+      </div>
+      <div class="footer-col">
+        <h6>Contenido</h6>
+        <a href="blog/">Blog</a>
+        <a href="blog/?cat=ia">IA Aplicada</a>
+        <a href="blog/?cat=finanzas">Finanzas</a>
+        <a href="blog/?cat=sistemas">Sistemas</a>
+      </div>
+      <div class="footer-col">
+        <h6>Geo</h6>
+        <a href="sobre-mi.html">Sobre mí</a>
+        <a href="contacto.html">Contacto</a>
+        <a href="privacidad.html">Privacidad</a>
+        <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener">LinkedIn <svg width="14" height="14" stroke="currentColor"><use href="img/icons.svg#icon-external"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Geo Albanés · geoalbanes.com</p>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a href="https://www.instagram.com/geoalbanes/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+        <a href="mailto:geoalbanes@geoalbanes.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
