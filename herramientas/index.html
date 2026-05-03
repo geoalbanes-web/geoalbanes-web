@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Herramientas Gratis para Emprendedores LATAM — Geo Albanés</title>
+  <meta name="description" content="Calculadoras y herramientas gratis para emprendedores en LATAM. Calcula costos de productos, intereses de tarjetas de crédito, márgenes de ganancia y más.">
+  <meta name="keywords" content="herramientas emprendedores, calculadoras gratis latam, calculadora costos, calculadora tarjeta credito, finanzas personales">
+  <meta property="og:title" content="Herramientas Gratis para Emprendedores LATAM — Geo Albanés">
+  <meta property="og:description" content="Calculadoras gratis para tomar mejores decisiones financieras y de negocio.">
+  <meta property="og:url" content="https://geoalbanes.com/herramientas/">
+  <link rel="canonical" href="https://geoalbanes.com/herramientas/">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6854793053211209" crossorigin="anonymous"></script>
+  <style>
+    .hub-page { padding-top: 80px; }
+
+    /* ── Hero ── */
+    .hub-hero {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border);
+      background: linear-gradient(170deg, rgba(36,96,232,0.04) 0%, transparent 55%);
+      text-align: center;
+    }
+    .hub-eyebrow {
+      font-family: var(--f-mono); font-size: 0.68rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--blue-light); margin-bottom: 24px;
+      display: inline-flex; align-items: center; gap: 10px;
+    }
+    .hub-eyebrow::before, .hub-eyebrow::after {
+      content: ''; display: block;
+      width: 32px; height: 1px;
+      background: var(--blue-light); opacity: 0.4;
+    }
+    .hub-hero h1 {
+      font-family: var(--f-display); font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 700; line-height: 1.06; letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hub-hero h1 em { font-style: italic; color: var(--blue-light); }
+    .hub-hero p {
+      font-size: 1.05rem; color: var(--text-2); max-width: 520px;
+      margin: 0 auto; line-height: 1.65;
+    }
+
+    /* ── Tools grid ── */
+    .tools-section { padding: 72px 0; }
+    .tools-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    @media (max-width: 720px) { .tools-grid { grid-template-columns: 1fr; } }
+
+    .tool-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: border-color 0.3s, transform 0.35s var(--ease-out);
+      display: flex; flex-direction: column;
+      text-decoration: none; color: inherit;
+      position: relative; overflow: hidden;
+    }
+    .tool-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .tool-card:hover { border-color: var(--border-2); transform: translateY(-4px); }
+    .tool-card:hover::before { opacity: 1; }
+
+    .tool-card.blue::before  { background: linear-gradient(90deg, transparent, var(--blue), transparent); }
+    .tool-card.red::before   { background: linear-gradient(90deg, transparent, #ef4444, transparent); }
+    .tool-card.green::before { background: linear-gradient(90deg, transparent, var(--green), transparent); }
+    .tool-card.purple::before{ background: linear-gradient(90deg, transparent, #a78bfa, transparent); }
+
+    .tool-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 20px; flex-shrink: 0;
+    }
+    .tool-icon.blue   { background: rgba(36,96,232,0.12); }
+    .tool-icon.red    { background: rgba(239,68,68,0.1); }
+    .tool-icon.green  { background: rgba(34,197,94,0.1); }
+    .tool-icon.purple { background: rgba(167,139,250,0.1); }
+
+    .tool-card-tag {
+      font-family: var(--f-mono); font-size: 0.6rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-3); margin-bottom: 8px;
+    }
+    .tool-card h3 {
+      font-family: var(--f-ui); font-size: 1.1rem;
+      font-weight: 700; color: var(--text);
+      margin-bottom: 10px; line-height: 1.3;
+    }
+    .tool-card p {
+      font-size: 0.88rem; color: var(--text-2);
+      line-height: 1.65; flex: 1; margin-bottom: 24px;
+    }
+    .tool-card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .tool-cta {
+      font-family: var(--f-mono); font-size: 0.72rem;
+      font-weight: 500; letter-spacing: 0.06em;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: gap 0.2s;
+    }
+    .tool-card.blue  .tool-cta { color: var(--blue-light); }
+    .tool-card.red   .tool-cta { color: #f87171; }
+    .tool-card.green .tool-cta { color: var(--green); }
+    .tool-card:hover .tool-cta { gap: 10px; }
+
+    .tool-card-badge {
+      font-family: var(--f-mono); font-size: 0.58rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 10px;
+    }
+    .badge-free { background: rgba(34,197,94,0.1); color: var(--green); border: 1px solid rgba(34,197,94,0.2); }
+    .badge-soon { background: rgba(255,255,255,0.05); color: var(--text-3); border: 1px solid var(--border); }
+
+    /* ── Coming soon cards ── */
+    .tool-card.coming { opacity: 0.55; pointer-events: none; cursor: default; }
+    .tool-card.coming:hover { transform: none; border-color: var(--border); }
+    .tool-card.coming::before { display: none; }
+
+    /* ── Stats bar ── */
+    .tools-stats {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 0; margin: 0 0 72px;
+      background: var(--bg-2);
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 24px; text-align: center;
+    }
+    @media (max-width: 640px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stat-n {
+      font-family: var(--f-display); font-size: 2.2rem;
+      font-weight: 700; color: var(--text); letter-spacing: -0.03em;
+      line-height: 1;
+    }
+    .stat-label {
+      font-family: var(--f-mono); font-size: 0.64rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-3); margin-top: 6px;
+    }
+
+    /* ── AdSense ── */
+    .adsense-strip {
+      padding: 40px 0; border-top: 1px solid var(--border);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="cursor"></div>
+
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="../" class="nav-logo">
+        <div class="mark">GA</div>
+        Geo Albanés
+      </a>
+      <ul class="nav-links">
+        <li><a href="../blog/">Blog</a></li>
+        <li><a href="./" class="active">Herramientas</a></li>
+        <li><a href="../sobre-mi.html">Sobre mí</a></li>
+        <li><a href="../contacto.html">Contacto</a></li>
+      </ul>
+      <div class="nav-status">
+        <span class="status-dot"></span>
+        Publicando 3× / semana
+      </div>
+    </div>
+  </nav>
+
+  <main class="hub-page">
+
+    <!-- ── Hero ── -->
+    <section class="hub-hero">
+      <div class="container">
+        <div class="hub-eyebrow">Herramientas gratuitas</div>
+        <h1>Calculadoras que te ayudan<br>a tomar <em>mejores decisiones</em></h1>
+        <p>Herramientas prácticas para emprendedores y profesionales en LATAM. Sin registro, sin costo, con toda la información que necesitás.</p>
+      </div>
+    </section>
+
+    <!-- ── Stats ── -->
+    <div class="tools-stats">
+      <div class="container">
+        <div class="stats-grid">
+          <div>
+            <div class="stat-n">2</div>
+            <div class="stat-label">Herramientas activas</div>
+          </div>
+          <div>
+            <div class="stat-n">100%</div>
+            <div class="stat-label">Gratis y sin registro</div>
+          </div>
+          <div>
+            <div class="stat-n">0</div>
+            <div class="stat-label">Datos enviados al servidor</div>
+          </div>
+          <div>
+            <div class="stat-n">LATAM</div>
+            <div class="stat-label">Pensadas para la región</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Tools grid ── -->
+    <section class="tools-section">
+      <div class="container">
+        <div class="tools-grid">
+
+          <!-- Tool 1: Costos -->
+          <a href="./calculadora-costos.html" class="tool-card blue">
+            <div class="tool-icon blue">🧮</div>
+            <div class="tool-card-tag">Finanzas · Negocios</div>
+            <h3>Calculadora de Costos y Precios</h3>
+            <p>Calculá el precio real de tu producto o servicio. Incluye costos variables, costos fijos prorrateados, punto de equilibrio y desglose visual de márgenes. Todo en tiempo real.</p>
+            <div class="tool-card-footer">
+              <span class="tool-cta">Usar herramienta →</span>
+              <span class="tool-card-badge badge-free">Gratis</span>
+            </div>
+          </a>
+
+          <!-- Tool 2: Tarjeta -->
+          <a href="./calculadora-tarjeta.html" class="tool-card red">
+            <div class="tool-icon red">💳</div>
+            <div class="tool-card-tag">Finanzas Personales</div>
+            <h3>Calculadora de Tarjeta de Crédito</h3>
+            <p>Visualizá cuánto te cuesta realmente tu deuda de tarjeta. Comparación entre pago mínimo, pago actual y pago acelerado. Gráfico animado y tabla mes a mes.</p>
+            <div class="tool-card-footer">
+              <span class="tool-cta">Usar herramienta →</span>
+              <span class="tool-card-badge badge-free">Gratis</span>
+            </div>
+          </a>
+
+          <!-- Coming soon: Inversión -->
+          <div class="tool-card green coming">
+            <div class="tool-icon green">📈</div>
+            <div class="tool-card-tag">Inversión · Ahorro</div>
+            <h3>Simulador de Inversión</h3>
+            <p>Proyectá el crecimiento de tu inversión con interés compuesto. Ingresá monto inicial, aportes mensuales, tasa de retorno y plazo para ver tu patrimonio en el tiempo.</p>
+            <div class="tool-card-footer">
+              <span class="tool-cta" style="color:var(--text-3)">Próximamente</span>
+              <span class="tool-card-badge badge-soon">En desarrollo</span>
+            </div>
+          </div>
+
+          <!-- Coming soon: FIRE -->
+          <div class="tool-card purple coming">
+            <div class="tool-icon purple">🏁</div>
+            <div class="tool-card-tag">Independencia Financiera</div>
+            <h3>Calculadora FIRE LATAM</h3>
+            <p>¿A qué edad podés retirarte financieramente? Calculá tu número FIRE ajustado por inflación y condiciones locales de LATAM.</p>
+            <div class="tool-card-footer">
+              <span class="tool-cta" style="color:var(--text-3)">Próximamente</span>
+              <span class="tool-card-badge badge-soon">En desarrollo</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- AdSense -->
+    <div class="adsense-strip">
+      <div class="container">
+        <ins class="adsbygoogle" style="display:block"
+          data-ad-client="ca-pub-6854793053211209"
+          data-ad-slot="auto" data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="../" class="nav-logo">
+            <div class="mark">GA</div>Geo Albanés
+          </a>
+          <p>Estrategias reales de IA, finanzas y sistemas para emprendedores en LATAM.</p>
+        </div>
+        <div class="footer-col">
+          <h6>Herramientas</h6>
+          <a href="./calculadora-costos.html">Calculadora de Costos</a>
+          <a href="./calculadora-tarjeta.html">Calculadora Tarjeta de Crédito</a>
+        </div>
+        <div class="footer-col">
+          <h6>Contenido</h6>
+          <a href="../blog/">Blog</a>
+          <a href="../sobre-mi.html">Sobre mí</a>
+          <a href="../contacto.html">Contacto</a>
+          <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Geo Albanés · geoalbanes.com</p>
+        <div class="social-row">
+          <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a href="https://www.instagram.com/geoalbanes/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+          <a href="mailto:geoalbanes@geoalbanes.com" aria-label="Email">@</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+  const cursor = document.getElementById('cursor');
+  if (cursor) {
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+    document.querySelectorAll('a, button').forEach(el => {
+      el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+      el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+    });
+  }
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (nav) nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+  </script>
+</body>
+</html>
