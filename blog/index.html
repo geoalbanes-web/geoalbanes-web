@@ -221,6 +221,18 @@
   }
   .blog-card:hover .card-img-inner { transform: scale(1.05); }
 
+  /* Video thumbnails */
+  .card-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .blog-card:hover .card-video { transform: scale(1.05); }
+
   /* Category glow line on hover */
   .blog-card::before {
     content: '';
@@ -742,7 +754,9 @@
       <!-- ── 12 SMALL (span 4) ── -->
       <a href="como-negociar-tu-salario.html" class="blog-card card-small card-4" data-cat="emprendimiento">
         <div class="card-img" style="height:150px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-12-salario.png');height:150px"></div>
+          <video class="card-video" autoplay muted loop playsinline>
+            <source src="../img/videos/thumb-12-salario.mp4" type="video/mp4">
+          </video>
           <span class="card-num">12</span>
         </div>
         <div class="card-body">
@@ -775,7 +789,9 @@
       <!-- ── 14 MEDIUM (span 6) ── -->
       <a href="deep-work-para-emprendedores.html" class="blog-card card-medium card-6" data-cat="sistemas">
         <div class="card-img" style="height:180px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-14-deep-work.png');height:180px"></div>
+          <video class="card-video" autoplay muted loop playsinline>
+            <source src="../img/videos/thumb-14-deep-work.mp4" type="video/mp4">
+          </video>
           <span class="card-num">14</span>
         </div>
         <div class="card-body">
