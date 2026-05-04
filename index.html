@@ -51,6 +51,14 @@
       background: var(--bg);
       overflow: hidden;
     }
+    .hero-bg-img {
+      position: absolute; inset: 0;
+      background-image: url('img/hero-bg-cinematic.png');
+      background-size: cover;
+      background-position: center 30%;
+      opacity: 0.18;
+      z-index: 0;
+    }
     #neural-canvas {
       position: absolute;
       inset: 0;
@@ -601,6 +609,7 @@
 
   <!-- ══════════════════════ HERO ══════════════════════ -->
   <section class="hero" id="hero">
+    <div class="hero-bg-img"></div>
     <canvas id="neural-canvas"></canvas>
     <div class="hero-fade-top"></div>
     <div class="hero-fade-bottom"></div>

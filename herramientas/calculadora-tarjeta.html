@@ -23,202 +23,390 @@
   <link rel="stylesheet" href="../css/styles.css">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6854793053211209" crossorigin="anonymous"></script>
   <style>
+    :root {
+      --red: #ef4444;
+      --red-light: #f87171;
+      --red-glow: rgba(239,68,68,0.35);
+      --green-glow: rgba(34,197,94,0.3);
+    }
+
     .tool-page { padding-top: 80px; }
-    .tool-page input, .tool-page select { cursor: text; }
-    .tool-page button { cursor: pointer; }
 
     /* ── Hero ── */
     .tool-hero {
       padding: 72px 0 56px;
       border-bottom: 1px solid var(--border);
-      background: linear-gradient(170deg, rgba(239,68,68,0.04) 0%, transparent 60%);
       position: relative; overflow: hidden;
+      background: linear-gradient(170deg, rgba(239,68,68,0.06) 0%, transparent 55%);
     }
-    .tool-hero::before {
-      content: ''; position: absolute; right: -80px; top: -60px;
-      width: 500px; height: 500px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(239,68,68,0.05) 0%, transparent 70%);
+    .tool-hero::after {
+      content: '';
+      position: absolute; right: -120px; top: -100px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(239,68,68,0.07) 0%, transparent 65%);
       pointer-events: none;
     }
     .tool-breadcrumb {
       display: flex; align-items: center; gap: 8px;
-      font-family: var(--f-mono); font-size: 0.68rem;
+      font-family: var(--f-mono); font-size: 0.66rem;
       color: var(--text-3); letter-spacing: 0.14em;
       text-transform: uppercase; margin-bottom: 28px;
     }
-    .tool-breadcrumb a:hover { color: var(--blue-light); }
+    .tool-breadcrumb a { transition: color 0.2s; }
+    .tool-breadcrumb a:hover { color: var(--red-light); }
     .tool-hero h1 {
-      font-family: var(--f-display); font-size: clamp(2rem, 4.5vw, 3.6rem);
-      font-weight: 700; line-height: 1.06; letter-spacing: -0.03em; margin-bottom: 18px;
+      font-family: var(--f-display);
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      font-weight: 700; line-height: 1.05;
+      letter-spacing: -0.03em; margin-bottom: 18px;
     }
-    .tool-hero h1 em { font-style: italic; color: #f87171; }
-    .tool-hero p {
-      font-size: 1.05rem; color: var(--text-2); max-width: 540px;
-      line-height: 1.65; margin-bottom: 24px;
+    .tool-hero h1 em { font-style: italic; color: var(--red-light); }
+    .tool-hero .hero-sub {
+      font-size: 1.05rem; color: var(--text-2);
+      max-width: 540px; line-height: 1.65; margin-bottom: 28px;
     }
     .tool-badges { display: flex; gap: 8px; flex-wrap: wrap; }
     .tool-badge {
-      font-family: var(--f-mono); font-size: 0.62rem;
+      font-family: var(--f-mono); font-size: 0.6rem;
       letter-spacing: 0.14em; text-transform: uppercase;
       padding: 4px 12px; border: 1px solid var(--border-2);
-      border-radius: 20px; color: var(--text-2);
+      border-radius: 20px; color: var(--text-3);
     }
-    .tool-badge.hi {
-      background: rgba(239,68,68,0.1); border-color: rgba(239,68,68,0.3); color: #f87171;
+    .tool-badge.red { background: rgba(239,68,68,0.08); border-color: rgba(239,68,68,0.25); color: var(--red-light); }
+
+    /* ── Layout ── */
+    .tool-layout {
+      padding: 64px 0 80px;
+      display: grid;
+      grid-template-columns: 1fr 440px;
+      gap: 40px;
+      align-items: start;
+    }
+    @media (max-width: 960px) { .tool-layout { grid-template-columns: 1fr; } }
+
+    /* ── Left: Inputs ── */
+    .inputs-col {}
+
+    .input-section {
+      margin-bottom: 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: border-color 0.3s;
+    }
+    .input-section:hover { border-color: var(--border-2); }
+
+    .section-label {
+      font-family: var(--f-mono); font-size: 0.6rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--red-light); margin-bottom: 18px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .section-label::after {
+      content: ''; flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(239,68,68,0.3), transparent);
     }
 
-    /* ── Calculator section ── */
-    .tool-calc { padding: 72px 0; }
-
-    /* ── Form ── */
-    .calc-form-wrap {
-      max-width: 720px; margin: 0 auto 64px;
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 36px;
-    }
-    .form-grid {
+    .fields-row {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 20px 24px;
+      gap: 16px 20px;
     }
-    @media (max-width: 640px) { .form-grid { grid-template-columns: 1fr; } }
+    .fields-row.single { grid-template-columns: 1fr; }
+    @media (max-width: 480px) { .fields-row { grid-template-columns: 1fr; } }
+
+    .field-wrap {}
     .field-label {
-      display: block; font-family: var(--f-mono); font-size: 0.64rem;
-      letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--text-3); margin-bottom: 7px;
+      display: block; font-family: var(--f-mono);
+      font-size: 0.6rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--text-3);
+      margin-bottom: 8px;
     }
+    .inp-group { position: relative; }
     .inp {
-      width: 100%; background: rgba(0,0,0,0.35);
-      border: 1px solid var(--border); border-radius: var(--radius);
-      padding: 10px 13px; color: var(--text);
-      font-family: var(--f-mono); font-size: 0.9rem;
-      transition: border-color 0.2s, background 0.2s;
+      width: 100%;
+      background: rgba(0,0,0,0.4);
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: var(--radius);
+      padding: 12px 40px 12px 14px;
+      color: var(--text);
+      font-family: var(--f-mono); font-size: 1rem;
+      font-variant-numeric: tabular-nums;
+      transition: border-color 0.25s, background 0.25s, box-shadow 0.25s;
       -webkit-appearance: none;
     }
     .inp:focus {
-      outline: none; border-color: rgba(36,96,232,0.6);
-      background: rgba(36,96,232,0.04);
+      outline: none;
+      border-color: rgba(239,68,68,0.5);
+      background: rgba(239,68,68,0.04);
+      box-shadow: 0 0 0 3px rgba(239,68,68,0.08);
     }
-    .inp::placeholder { color: var(--text-3); }
-    .inp-group { position: relative; }
+    .inp::placeholder { color: rgba(255,255,255,0.2); }
     .inp-suffix {
-      position: absolute; right: 12px; top: 50%;
+      position: absolute; right: 13px; top: 50%;
       transform: translateY(-50%);
-      font-family: var(--f-mono); font-size: 0.75rem;
+      font-family: var(--f-mono); font-size: 0.7rem;
       color: var(--text-3); pointer-events: none;
     }
-    .inp-group .inp { padding-right: 36px; }
 
-    .rate-toggle {
-      display: flex; gap: 6px; margin-bottom: 8px;
-    }
+    /* Rate toggle */
+    .rate-toggle { display: flex; gap: 6px; margin-bottom: 10px; }
     .rate-btn {
-      flex: 1; padding: 5px 0;
+      flex: 1; padding: 6px 0;
       background: none; border: 1px solid var(--border);
       border-radius: 6px; color: var(--text-3);
-      font-family: var(--f-mono); font-size: 0.66rem;
+      font-family: var(--f-mono); font-size: 0.64rem;
       letter-spacing: 0.08em; text-transform: uppercase;
       cursor: pointer; transition: all 0.2s;
     }
     .rate-btn.active {
-      background: rgba(36,96,232,0.12);
-      border-color: rgba(36,96,232,0.4);
-      color: var(--blue-light);
+      background: rgba(239,68,68,0.1);
+      border-color: rgba(239,68,68,0.35);
+      color: var(--red-light);
+    }
+    .tasa-equiv {
+      font-family: var(--f-mono); font-size: 0.62rem;
+      color: var(--text-3); margin-top: 6px;
+      letter-spacing: 0.06em; min-height: 16px;
     }
 
-    .calc-btn {
-      width: 100%; margin-top: 24px;
-      background: var(--blue); border: none;
-      border-radius: var(--radius); padding: 14px;
-      color: #fff; font-family: var(--f-ui);
-      font-size: 0.9rem; font-weight: 600;
-      letter-spacing: 0.04em; cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
+    /* Alert box */
+    .alert-box {
+      background: rgba(239,68,68,0.05);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: var(--radius); padding: 12px 14px;
+      font-family: var(--f-mono); font-size: 0.72rem;
+      color: var(--red-light); display: none; margin-top: 12px;
+      letter-spacing: 0.04em;
     }
-    .calc-btn:hover { background: #1d4ed8; }
-    .calc-btn:active { transform: scale(0.98); }
+    .alert-box.visible { display: block; }
 
-    /* ── Results ── */
-    .results-section { max-width: 900px; margin: 0 auto; }
+    /* ── Right: Results card ── */
+    .results-col { position: sticky; top: 104px; }
 
-    .results-cards {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 16px; margin-bottom: 40px;
+    .results-card {
+      background: linear-gradient(165deg, #0d0812, #07050f);
+      border: 1px solid rgba(239,68,68,0.2);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow:
+        inset 0 1px 0 rgba(239,68,68,0.35),
+        0 24px 64px rgba(0,0,0,0.7),
+        0 4px 16px rgba(239,68,68,0.06);
+      position: relative; overflow: hidden;
     }
-    @media (max-width: 680px) { .results-cards { grid-template-columns: 1fr; } }
-
-    .res-card {
-      border: 1px solid var(--border); border-radius: var(--radius-lg);
-      padding: 22px 20px;
-      background: linear-gradient(135deg, var(--surface), rgba(0,0,0,0.15));
-      transition: border-color 0.3s;
+    .results-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(239,68,68,0.12) 1px, transparent 1px);
+      background-size: 18px 18px;
+      opacity: 0.45;
+      pointer-events: none;
     }
-    .res-card.danger  { border-color: rgba(239,68,68,0.25);  background: linear-gradient(135deg, rgba(239,68,68,0.05), rgba(0,0,0,0.15)); }
-    .res-card.success { border-color: rgba(34,197,94,0.25);  background: linear-gradient(135deg, rgba(34,197,94,0.05), rgba(0,0,0,0.15)); }
-    .res-card.info    { border-color: rgba(36,96,232,0.25);  background: linear-gradient(135deg, rgba(36,96,232,0.05), rgba(0,0,0,0.15)); }
+    .results-card::after {
+      content: '';
+      position: absolute; top: -80px; right: -80px;
+      width: 280px; height: 280px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(239,68,68,0.08) 0%, transparent 65%);
+      pointer-events: none;
+    }
 
-    .res-card-label {
+    .rc-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 28px; position: relative; z-index: 1;
+    }
+    .rc-eyebrow {
+      font-family: var(--f-mono); font-size: 0.6rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: rgba(239,68,68,0.7);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .rc-eyebrow::before {
+      content: ''; display: block;
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 8px var(--red-glow);
+      animation: pulse-red 2s ease-in-out infinite;
+    }
+    @keyframes pulse-red {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .rc-status {
+      font-family: var(--f-mono); font-size: 0.58rem;
+      color: var(--text-3); letter-spacing: 0.1em;
+    }
+
+    /* Main danger number */
+    .rc-main { margin-bottom: 24px; position: relative; z-index: 1; }
+    .rc-main-label {
       font-family: var(--f-mono); font-size: 0.6rem;
       letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--text-3); margin-bottom: 8px;
+      color: rgba(239,68,68,0.6); margin-bottom: 8px;
     }
-    .res-card-value {
-      font-family: var(--f-display); font-size: 2rem;
-      font-weight: 700; line-height: 1; letter-spacing: -0.02em;
-      margin-bottom: 5px;
+    .rc-main-value {
+      font-family: var(--f-mono); font-size: 3.6rem;
+      font-weight: 500; line-height: 1;
+      color: var(--red-light);
+      text-shadow: 0 0 60px rgba(239,68,68,0.3);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+      transition: color 0.3s;
     }
-    .res-card.danger  .res-card-value { color: #f87171; }
-    .res-card.success .res-card-value { color: var(--green); }
-    .res-card.info    .res-card-value { color: var(--blue-light); }
-    .res-card-note {
-      font-family: var(--f-body); font-size: 0.76rem;
+    .rc-main-value.flash { animation: flash-red 0.4s ease-out; }
+    @keyframes flash-red {
+      0% { color: #fff; text-shadow: 0 0 40px rgba(239,68,68,0.9); }
+      100% { color: var(--red-light); text-shadow: 0 0 60px rgba(239,68,68,0.3); }
+    }
+    .rc-main-sub {
+      font-family: var(--f-mono); font-size: 0.7rem;
+      color: var(--text-3); margin-top: 6px; letter-spacing: 0.04em;
+    }
+
+    /* Divider */
+    .rc-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(239,68,68,0.2), transparent);
+      margin: 20px 0; position: relative; z-index: 1;
+    }
+
+    /* Stat rows */
+    .rc-stats { display: flex; flex-direction: column; gap: 14px; position: relative; z-index: 1; }
+    .rc-stat { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+    .rc-stat-label {
+      font-family: var(--f-mono); font-size: 0.62rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-3); flex-shrink: 0;
+    }
+    .rc-stat-dots {
+      flex: 1; border-bottom: 1px dotted rgba(255,255,255,0.1);
+      margin: 0 6px; position: relative; top: -3px;
+    }
+    .rc-stat-value {
+      font-family: var(--f-mono); font-size: 0.92rem;
+      font-weight: 500; font-variant-numeric: tabular-nums;
+    }
+    .rc-stat-value.danger { color: var(--red-light); }
+    .rc-stat-value.good   { color: var(--green); }
+    .rc-stat-value.neutral { color: var(--blue-light); }
+
+    /* Savings highlight */
+    .rc-savings {
+      margin-top: 20px; position: relative; z-index: 1;
+      background: rgba(34,197,94,0.07);
+      border: 1px solid rgba(34,197,94,0.2);
+      border-radius: 10px; padding: 14px 16px;
+    }
+    .rc-savings-label {
+      font-family: var(--f-mono); font-size: 0.58rem;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(34,197,94,0.7); margin-bottom: 4px;
+    }
+    .rc-savings-value {
+      font-family: var(--f-mono); font-size: 1.6rem;
+      font-weight: 500; color: var(--green);
+      text-shadow: 0 0 40px var(--green-glow);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.01em;
+    }
+    .rc-savings-sub {
+      font-size: 0.72rem; color: var(--text-3); margin-top: 3px;
+    }
+
+    /* Empty state */
+    .rc-empty {
+      text-align: center; padding: 40px 0;
+      position: relative; z-index: 1;
+    }
+    .rc-empty-icon {
+      font-size: 2rem; margin-bottom: 12px;
+      opacity: 0.4;
+    }
+    .rc-empty-text {
+      font-family: var(--f-mono); font-size: 0.72rem;
+      color: var(--text-3); letter-spacing: 0.08em;
+      line-height: 1.8;
+    }
+
+    /* ── Chart & table section ── */
+    .visual-section { padding: 0 0 72px; }
+
+    .vis-card {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px 24px;
+      margin-bottom: 24px;
+    }
+    .vis-card-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 20px; flex-wrap: wrap; gap: 12px;
+    }
+    .vis-card-title {
+      font-family: var(--f-mono); font-size: 0.62rem;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--text-3);
+    }
+    .chart-legend { display: flex; gap: 16px; flex-wrap: wrap; }
+    .legend-item {
+      display: flex; align-items: center; gap: 6px;
+      font-family: var(--f-mono); font-size: 0.6rem;
+      color: var(--text-2); letter-spacing: 0.06em;
+    }
+    .legend-dot { width: 24px; height: 3px; border-radius: 2px; flex-shrink: 0; }
+
+    #debt-chart { width: 100%; display: block; border-radius: 4px; }
+
+    /* ── Scenario comparison cards ── */
+    .scenario-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-bottom: 24px;
+    }
+    @media (max-width: 680px) { .scenario-grid { grid-template-columns: 1fr; } }
+
+    .sc-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px; position: relative; overflow: hidden;
+    }
+    .sc-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 2px;
+    }
+    .sc-card.min   { border-color: rgba(239,68,68,0.2); }
+    .sc-card.act   { border-color: rgba(36,96,232,0.2); }
+    .sc-card.extra { border-color: rgba(34,197,94,0.2); }
+    .sc-card.min::before   { background: linear-gradient(90deg, transparent, rgba(239,68,68,0.6), transparent); }
+    .sc-card.act::before   { background: linear-gradient(90deg, transparent, rgba(36,96,232,0.6), transparent); }
+    .sc-card.extra::before { background: linear-gradient(90deg, transparent, rgba(34,197,94,0.6), transparent); }
+    .sc-label {
+      font-family: var(--f-mono); font-size: 0.58rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .sc-card.min   .sc-label { color: var(--red-light); }
+    .sc-card.act   .sc-label { color: var(--blue-light); }
+    .sc-card.extra .sc-label { color: var(--green); }
+    .sc-months {
+      font-family: var(--f-display); font-size: 1.9rem;
+      font-weight: 700; letter-spacing: -0.03em;
+      line-height: 1; margin-bottom: 6px;
+    }
+    .sc-card.min   .sc-months { color: var(--red-light); }
+    .sc-card.act   .sc-months { color: var(--blue-light); }
+    .sc-card.extra .sc-months { color: var(--green); }
+    .sc-interest {
+      font-family: var(--f-mono); font-size: 0.72rem;
       color: var(--text-3); line-height: 1.4;
     }
 
-    /* ── Chart ── */
-    .chart-wrap {
-      background: rgba(0,0,0,0.3); border: 1px solid var(--border);
-      border-radius: var(--radius-lg); padding: 28px 24px 20px;
-      margin-bottom: 40px; position: relative;
-    }
-    .chart-title {
-      font-family: var(--f-mono); font-size: 0.66rem;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--text-3); margin-bottom: 20px;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .chart-legend {
-      display: flex; gap: 16px;
-    }
-    .legend-item {
-      display: flex; align-items: center; gap: 6px;
-      font-family: var(--f-mono); font-size: 0.62rem;
-      color: var(--text-2); letter-spacing: 0.06em;
-    }
-    .legend-dot {
-      width: 10px; height: 3px; border-radius: 2px; flex-shrink: 0;
-    }
-    #debt-chart {
-      width: 100%; display: block; border-radius: 4px;
-    }
-    .chart-empty {
-      text-align: center; padding: 60px 0;
-      font-family: var(--f-mono); font-size: 0.78rem;
-      color: var(--text-3); letter-spacing: 0.08em;
-    }
-
-    /* ── Monthly table ── */
-    .table-section { margin-bottom: 40px; }
-    .table-title {
-      font-family: var(--f-mono); font-size: 0.66rem;
-      letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--text-3); margin-bottom: 14px;
-    }
+    /* ── Table ── */
     .debt-table {
       width: 100%; border-collapse: collapse;
-      font-family: var(--f-mono); font-size: 0.78rem;
+      font-family: var(--f-mono); font-size: 0.76rem;
     }
     .debt-table th {
-      font-size: 0.6rem; letter-spacing: 0.1em;
+      font-size: 0.58rem; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--text-3);
       padding: 8px 12px; text-align: right;
       border-bottom: 1px solid var(--border);
@@ -226,13 +414,14 @@
     .debt-table th:first-child { text-align: center; }
     .debt-table td {
       padding: 9px 12px; text-align: right;
-      border-bottom: 1px solid rgba(255,255,255,0.04);
-      color: var(--text-2);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      color: var(--text-2); font-variant-numeric: tabular-nums;
     }
     .debt-table td:first-child { text-align: center; color: var(--text-3); }
-    .debt-table .td-interes { color: #f87171; }
-    .debt-table .td-principal { color: var(--blue-light); }
-    .debt-table .td-saldo { color: var(--text); font-weight: 500; }
+    .debt-table tr:hover td { background: rgba(255,255,255,0.02); }
+    .td-interes   { color: var(--red-light) !important; }
+    .td-principal { color: var(--blue-light) !important; }
+    .td-saldo     { color: var(--text) !important; font-weight: 500; }
 
     /* ── AdSense ── */
     .adsense-strip {
@@ -242,37 +431,45 @@
 
     /* ── Guide ── */
     .tool-guide {
-      padding: 80px 0; border-top: 1px solid var(--border);
+      padding: 80px 0 100px;
+      border-top: 1px solid var(--border);
       background: var(--bg-2);
     }
     .guide-header {
-      max-width: 620px; margin: 0 auto 56px; text-align: center;
+      max-width: 600px; margin: 0 auto 56px; text-align: center;
+    }
+    .guide-eyebrow {
+      font-family: var(--f-mono); font-size: 0.6rem;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--red-light); margin-bottom: 16px;
     }
     .guide-header h2 {
-      font-family: var(--f-display); font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-family: var(--f-display);
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
       font-weight: 700; letter-spacing: -0.03em; margin-bottom: 14px;
     }
-    .guide-header p { font-size: 1rem; color: var(--text-2); }
+    .guide-header p { font-size: 1rem; color: var(--text-2); line-height: 1.65; }
+
     .guide-list { max-width: 760px; margin: 0 auto; }
     .guide-item { border-bottom: 1px solid var(--border); }
     .guide-item-head {
-      display: flex; align-items: center; gap: 14px;
+      display: flex; align-items: center; gap: 16px;
       padding: 22px 0; cursor: pointer; user-select: none;
     }
-    .guide-item-head:hover .gih-title { color: var(--blue-light); }
+    .guide-item-head:hover .gih-title { color: var(--red-light); }
     .guide-num {
-      font-family: var(--f-mono); font-size: 0.68rem;
-      color: #f87171; width: 24px; flex-shrink: 0;
+      font-family: var(--f-mono); font-size: 0.66rem;
+      color: var(--red); width: 24px; flex-shrink: 0;
     }
     .gih-title {
       font-family: var(--f-ui); font-size: 0.95rem;
       font-weight: 600; color: var(--text); flex: 1;
       transition: color 0.2s;
     }
-    .guide-chevron { font-size: 1rem; color: var(--text-3); transition: transform 0.3s; flex-shrink: 0; }
+    .guide-chevron { font-size: 1rem; color: var(--text-3); transition: transform 0.3s; }
     .guide-item.open .guide-chevron { transform: rotate(90deg); }
     .guide-body {
-      display: none; padding: 0 0 24px 38px;
+      display: none; padding: 0 0 24px 40px;
       color: var(--text-2); font-size: 0.9rem; line-height: 1.75;
     }
     .guide-item.open .guide-body { display: block; }
@@ -280,18 +477,19 @@
       background: var(--surface); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 12px 16px;
       font-family: var(--f-mono); font-size: 0.8rem;
-      color: var(--blue-light); margin: 12px 0; line-height: 1.5;
+      color: var(--blue-light); margin: 12px 0; line-height: 1.6;
     }
     .guide-example {
-      background: rgba(239,68,68,0.05); border: 1px solid rgba(239,68,68,0.15);
+      background: rgba(239,68,68,0.04); border: 1px solid rgba(239,68,68,0.15);
       border-radius: var(--radius); padding: 14px 16px; margin: 12px 0;
     }
     .guide-example strong {
-      display: block; font-family: var(--f-mono); font-size: 0.62rem;
+      display: block; font-family: var(--f-mono); font-size: 0.6rem;
       letter-spacing: 0.12em; text-transform: uppercase;
-      color: #f87171; margin-bottom: 6px;
+      color: var(--red-light); margin-bottom: 8px;
     }
     .guide-example p { font-size: 0.86rem; color: var(--text-2); margin: 0; }
+    .guide-example p + p { margin-top: 8px; }
   </style>
 </head>
 <body>
@@ -327,139 +525,191 @@
           <span>Calculadora Tarjeta de Crédito</span>
         </nav>
         <h1>Cuánto te cuesta<br><em>tu deuda</em> de verdad</h1>
-        <p>Calculá el costo total de tu tarjeta de crédito, visualizá cómo el interés compuesto trabaja en tu contra y descubrí cuánto ahorrás pagando más del mínimo.</p>
+        <p class="hero-sub">Calculá el costo total de tu tarjeta, visualizá el interés compuesto trabajando en tu contra y descubrí cuánto ahorrás pagando más del mínimo.</p>
         <div class="tool-badges">
-          <span class="tool-badge hi">Gratis</span>
+          <span class="tool-badge red">Gratis</span>
           <span class="tool-badge">Sin registro</span>
-          <span class="tool-badge">Datos 100% locales</span>
+          <span class="tool-badge">100% local</span>
           <span class="tool-badge">Para LATAM</span>
         </div>
       </div>
     </section>
 
-    <!-- ── Calculator ── -->
-    <section class="tool-calc">
-      <div class="container">
+    <!-- ── Main layout ── -->
+    <div class="container">
+      <div class="tool-layout">
 
-        <!-- Form -->
-        <div class="calc-form-wrap">
-          <div class="form-grid">
+        <!-- LEFT: Inputs -->
+        <div class="inputs-col">
 
-            <div>
-              <label class="field-label" for="saldo">Saldo actual de la deuda ($)</label>
-              <div class="inp-group">
-                <input type="number" class="inp" id="saldo" placeholder="5,000" min="0" step="1" oninput="calcular()">
-                <span class="inp-suffix">$</span>
-              </div>
-            </div>
-
-            <div>
-              <label class="field-label">Tipo de tasa de interés</label>
-              <div class="rate-toggle">
-                <button class="rate-btn active" id="btn-mensual" onclick="setTasaTipo('mensual')">Mensual</button>
-                <button class="rate-btn" id="btn-anual" onclick="setTasaTipo('anual')">Anual (TEA)</button>
-              </div>
-              <div class="inp-group">
-                <input type="number" class="inp" id="tasa" placeholder="3.0" min="0.1" max="200" step="0.1" oninput="calcular()">
-                <span class="inp-suffix">%</span>
-              </div>
-              <div id="tasa-equiv" style="font-family:var(--f-mono);font-size:0.62rem;color:var(--text-3);margin-top:5px;letter-spacing:0.06em"></div>
-            </div>
-
-            <div>
-              <label class="field-label" for="pago-actual">Tu pago mensual actual ($)</label>
-              <div class="inp-group">
-                <input type="number" class="inp" id="pago-actual" placeholder="300" min="0" step="10" oninput="calcular()">
-                <span class="inp-suffix">$</span>
-              </div>
-            </div>
-
-            <div>
-              <label class="field-label" for="pago-min-pct">Pago mínimo requerido (%)</label>
-              <div class="inp-group">
-                <input type="number" class="inp" id="pago-min-pct" placeholder="5" min="1" max="20" step="0.5" value="5" oninput="calcular()">
-                <span class="inp-suffix">%</span>
-              </div>
-              <div style="font-family:var(--f-mono);font-size:0.62rem;color:var(--text-3);margin-top:5px;letter-spacing:0.06em">% del saldo como pago mínimo</div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Results -->
-        <div class="results-section" id="results-section" style="display:none">
-
-          <!-- Stat cards -->
-          <div class="results-cards">
-            <div class="res-card danger">
-              <div class="res-card-label">Con pago mínimo</div>
-              <div class="res-card-value" id="rc-meses-min">—</div>
-              <div class="res-card-note" id="rc-interes-min">meses · $— en intereses</div>
-            </div>
-            <div class="res-card info">
-              <div class="res-card-label">Con tu pago actual</div>
-              <div class="res-card-value" id="rc-meses-actual">—</div>
-              <div class="res-card-note" id="rc-interes-actual">meses · $— en intereses</div>
-            </div>
-            <div class="res-card success">
-              <div class="res-card-label">Pagando 50% más</div>
-              <div class="res-card-value" id="rc-meses-extra">—</div>
-              <div class="res-card-note" id="rc-ahorro">meses · ahorrás $—</div>
-            </div>
-          </div>
-
-          <!-- Chart -->
-          <div class="chart-wrap">
-            <div class="chart-title">
-              <span>Evolución de la deuda en el tiempo</span>
-              <div class="chart-legend">
-                <div class="legend-item">
-                  <div class="legend-dot" style="background:#ef4444"></div>
-                  <span>Pago mínimo</span>
-                </div>
-                <div class="legend-item">
-                  <div class="legend-dot" style="background:#2460E8"></div>
-                  <span>Pago actual</span>
-                </div>
-                <div class="legend-item">
-                  <div class="legend-dot" style="background:#22C55E"></div>
-                  <span>+50% más</span>
+          <!-- Deuda -->
+          <div class="input-section">
+            <div class="section-label">Tu deuda actual</div>
+            <div class="fields-row single">
+              <div class="field-wrap">
+                <label class="field-label" for="saldo">Saldo pendiente</label>
+                <div class="inp-group">
+                  <input type="number" class="inp" id="saldo" placeholder="5000" min="0" step="100" oninput="calcular()">
+                  <span class="inp-suffix">$</span>
                 </div>
               </div>
             </div>
-            <canvas id="debt-chart" height="280"></canvas>
           </div>
 
-          <!-- Monthly breakdown -->
-          <div class="table-section">
-            <div class="table-title">Detalle mes a mes — primeros 24 meses (pago actual)</div>
-            <div style="overflow-x:auto">
-              <table class="debt-table">
-                <thead>
-                  <tr>
-                    <th>Mes</th>
-                    <th>Saldo inicial</th>
-                    <th>Interés</th>
-                    <th>Capital pagado</th>
-                    <th>Saldo final</th>
-                  </tr>
-                </thead>
-                <tbody id="tabla-cuerpo"></tbody>
-              </table>
+          <!-- Tasa -->
+          <div class="input-section">
+            <div class="section-label">Tasa de interés</div>
+            <div class="fields-row single">
+              <div class="field-wrap">
+                <label class="field-label">Tipo de tasa</label>
+                <div class="rate-toggle">
+                  <button class="rate-btn active" id="btn-mensual" onclick="setTasaTipo('mensual')">% Mensual</button>
+                  <button class="rate-btn" id="btn-anual" onclick="setTasaTipo('anual')">% Anual (TEA)</button>
+                </div>
+                <div class="inp-group">
+                  <input type="number" class="inp" id="tasa" placeholder="3.0" min="0.1" max="200" step="0.1" oninput="calcular()">
+                  <span class="inp-suffix">%</span>
+                </div>
+                <div class="tasa-equiv" id="tasa-equiv"></div>
+              </div>
             </div>
+          </div>
+
+          <!-- Pagos -->
+          <div class="input-section">
+            <div class="section-label">Tus pagos mensuales</div>
+            <div class="fields-row">
+              <div class="field-wrap">
+                <label class="field-label" for="pago-actual">Tu pago mensual</label>
+                <div class="inp-group">
+                  <input type="number" class="inp" id="pago-actual" placeholder="300" min="0" step="50" oninput="calcular()">
+                  <span class="inp-suffix">$</span>
+                </div>
+              </div>
+              <div class="field-wrap">
+                <label class="field-label" for="pago-min-pct">Pago mínimo</label>
+                <div class="inp-group">
+                  <input type="number" class="inp" id="pago-min-pct" placeholder="5" min="1" max="20" step="0.5" value="5" oninput="calcular()">
+                  <span class="inp-suffix">%</span>
+                </div>
+              </div>
+            </div>
+            <div class="alert-box" id="alert-pago">⚠ Tu pago no cubre los intereses. La deuda crece.</div>
           </div>
 
         </div>
 
-        <!-- Empty state -->
-        <div id="empty-state" class="chart-wrap" style="max-width:900px;margin:0 auto">
-          <div class="chart-empty">
-            Ingresá tu saldo, tasa de interés y pago mensual<br>para ver el análisis completo de tu deuda.
+        <!-- RIGHT: Results card -->
+        <div class="results-col">
+          <div class="results-card">
+            <div class="rc-header">
+              <div class="rc-eyebrow">Costo real de tu deuda</div>
+              <div class="rc-status" id="rc-status">—</div>
+            </div>
+
+            <!-- Big danger number: total interest with current payment -->
+            <div class="rc-main">
+              <div class="rc-main-label">Pagarás en intereses (pago actual)</div>
+              <div class="rc-main-value" id="rc-interes-total">$—</div>
+              <div class="rc-main-sub" id="rc-tiempo-actual">Ingresá tu saldo y tasa para calcular</div>
+            </div>
+
+            <div class="rc-divider"></div>
+
+            <div class="rc-stats">
+              <div class="rc-stat">
+                <span class="rc-stat-label">Con pago mínimo</span>
+                <span class="rc-stat-dots"></span>
+                <span class="rc-stat-value danger" id="rc-min-interes">$—</span>
+              </div>
+              <div class="rc-stat">
+                <span class="rc-stat-label">Tiempo pago mínimo</span>
+                <span class="rc-stat-dots"></span>
+                <span class="rc-stat-value danger" id="rc-min-tiempo">—</span>
+              </div>
+              <div class="rc-stat">
+                <span class="rc-stat-label">Tiempo pago actual</span>
+                <span class="rc-stat-dots"></span>
+                <span class="rc-stat-value neutral" id="rc-act-tiempo">—</span>
+              </div>
+              <div class="rc-stat">
+                <span class="rc-stat-label">Tiempo pagando +50%</span>
+                <span class="rc-stat-dots"></span>
+                <span class="rc-stat-value good" id="rc-ext-tiempo">—</span>
+              </div>
+            </div>
+
+            <div class="rc-savings" id="rc-savings-box">
+              <div class="rc-savings-label">Ahorro pagando +50% más</div>
+              <div class="rc-savings-value" id="rc-ahorro-value">$—</div>
+              <div class="rc-savings-sub" id="rc-ahorro-sub">vs. pago actual</div>
+            </div>
+
           </div>
         </div>
 
       </div>
-    </section>
+    </div>
+
+    <!-- ── Scenarios + Chart ── -->
+    <div class="visual-section" id="visual-section" style="display:none">
+      <div class="container">
+
+        <!-- 3 scenario cards -->
+        <div class="scenario-grid">
+          <div class="sc-card min">
+            <div class="sc-label">Pago mínimo</div>
+            <div class="sc-months" id="sc-min-months">—</div>
+            <div class="sc-interest" id="sc-min-int">—</div>
+          </div>
+          <div class="sc-card act">
+            <div class="sc-label">Tu pago actual</div>
+            <div class="sc-months" id="sc-act-months">—</div>
+            <div class="sc-interest" id="sc-act-int">—</div>
+          </div>
+          <div class="sc-card extra">
+            <div class="sc-label">Pagando +50% más</div>
+            <div class="sc-months" id="sc-ext-months">—</div>
+            <div class="sc-interest" id="sc-ext-int">—</div>
+          </div>
+        </div>
+
+        <!-- Chart -->
+        <div class="vis-card">
+          <div class="vis-card-header">
+            <div class="vis-card-title">Evolución de la deuda mes a mes</div>
+            <div class="chart-legend">
+              <div class="legend-item"><div class="legend-dot" style="background:#ef4444"></div><span>Pago mínimo</span></div>
+              <div class="legend-item"><div class="legend-dot" style="background:#2460E8"></div><span>Tu pago</span></div>
+              <div class="legend-item"><div class="legend-dot" style="background:#22C55E"></div><span>+50% más</span></div>
+            </div>
+          </div>
+          <canvas id="debt-chart" height="260"></canvas>
+        </div>
+
+        <!-- Table -->
+        <div class="vis-card">
+          <div class="vis-card-header">
+            <div class="vis-card-title">Detalle mes a mes — primeros 24 meses (tu pago actual)</div>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="debt-table">
+              <thead>
+                <tr>
+                  <th>Mes</th>
+                  <th>Saldo inicial</th>
+                  <th>Interés</th>
+                  <th>Capital pagado</th>
+                  <th>Saldo final</th>
+                </tr>
+              </thead>
+              <tbody id="tabla-cuerpo"></tbody>
+            </table>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
     <!-- AdSense -->
     <div class="adsense-strip">
@@ -476,8 +726,9 @@
     <section class="tool-guide">
       <div class="container">
         <div class="guide-header">
-          <h2>Manual: Cómo funcionan<br>las tarjetas de crédito</h2>
-          <p>Lo que los bancos no te explican — en términos que cualquiera entiende.</p>
+          <div class="guide-eyebrow">Manual de tarjetas</div>
+          <h2>Lo que el banco no<br>te explica</h2>
+          <p>El interés compuesto trabaja para los bancos, no para vos. Entendé cómo funciona para que trabaje a tu favor.</p>
         </div>
 
         <div class="guide-list">
@@ -485,18 +736,18 @@
           <div class="guide-item open">
             <div class="guide-item-head" onclick="toggleGuide(this)">
               <span class="guide-num">01</span>
-              <span class="gih-title">¿Cómo se calcula el interés en tu tarjeta?</span>
+              <span class="gih-title">¿Cómo se calcula el interés de tu tarjeta?</span>
               <span class="guide-chevron">›</span>
             </div>
             <div class="guide-body">
-              <p>El interés de una tarjeta de crédito se calcula sobre el saldo pendiente cada mes. Si tu tasa mensual es del 3% y debés $1,000:</p>
+              <p>El interés se calcula sobre el saldo pendiente cada mes. Si tu tasa mensual es del 3% y debés $1,000:</p>
               <div class="guide-formula">Interés del mes = $1,000 × 3% = $30</div>
-              <p>Ese interés se suma al saldo. Si solo pagás ese mes $30 de intereses, ¡tu deuda sigue siendo $1,000! No bajó nada. Para reducir la deuda necesitás pagar <em>más</em> que el interés mensual.</p>
+              <p>Si solo pagás $30, la deuda sigue siendo $1,000. Cero reducción. Para bajar la deuda tenés que pagar <em>más</em> que el interés mensual.</p>
               <div class="guide-example">
-                <strong>Conversión de tasa anual a mensual</strong>
-                <p>Si tu banco te da una tasa anual efectiva (TEA) del 40%, la mensual equivalente es:<br>
-                Tasa mensual = (1 + 40%)^(1/12) − 1 = 2.84%/mes<br>
-                No es simplemente dividir entre 12 (que daría 3.33%), sino la raíz 12 del factor anual.</p>
+                <strong>Tasa anual → mensual (la forma correcta)</strong>
+                <p>Si tu banco te da una TEA del 40%, la tasa mensual equivalente es:</p>
+                <p>Tasa mensual = (1 + 40%)^(1/12) − 1 = 2.84%/mes</p>
+                <p>No es dividir entre 12 (que daría 3.33%). La calculadora hace esta conversión automáticamente.</p>
               </div>
             </div>
           </div>
@@ -504,52 +755,48 @@
           <div class="guide-item">
             <div class="guide-item-head" onclick="toggleGuide(this)">
               <span class="guide-num">02</span>
-              <span class="gih-title">La trampa del pago mínimo: por qué te mantiene en deuda</span>
+              <span class="gih-title">La trampa del pago mínimo</span>
               <span class="guide-chevron">›</span>
             </div>
             <div class="guide-body">
-              <p>El pago mínimo está diseñado para que tardes el máximo tiempo posible en liquidar tu deuda, maximizando el interés que le pagás al banco. Generalmente es el 3-5% del saldo.</p>
+              <p>El pago mínimo está diseñado para maximizar el tiempo que tardás en salir de la deuda y, en consecuencia, el interés total que le pagás al banco.</p>
               <div class="guide-example">
-                <strong>Ejemplo impactante</strong>
-                <p>Deuda: $3,000. Tasa mensual: 3%. Pago mínimo: 5% del saldo ($150 el primer mes).<br><br>
-                El interés del mes 1 es $90. Pagás $150, pero solo $60 reducen la deuda. El mes siguiente debés $2,940. Y la deuda baja muy despacio.<br><br>
-                Resultado: tardarías más de 3 años y pagarías casi $1,500 en intereses solo para una deuda de $3,000.</p>
+                <strong>Ejemplo real</strong>
+                <p>Deuda: $3,000 · Tasa mensual: 3% · Pago mínimo: 5% del saldo ($150 el primer mes)</p>
+                <p>El interés del mes 1 es $90. Pagás $150, pero solo $60 reducen la deuda. Al mes siguiente debés $2,940.</p>
+                <p>Resultado: más de 3 años y ~$1,500 en intereses para una deuda de $3,000.</p>
+                <p>Si pagás $300/mes (el doble), terminás en 12 meses y pagás solo $530 en intereses.</p>
               </div>
-              <p style="margin-top:10px">Si en cambio pagás $300/mes (el doble del mínimo inicial), terminás en 12 meses y pagás solo $530 en intereses. El ahorro es enorme.</p>
             </div>
           </div>
 
           <div class="guide-item">
             <div class="guide-item-head" onclick="toggleGuide(this)">
               <span class="guide-num">03</span>
-              <span class="gih-title">TEA, TEM y CAT: el glosario que los bancos no te explican</span>
+              <span class="gih-title">TEA, TEM y CAT: el glosario financiero</span>
               <span class="guide-chevron">›</span>
             </div>
             <div class="guide-body">
-              <p><strong style="color:var(--text)">TEM (Tasa Efectiva Mensual):</strong> Lo que se aplica a tu saldo cada mes. Si tu banco dice "3% mensual", es la TEM.</p>
-              <p style="margin-top:8px"><strong style="color:var(--text)">TEA (Tasa Efectiva Anual):</strong> El impacto real del interés en un año, con capitalización mensual. Una TEM del 3% equivale a una TEA de 42.6%.</p>
-              <p style="margin-top:8px"><strong style="color:var(--text)">CAT (Costo Anual Total):</strong> Usado principalmente en México. Incluye todos los costos de la tarjeta: intereses, comisiones anuales, seguros. Es el número más honesto para comparar tarjetas.</p>
-              <div class="guide-formula">
-                TEA = (1 + TEM)^12 − 1<br>
-                Ej: (1 + 0.03)^12 − 1 = 42.6% anual
-              </div>
+              <p><strong style="color:var(--text)">TEM (Tasa Efectiva Mensual):</strong> Lo que aplica a tu saldo cada mes. Si el banco dice "3% mensual", es la TEM.</p>
+              <p style="margin-top:10px"><strong style="color:var(--text)">TEA (Tasa Efectiva Anual):</strong> El impacto real anual con capitalización mensual. Una TEM del 3% equivale a una TEA del 42.6%.</p>
+              <p style="margin-top:10px"><strong style="color:var(--text)">CAT (Costo Anual Total):</strong> Usado en México. Incluye intereses + comisiones + seguros. El número más honesto para comparar tarjetas.</p>
+              <div class="guide-formula">TEA = (1 + TEM)^12 − 1<br>Ej: (1 + 0.03)^12 − 1 = 42.6% anual</div>
             </div>
           </div>
 
           <div class="guide-item">
             <div class="guide-item-head" onclick="toggleGuide(this)">
               <span class="guide-num">04</span>
-              <span class="gih-title">Estrategia para salir de deudas más rápido: método avalancha</span>
+              <span class="gih-title">Método avalancha: la estrategia matemáticamente óptima</span>
               <span class="guide-chevron">›</span>
             </div>
             <div class="guide-body">
-              <p>Si tenés múltiples deudas, el método más eficiente matemáticamente es la <strong style="color:var(--text)">avalancha</strong>: pagás los mínimos en todas y concentrás todo el dinero extra en la deuda con la tasa de interés más alta.</p>
-              <p style="margin-top:10px">Cuando esa deuda se liquida, tomás todo ese dinero y lo mandás a la siguiente deuda con la tasa más alta. Y así sucesivamente.</p>
+              <p>Si tenés múltiples deudas, la avalancha es el método más eficiente: pagás los mínimos en todas y concentrás el dinero extra en la deuda con la tasa más alta.</p>
+              <p style="margin-top:10px">Cuando esa deuda se liquida, movés todo ese dinero a la siguiente deuda más cara. Y así.</p>
               <div class="guide-example">
-                <strong>Por qué funciona</strong>
-                <p>Al atacar primero la tasa más cara, reducís el costo total del interés. El método bola de nieve (empezar por la deuda más pequeña) es menos eficiente pero más motivador. Cualquiera de los dos es infinitamente mejor que solo pagar mínimos.</p>
+                <strong>Regla clave</strong>
+                <p>No uses la tarjeta para nuevas compras mientras estás liquidando una deuda. Cada compra nueva reinicia el reloj.</p>
               </div>
-              <p style="margin-top:10px"><strong style="color:var(--text)">Regla clave:</strong> nunca uses la tarjeta de crédito para nuevas compras mientras estás liquidando una deuda. Cada compra nueva reinicia el reloj.</p>
             </div>
           </div>
 
@@ -578,6 +825,7 @@
           <a href="../blog/">Blog</a>
           <a href="../sobre-mi.html">Sobre mí</a>
           <a href="../contacto.html">Contacto</a>
+          <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
       <div class="footer-bottom">
@@ -623,7 +871,7 @@
     calcular();
   }
 
-  /* ── Format ── */
+  /* ── Format helpers ── */
   function fmt(n) {
     if (isNaN(n) || n == null) return '$0';
     return '$' + Math.round(Math.abs(n)).toLocaleString('es');
@@ -631,6 +879,15 @@
   function fmtD(n) {
     if (isNaN(n) || n == null) return '$0.00';
     return '$' + Math.abs(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+  function fmtTime(meses) {
+    if (meses <= 0 || isNaN(meses)) return '—';
+    const a = Math.floor(meses / 12);
+    const m = meses % 12;
+    let s = '';
+    if (a > 0) s += a + ' año' + (a > 1 ? 's' : '');
+    if (m > 0) s += (a > 0 ? ' y ' : '') + m + ' mes' + (m > 1 ? 'es' : '');
+    return s || meses + ' meses';
   }
 
   /* ── Simulate paydown ── */
@@ -650,163 +907,172 @@
       totalInteres += interes;
       historial.push({
         mes: historial.length + 1,
-        saldoInicio,
-        saldo: Math.max(0, saldo),
-        interes,
-        principal: saldoInicio - Math.max(0, saldo)
+        saldoInicio, saldo: Math.max(0, saldo),
+        interes, principal: saldoInicio - Math.max(0, saldo)
       });
     }
     return { historial, totalInteres, meses: historial.length };
   }
 
-  /* ── Main ── */
+  /* ── Flash animation ── */
+  function flashEl(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.remove('flash');
+    void el.offsetWidth;
+    el.classList.add('flash');
+    setTimeout(() => el.classList.remove('flash'), 420);
+  }
+
+  /* ── Main calc ── */
   function calcular() {
-    const saldo     = parseFloat(document.getElementById('saldo').value)       || 0;
-    const tasaInput = parseFloat(document.getElementById('tasa').value)        || 0;
+    const saldo     = parseFloat(document.getElementById('saldo').value) || 0;
+    const tasaInput = parseFloat(document.getElementById('tasa').value) || 0;
     const pagoAct   = parseFloat(document.getElementById('pago-actual').value) || 0;
-    const minPct    = parseFloat(document.getElementById('pago-min-pct').value)|| 5;
+    const minPct    = parseFloat(document.getElementById('pago-min-pct').value) || 5;
 
-    if (saldo <= 0 || tasaInput <= 0) {
-      document.getElementById('results-section').style.display = 'none';
-      document.getElementById('empty-state').style.display = 'block';
-      return;
-    }
-
-    // Convert rate to monthly
+    // Convert rate
     let tasaMensual;
     if (tasaTipo === 'anual') {
       tasaMensual = (Math.pow(1 + tasaInput / 100, 1 / 12) - 1) * 100;
-      document.getElementById('tasa-equiv').textContent =
-        'Equivale a ' + tasaMensual.toFixed(2) + '%/mes';
+      document.getElementById('tasa-equiv').textContent = tasaInput > 0
+        ? 'Equivale a ' + tasaMensual.toFixed(2) + '%/mes'
+        : '';
     } else {
       tasaMensual = tasaInput;
       const tea = (Math.pow(1 + tasaInput / 100, 12) - 1) * 100;
-      document.getElementById('tasa-equiv').textContent =
-        'Equivale a ' + tea.toFixed(1) + '% anual (TEA)';
+      document.getElementById('tasa-equiv').textContent = tasaInput > 0
+        ? 'Equivale a ' + tea.toFixed(1) + '% anual (TEA)'
+        : '';
+    }
+
+    if (saldo <= 0 || tasaMensual <= 0) {
+      document.getElementById('visual-section').style.display = 'none';
+      document.getElementById('rc-interes-total').textContent = '$—';
+      document.getElementById('rc-tiempo-actual').textContent = 'Ingresá tu saldo y tasa para calcular';
+      document.getElementById('rc-status').textContent = '—';
+      ['rc-min-interes','rc-min-tiempo','rc-act-tiempo','rc-ext-tiempo','rc-ahorro-value'].forEach(id => {
+        document.getElementById(id).textContent = '—';
+      });
+      return;
     }
 
     const pagoMin   = saldo * (minPct / 100);
     const pagoExtra = pagoAct * 1.5;
-
     const escMin    = simular(saldo, tasaMensual, pagoMin);
     const escActual = simular(saldo, tasaMensual, pagoAct > 0 ? pagoAct : pagoMin);
     const escExtra  = simular(saldo, tasaMensual, pagoExtra > 0 ? pagoExtra : pagoMin * 2);
 
-    // Show results
-    document.getElementById('results-section').style.display = 'block';
-    document.getElementById('empty-state').style.display = 'none';
+    // Alert
+    const alertEl = document.getElementById('alert-pago');
+    if (pagoAct > 0 && escActual.infinito) {
+      alertEl.classList.add('visible');
+    } else {
+      alertEl.classList.remove('visible');
+    }
 
-    // Stat cards
-    updateCard('rc-meses-min', 'rc-interes-min', escMin, saldo, null);
-    updateCard('rc-meses-actual', 'rc-interes-actual', escActual, saldo, null);
-    const ahorroExtra = (escActual.infinito ? 0 : escActual.totalInteres) - escExtra.totalInteres;
-    updateCard('rc-meses-extra', 'rc-ahorro', escExtra, saldo, ahorroExtra);
+    // Status
+    document.getElementById('rc-status').textContent = escActual.infinito
+      ? '⚠ DEUDA INFINITA'
+      : fmtTime(escActual.meses) + ' restantes';
+
+    // Main big number
+    const interesActual = escActual.infinito ? escMin.totalInteres : escActual.totalInteres;
+    document.getElementById('rc-interes-total').textContent = fmt(interesActual);
+    flashEl('rc-interes-total');
+    document.getElementById('rc-tiempo-actual').textContent = escActual.infinito
+      ? 'La deuda nunca se liquida con este pago'
+      : 'en ' + fmtTime(escActual.meses) + ' · sobre $' + saldo.toLocaleString('es') + ' de deuda';
+
+    // Stats
+    document.getElementById('rc-min-interes').textContent = escMin.infinito ? '∞' : fmt(escMin.totalInteres);
+    document.getElementById('rc-min-tiempo').textContent  = escMin.infinito ? '∞' : fmtTime(escMin.meses);
+    document.getElementById('rc-act-tiempo').textContent  = escActual.infinito ? '∞' : fmtTime(escActual.meses);
+    document.getElementById('rc-ext-tiempo').textContent  = fmtTime(escExtra.meses);
+
+    // Savings
+    const ahorro = (escActual.infinito ? 0 : escActual.totalInteres) - escExtra.totalInteres;
+    document.getElementById('rc-ahorro-value').textContent = ahorro > 0 ? fmt(ahorro) : '$0';
+    document.getElementById('rc-ahorro-sub').textContent =
+      ahorro > 0 ? 'ahorrás vs. tu pago actual' : 'aumentá tu pago para ahorrar';
+
+    // Show visuals
+    document.getElementById('visual-section').style.display = 'block';
+
+    // Scenario cards
+    const setCard = (idM, idI, esc) => {
+      document.getElementById(idM).textContent = esc.infinito ? '∞' : fmtTime(esc.meses);
+      document.getElementById(idI).textContent = esc.infinito
+        ? 'La deuda no se liquida'
+        : fmt(esc.totalInteres) + ' en intereses';
+    };
+    setCard('sc-min-months', 'sc-min-int', escMin);
+    setCard('sc-act-months', 'sc-act-int', escActual);
+    setCard('sc-ext-months', 'sc-ext-int', escExtra);
 
     // Chart
     drawChart(escMin, escActual, escExtra, saldo);
 
-    // Table (first 24 months of actual payment)
+    // Table
     buildTable(escActual.historial.slice(0, 24));
-  }
-
-  function updateCard(idMeses, idNote, esc, saldo, ahorro) {
-    const mEl = document.getElementById(idMeses);
-    const nEl = document.getElementById(idNote);
-    if (esc.infinito) {
-      mEl.textContent = '∞';
-      nEl.textContent = 'El pago no cubre los intereses';
-      return;
-    }
-    if (esc.meses <= 0) { mEl.textContent = '—'; nEl.textContent = '—'; return; }
-
-    const años = Math.floor(esc.meses / 12);
-    const meses = esc.meses % 12;
-    let label = '';
-    if (años > 0) label += años + ' año' + (años > 1 ? 's' : '');
-    if (meses > 0) label += (años > 0 ? ' y ' : '') + meses + ' mes' + (meses > 1 ? 'es' : '');
-
-    mEl.textContent = label || esc.meses + ' meses';
-    if (ahorro != null) {
-      nEl.textContent = ahorro > 0
-        ? 'Ahorrás ' + fmt(ahorro) + ' en intereses'
-        : fmtD(esc.totalInteres) + ' en intereses';
-    } else {
-      nEl.textContent = fmtD(esc.totalInteres) + ' en intereses';
-    }
   }
 
   /* ── Canvas chart ── */
   function drawChart(escMin, escActual, escExtra, saldoMax) {
     const canvas = document.getElementById('debt-chart');
-    canvas.width  = canvas.parentElement.clientWidth - 48;
-
+    canvas.width = canvas.parentElement.clientWidth - 2;
     const ctx = canvas.getContext('2d');
-    const W = canvas.width;
-    const H = canvas.height;
-    const padL = 64, padR = 16, padT = 16, padB = 36;
-    const cW = W - padL - padR;
-    const cH = H - padT - padB;
+    const W = canvas.width, H = canvas.height;
+    const padL = 68, padR = 20, padT = 16, padB = 36;
+    const cW = W - padL - padR, cH = H - padT - padB;
 
     ctx.clearRect(0, 0, W, H);
 
-    // Grid lines
-    const gridLines = 4;
-    for (let i = 0; i <= gridLines; i++) {
-      const y = padT + cH - (i / gridLines) * cH;
+    // Grid
+    for (let i = 0; i <= 4; i++) {
+      const y = padT + cH - (i / 4) * cH;
       ctx.beginPath();
       ctx.strokeStyle = 'rgba(255,255,255,0.05)';
       ctx.lineWidth = 1;
-      ctx.moveTo(padL, y);
-      ctx.lineTo(W - padR, y);
+      ctx.moveTo(padL, y); ctx.lineTo(W - padR, y);
       ctx.stroke();
-
-      // Y labels
-      ctx.fillStyle = 'rgba(255,255,255,0.25)';
+      ctx.fillStyle = 'rgba(255,255,255,0.22)';
       ctx.font = '10px JetBrains Mono, monospace';
       ctx.textAlign = 'right';
-      const val = saldoMax * (i / gridLines);
-      ctx.fillText(fmt(val), padL - 6, y + 4);
+      ctx.fillText(fmt(saldoMax * i / 4), padL - 6, y + 4);
     }
 
-    // Max months across scenarios
-    const allMeses = [
-      escMin.infinito    ? 120 : escMin.meses,
+    const allM = [
+      escMin.infinito ? 120 : escMin.meses,
       escActual.infinito ? 120 : escActual.meses,
-      escExtra.infinito  ? 120 : escExtra.meses
+      escExtra.meses
     ].filter(m => m > 0);
-    const maxMeses = Math.max(...allMeses, 1);
+    const maxM = Math.max(...allM, 1);
 
     // X labels
-    ctx.fillStyle = 'rgba(255,255,255,0.25)';
+    ctx.fillStyle = 'rgba(255,255,255,0.22)';
     ctx.font = '10px JetBrains Mono, monospace';
     ctx.textAlign = 'center';
-    const xTicks = Math.min(Math.floor(maxMeses / 6) + 1, 8);
+    const xTicks = Math.min(Math.floor(maxM / 6) + 1, 8);
     for (let i = 0; i <= xTicks; i++) {
-      const mes = Math.round((i / xTicks) * maxMeses);
-      const x = padL + (mes / maxMeses) * cW;
-      ctx.fillText(mes + 'm', x, H - padB + 16);
+      const m = Math.round((i / xTicks) * maxM);
+      ctx.fillText(m + 'm', padL + (m / maxM) * cW, H - padB + 16);
     }
 
-    // Draw each scenario
-    const scenarios = [
-      { esc: escMin,    color: '#ef4444', fill: 'rgba(239,68,68,0.06)' },
-      { esc: escActual, color: '#2460E8', fill: 'rgba(36,96,232,0.06)' },
-      { esc: escExtra,  color: '#22C55E', fill: 'rgba(34,197,94,0.06)' },
-    ];
-
-    scenarios.forEach(({ esc, color, fill }) => {
+    // Draw scenarios
+    [
+      { esc: escMin,    color: '#ef4444', fill: 'rgba(239,68,68,0.07)' },
+      { esc: escActual, color: '#2460E8', fill: 'rgba(36,96,232,0.07)' },
+      { esc: escExtra,  color: '#22C55E', fill: 'rgba(34,197,94,0.07)' },
+    ].forEach(({ esc, color, fill }) => {
       if (!esc.historial.length) return;
-      const hist = esc.historial;
-      const mesesTotal = esc.infinito ? maxMeses : esc.meses;
+      const pts = [{ x: padL, y: padT }];
+      esc.historial.forEach(d => pts.push({
+        x: padL + (d.mes / maxM) * cW,
+        y: padT + cH - (d.saldo / saldoMax) * cH
+      }));
 
-      const pts = [{ x: padL, y: padT + 0 }]; // start at top (full debt)
-      hist.forEach(d => {
-        const x = padL + (d.mes / maxMeses) * cW;
-        const y = padT + cH - (d.saldo / saldoMax) * cH;
-        pts.push({ x, y });
-      });
-
-      // Fill
+      // Smooth bezier
       ctx.beginPath();
       ctx.moveTo(pts[0].x, padT + cH);
       pts.forEach(p => ctx.lineTo(p.x, p.y));
@@ -815,10 +1081,13 @@
       ctx.fillStyle = fill;
       ctx.fill();
 
-      // Line
       ctx.beginPath();
       ctx.moveTo(pts[0].x, pts[0].y);
-      pts.forEach(p => ctx.lineTo(p.x, p.y));
+      for (let i = 1; i < pts.length; i++) {
+        const cp = { x: (pts[i-1].x + pts[i].x) / 2, y: (pts[i-1].y + pts[i].y) / 2 };
+        ctx.quadraticCurveTo(pts[i-1].x, pts[i-1].y, cp.x, cp.y);
+      }
+      ctx.lineTo(pts[pts.length-1].x, pts[pts.length-1].y);
       ctx.strokeStyle = color;
       ctx.lineWidth = 2.5;
       ctx.lineJoin = 'round';
@@ -846,8 +1115,7 @@
   /* ── Init ── */
   calcular();
   window.addEventListener('resize', () => {
-    const res = document.getElementById('results-section');
-    if (res && res.style.display !== 'none') calcular();
+    if (document.getElementById('visual-section').style.display !== 'none') calcular();
   });
   </script>
 </body>
