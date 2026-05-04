@@ -28,188 +28,463 @@
   <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../css/styles.css">
   <style>
-  /* ── Blog Hero ── */
+  /* ══════════════════════════════════════════
+     CATEGORY TOKENS
+  ══════════════════════════════════════════ */
+  :root {
+    --c-ia:    #2460E8; --c-ia-g:    rgba(36,96,232,0.22);  --c-ia-t:    rgba(36,96,232,0.08);
+    --c-fin:   #22c55e; --c-fin-g:   rgba(34,197,94,0.22);  --c-fin-t:   rgba(34,197,94,0.08);
+    --c-sis:   #a78bfa; --c-sis-g:   rgba(167,139,250,0.22);--c-sis-t:   rgba(167,139,250,0.08);
+    --c-emp:   #f59e0b; --c-emp-g:   rgba(245,158,11,0.22); --c-emp-t:   rgba(245,158,11,0.08);
+  }
+
+  /* ══════════════════════════════════════════
+     BLOG HERO
+  ══════════════════════════════════════════ */
   .blog-hero {
-    padding: 160px 0 80px;
+    padding: 148px 0 72px;
+    position: relative;
+    border-bottom: 1px solid var(--border);
   }
   .blog-hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
     align-items: flex-end;
-    margin-bottom: 48px;
+  }
+  .blog-issue {
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .blog-issue::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--text-3);
+    opacity: 0.4;
   }
   .blog-title {
-    margin-top: 20px;
+    font-family: var(--f-display);
+    font-size: clamp(3.2rem, 6vw, 5.6rem);
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin: 0;
+  }
+  .blog-title em {
+    font-style: italic;
+    color: var(--blue-light);
+    display: block;
+  }
+  .blog-desc {
+    font-size: 1rem;
+    color: var(--text-2);
+    line-height: 1.7;
+    max-width: 400px;
+    margin-bottom: 32px;
   }
 
-  /* Filtros */
+  /* Filter bar */
   .filter-bar {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     flex-wrap: wrap;
   }
   .filter-btn {
-    padding: 8px 18px;
+    padding: 7px 16px;
     border-radius: 100px;
     border: 1px solid var(--border);
     background: transparent;
-    color: var(--text-2);
+    color: var(--text-3);
     font-family: var(--f-mono);
-    font-size: 0.68rem;
+    font-size: 0.62rem;
     font-weight: 500;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     cursor: none;
-    transition: background 0.25s, border-color 0.25s, color 0.25s;
+    transition: all 0.25s;
   }
-  .filter-btn:hover {
-    border-color: var(--border-2);
+  .filter-btn:hover { border-color: var(--border-2); color: var(--text); }
+  .filter-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .filter-btn[data-filter="ia"].active    { background: var(--c-ia); border-color: var(--c-ia); }
+  .filter-btn[data-filter="finanzas"].active { background: var(--c-fin); border-color: var(--c-fin); color: #000; }
+  .filter-btn[data-filter="sistemas"].active  { background: var(--c-sis); border-color: var(--c-sis); color: #000; }
+  .filter-btn[data-filter="emprendimiento"].active { background: var(--c-emp); border-color: var(--c-emp); color: #000; }
+
+  /* Article count */
+  .article-count {
+    font-family: var(--f-mono);
+    font-size: 0.6rem;
+    color: var(--text-3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 20px;
+  }
+  .article-count span {
+    font-size: 1.4rem;
+    font-family: var(--f-display);
+    font-weight: 700;
     color: var(--text);
-  }
-  .filter-btn.active {
-    background: var(--blue);
-    border-color: var(--blue);
-    color: #fff;
+    letter-spacing: -0.03em;
+    display: block;
+    line-height: 1;
+    margin-bottom: 4px;
   }
 
-  /* Grid artículos */
-  .articles-list {
-    margin-top: 0;
+  @media (max-width: 900px) {
+    .blog-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  /* ══════════════════════════════════════════
+     ARTICLE GRID — EDITORIAL MAGAZINE
+  ══════════════════════════════════════════ */
+  .articles-section { padding: 0 0 120px; }
+
+  .articles-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 2px;
     background: var(--border);
     border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
+    border-radius: 20px;
     overflow: hidden;
-  }
-  /* Card thumbnail */
-  .card-thumb {
-    height: 160px;
-    background-size: cover;
-    background-position: center;
-    margin: -36px -32px 20px;
-    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-  }
-  .card-thumb::after {
-    content: '';
-    position: absolute; inset: 0;
-    background: linear-gradient(to bottom, transparent 40%, rgba(6,6,8,0.7));
-  }
-  .blog-card.featured .card-thumb {
-    height: 200px;
-    margin: -48px -48px 28px;
-    grid-column: 1 / -1;
+    margin-top: 0;
   }
 
+  /* In filtered mode: uniform 3-col */
+  .articles-grid.filtered {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .articles-grid.filtered .blog-card { grid-column: span 1 !important; }
+  .articles-grid.filtered .blog-card.card-hero { height: 380px; }
+  @media (max-width: 700px) {
+    .articles-grid.filtered { grid-template-columns: 1fr; }
+  }
+
+  /* Grid span classes */
+  .card-12 { grid-column: span 12; }
+  .card-8  { grid-column: span 8; }
+  .card-6  { grid-column: span 6; }
+  .card-4  { grid-column: span 4; }
+
+  @media (max-width: 1100px) {
+    .card-8  { grid-column: span 7; }
+    .card-4  { grid-column: span 5; }
+  }
+  @media (max-width: 900px) {
+    .articles-grid { grid-template-columns: repeat(2, 1fr); }
+    .card-12, .card-8, .card-6, .card-4 { grid-column: span 2; }
+    .articles-grid:not(.filtered) .blog-card:nth-child(n+3):not(.card-12) { grid-column: span 1; }
+  }
+  @media (max-width: 600px) {
+    .articles-grid { grid-template-columns: 1fr; }
+    .card-12, .card-8, .card-6, .card-4 { grid-column: span 1; }
+  }
+
+  /* ══════════════════════════════════════════
+     BASE CARD
+  ══════════════════════════════════════════ */
   .blog-card {
     background: var(--bg);
-    padding: 36px 32px;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    transition: background 0.3s;
     text-decoration: none;
+    color: inherit;
     position: relative;
     overflow: hidden;
+    transition: background 0.3s;
   }
-  .blog-card:hover .card-thumb { transform: scale(1.03); transition: transform 0.6s var(--ease-out); }
-  .blog-card::after {
+
+  /* Image wrapper */
+  .card-img {
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  .card-img-inner {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+  .blog-card:hover .card-img-inner { transform: scale(1.05); }
+
+  /* Category glow line on hover */
+  .blog-card::before {
     content: '';
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
-    background: var(--blue);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s var(--ease-out);
+    opacity: 0;
+    transition: opacity 0.35s;
+    z-index: 10;
   }
-  .blog-card:hover { background: var(--surface); }
-  .blog-card:hover::after { transform: scaleX(1); }
+  .blog-card:hover::before { opacity: 1; }
+  .blog-card[data-cat="ia"]::before            { background: linear-gradient(90deg, transparent, var(--c-ia), transparent); }
+  .blog-card[data-cat="finanzas"]::before       { background: linear-gradient(90deg, transparent, var(--c-fin), transparent); }
+  .blog-card[data-cat="sistemas"]::before       { background: linear-gradient(90deg, transparent, var(--c-sis), transparent); }
+  .blog-card[data-cat="emprendimiento"]::before { background: linear-gradient(90deg, transparent, var(--c-emp), transparent); }
 
+  /* Hover lift + glow */
+  .blog-card:hover { background: var(--surface); }
+
+  /* Card body */
+  .card-body {
+    padding: 24px 28px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 8px;
+  }
+
+  /* Meta row */
   .card-meta {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
+    gap: 10px;
+    margin-bottom: 4px;
   }
   .read-time {
     font-family: var(--f-mono);
-    font-size: 0.63rem;
+    font-size: 0.6rem;
     color: var(--text-3);
     letter-spacing: 0.08em;
   }
+
+  /* Badges — category colored */
+  .badge {
+    font-family: var(--f-mono);
+    font-size: 0.56rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 4px;
+    border: 1px solid;
+  }
+  .badge-ia            { color: #93c5fd; background: var(--c-ia-t); border-color: rgba(36,96,232,0.3); }
+  .badge-finanzas      { color: #86efac; background: var(--c-fin-t); border-color: rgba(34,197,94,0.3); }
+  .badge-sistemas      { color: #c4b5fd; background: var(--c-sis-t); border-color: rgba(167,139,250,0.3); }
+  .badge-emp           { color: #fcd34d; background: var(--c-emp-t); border-color: rgba(245,158,11,0.3); }
+
+  /* Title */
   .blog-card h3 {
     font-family: var(--f-display);
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.28;
     color: var(--text);
-    letter-spacing: -0.015em;
+    letter-spacing: -0.018em;
+    margin: 0;
+    transition: color 0.2s;
   }
+  .blog-card:hover h3 { color: #fff; }
+
+  /* Excerpt */
   .blog-card p {
-    font-size: 0.85rem;
+    font-size: 0.82rem;
+    color: var(--text-2);
+    line-height: 1.68;
     flex: 1;
-    line-height: 1.7;
+    margin: 0;
   }
-  .blog-card .card-cta {
+
+  /* CTA */
+  .card-cta {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-family: var(--f-ui);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    color: var(--text-3);
-    margin-top: 12px;
-    transition: color 0.25s, gap 0.25s var(--ease-out);
-  }
-  .blog-card:hover .card-cta {
-    color: var(--blue-light);
-    gap: 14px;
-  }
-
-  /* Artículo destacado */
-  .blog-card.featured {
-    grid-column: span 2;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 48px;
-    align-items: flex-end;
-    padding: 48px;
-  }
-  .blog-card.featured h3 {
-    font-size: 1.5rem;
-    line-height: 1.2;
-  }
-  .blog-card.featured p { font-size: 0.9rem; }
-  .featured-num {
+    gap: 6px;
     font-family: var(--f-mono);
-    font-size: 5rem;
-    font-weight: 500;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: var(--text-3);
-    line-height: 1;
-    transition: color 0.3s;
-    align-self: flex-start;
+    margin-top: 8px;
+    transition: gap 0.25s, color 0.25s;
   }
-  .blog-card.featured:hover .featured-num { color: var(--blue); }
+  .blog-card:hover .card-cta { gap: 12px; }
+  .blog-card[data-cat="ia"]:hover            .card-cta { color: #93c5fd; }
+  .blog-card[data-cat="finanzas"]:hover      .card-cta { color: #86efac; }
+  .blog-card[data-cat="sistemas"]:hover      .card-cta { color: #c4b5fd; }
+  .blog-card[data-cat="emprendimiento"]:hover .card-cta { color: #fcd34d; }
 
-  @media (max-width: 1024px) {
-    .blog-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-    .articles-list { grid-template-columns: 1fr 1fr; }
-    .blog-card.featured { grid-column: span 2; grid-template-columns: 1fr; }
-    .featured-num { display: none; }
+  /* ══════════════════════════════════════════
+     CARD SIZES
+  ══════════════════════════════════════════ */
+
+  /* HERO — full width cinematic */
+  .card-hero {
+    min-height: 540px;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
   }
-  @media (max-width: 700px) {
-    .articles-list { grid-template-columns: 1fr; }
-    .blog-card.featured { grid-column: span 1; }
+  .card-hero .card-img {
+    position: absolute;
+    inset: 0;
+    height: 100%;
+  }
+  .card-hero .card-img-inner {
+    height: 100%;
+  }
+  .card-hero .card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(6,6,8,0.97) 0%,
+      rgba(6,6,8,0.75) 35%,
+      rgba(6,6,8,0.3)  65%,
+      rgba(6,6,8,0.05) 100%
+    );
+    z-index: 1;
+  }
+  .card-hero .card-body {
+    position: relative;
+    z-index: 2;
+    padding: 48px 52px;
+    max-width: 780px;
+    gap: 12px;
+  }
+  .card-hero h2 {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    color: #fff;
+    margin: 0;
+    transition: color 0.2s;
+  }
+  .card-hero h2 em { font-style: italic; color: #93c5fd; }
+  .card-hero p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.65);
+    max-width: 560px;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .card-hero .card-cta {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    margin-top: 12px;
+  }
+  .card-hero .article-num {
+    position: absolute;
+    top: 32px;
+    right: 48px;
+    font-family: var(--f-display);
+    font-size: 8rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.05);
+    line-height: 1;
+    z-index: 2;
+    letter-spacing: -0.06em;
+    user-select: none;
+    transition: color 0.4s;
+  }
+  .card-hero:hover .article-num { color: rgba(255,255,255,0.09); }
+
+  /* LARGE card (span 8) */
+  .card-large .card-img {
+    height: 220px;
+  }
+  .card-large .card-img-inner { height: 220px; }
+  .card-large h3 {
+    font-size: 1.35rem;
+    line-height: 1.22;
+    letter-spacing: -0.025em;
+  }
+  .card-large .card-body { padding: 28px 32px 32px; gap: 10px; }
+
+  /* MEDIUM card (span 6) */
+  .card-medium .card-img { height: 180px; }
+  .card-medium .card-img-inner { height: 180px; }
+  .card-medium h3 { font-size: 1.15rem; }
+  .card-medium .card-body { padding: 22px 26px 26px; }
+
+  /* SMALL card (span 4) */
+  .card-small .card-img { height: 150px; }
+  .card-small .card-img-inner { height: 150px; }
+  .card-small h3 { font-size: 0.98rem; line-height: 1.3; }
+  .card-small p { display: none; }
+  .card-small .card-body { padding: 18px 22px 22px; gap: 8px; }
+
+  /* Image gradient overlay on all non-hero cards */
+  .card-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 50%, rgba(6,6,8,0.5) 100%);
+    pointer-events: none;
+  }
+
+  /* Article number badge on image */
+  .card-num {
+    position: absolute;
+    bottom: 12px;
+    right: 14px;
+    font-family: var(--f-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+    z-index: 2;
+  }
+
+  /* ══════════════════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════════════════ */
+  @media (max-width: 1100px) {
+    .card-hero { min-height: 460px; }
+    .card-hero .card-body { padding: 36px 40px; }
+    .card-hero .article-num { font-size: 6rem; }
+    .card-large .card-img, .card-large .card-img-inner { height: 190px; }
+  }
+  @media (max-width: 900px) {
+    .card-small p { display: block; }
+  }
+  @media (max-width: 600px) {
+    .card-hero { min-height: 380px; }
+    .card-hero .card-body { padding: 28px 24px; }
+    .card-hero h2 { font-size: 1.8rem; }
+    .card-hero .article-num { display: none; }
+    .card-large h3, .card-medium h3 { font-size: 1.1rem; }
+  }
+
+  /* ══════════════════════════════════════════
+     SECTION DIVIDER
+  ══════════════════════════════════════════ */
+  .section-rule {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 64px 0 32px;
+    font-family: var(--f-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-3);
+  }
+  .section-rule::before, .section-rule::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
   }
   </style>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6854793053211209" crossorigin="anonymous"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6854793053211209" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -230,6 +505,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="../blog/" class="active">Blog</a></li>
+      <li><a href="../herramientas/">Herramientas</a></li>
       <li><a href="../sobre-mi.html">Sobre mí</a></li>
       <li><a href="../contacto.html">Contacto</a></li>
     </ul>
@@ -255,18 +531,22 @@
 <section class="blog-hero">
   <div class="container">
     <div class="blog-hero-grid">
-      <div>
-        <span class="label">Blog</span>
-        <h1 class="display blog-title fade-in">Ideas que<br><em>funcionan.</em></h1>
+      <div class="fade-in">
+        <div class="blog-issue">Ideas · LATAM · 2026</div>
+        <h1 class="blog-title">Ideas que<br><em>funcionan.</em></h1>
       </div>
-      <div class="fade-in d2" style="padding-bottom:8px;">
-        <p style="font-size:1rem; max-width:420px;">Artículos sobre IA aplicada, finanzas personales y sistemas de productividad. Sin hype, sin teoría vacía. Solo lo que podés aplicar esta semana.</p>
-        <div class="filter-bar" style="margin-top:32px;">
+      <div class="fade-in d2" style="padding-bottom:4px">
+        <p class="blog-desc">IA aplicada, finanzas personales y sistemas de productividad. Sin hype, sin teoría vacía. Solo lo que podés aplicar esta semana.</p>
+        <div class="filter-bar">
           <button class="filter-btn active" data-filter="all">Todos</button>
           <button class="filter-btn" data-filter="ia">IA Aplicada</button>
           <button class="filter-btn" data-filter="finanzas">Finanzas</button>
           <button class="filter-btn" data-filter="sistemas">Sistemas</button>
           <button class="filter-btn" data-filter="emprendimiento">Emprendimiento</button>
+        </div>
+        <div class="article-count">
+          <span id="visibleCount">15</span>
+          artículos publicados
         </div>
       </div>
     </div>
@@ -274,191 +554,256 @@
 </section>
 
 <!-- ══════════════════════ ARTÍCULOS ══════════════════════ -->
-<section style="padding-bottom:120px;">
+<section class="articles-section">
   <div class="container">
-    <div class="articles-list fade-in d1" id="articlesList">
+    <div class="articles-grid fade-in d1" id="articlesList">
 
-      <!-- Artículo destacado -->
-      <a href="los-3-niveles-de-ia.html" class="blog-card featured" data-cat="ia">
-        <div class="card-thumb" style="background-image:url('../img/thumb-ia.png')"></div>
-        <div>
+      <!-- ── 01 HERO full-width ── -->
+      <a href="los-3-niveles-de-ia.html" class="blog-card card-hero card-12" data-cat="ia">
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-ia.png')"></div>
+        </div>
+        <div class="card-overlay"></div>
+        <div class="article-num">01</div>
+        <div class="card-body">
           <div class="card-meta">
             <span class="badge badge-ia">IA Aplicada</span>
             <span class="read-time">6 min de lectura</span>
           </div>
-          <h3>Los 3 niveles de uso de IA que nadie te explica</h3>
+          <h2>Los 3 niveles de uso de IA<br><em>que nadie te explica</em></h2>
           <p>La mayoría usa ChatGPT para escribir emails más rápido. Eso no es IA aplicada. Eso es autocomplete caro. Hay tres niveles que marcan la diferencia entre quien realmente automatiza su trabajo y quien solo tiene una herramienta más abierta en el navegador.</p>
-          <span class="card-cta">Leer artículo completo <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+          <span class="card-cta">Leer artículo completo →</span>
         </div>
-        <div class="featured-num">01</div>
       </a>
 
-      <!-- Artículo 2 -->
-      <a href="por-que-ahorrar-no-es-estrategia.html" class="blog-card" data-cat="finanzas">
-        <div class="card-thumb" style="background-image:url('../img/thumb-finanzas.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-finanzas">Finanzas</span>
-          <span class="read-time">5 min</span>
+      <!-- ── 02 LARGE (span 8) ── -->
+      <a href="por-que-ahorrar-no-es-estrategia.html" class="blog-card card-large card-8" data-cat="finanzas">
+        <div class="card-img" style="height:220px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-finanzas.png');height:220px"></div>
+          <span class="card-num">02</span>
         </div>
-        <h3>Por qué ahorrar no es una estrategia financiera</h3>
-        <p>Te dijeron que ahorrés. Nadie te dijo en qué. Esa omisión te está costando dinero todos los meses.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-finanzas">Finanzas</span>
+            <span class="read-time">5 min</span>
+          </div>
+          <h3>Por qué ahorrar no es una estrategia financiera</h3>
+          <p>Te dijeron que ahorrés. Nadie te dijo en qué. Esa omisión te está costando dinero todos los meses sin que te des cuenta.</p>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 3 -->
-      <a href="sistema-4-pasos-habitos.html" class="blog-card" data-cat="sistemas">
-        <div class="card-thumb" style="background-image:url('../img/thumb-sistemas.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-sistemas">Sistemas</span>
-          <span class="read-time">4 min</span>
+      <!-- ── 03 SMALL (span 4) ── -->
+      <a href="sistema-4-pasos-habitos.html" class="blog-card card-small card-4" data-cat="sistemas">
+        <div class="card-img" style="height:150px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-sistemas.png');height:150px"></div>
+          <span class="card-num">03</span>
         </div>
-        <h3>El sistema de 4 pasos para instalar cualquier hábito</h3>
-        <p>No es disciplina. Es estructura. La diferencia entre quien logra lo que se propone y quien no casi nunca es motivación.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-sistemas">Sistemas</span>
+            <span class="read-time">4 min</span>
+          </div>
+          <h3>El sistema de 4 pasos para instalar cualquier hábito</h3>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 4 -->
-      <a href="lo-que-tu-banco-no-te-explica.html" class="blog-card" data-cat="finanzas">
-        <div class="card-thumb" style="background-image:url('../img/thumb-finanzas.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-finanzas">Finanzas</span>
-          <span class="read-time">5 min</span>
+      <!-- ── 04 SMALL (span 4) ── -->
+      <a href="lo-que-tu-banco-no-te-explica.html" class="blog-card card-small card-4" data-cat="finanzas">
+        <div class="card-img" style="height:150px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-finanzas.png');height:150px"></div>
+          <span class="card-num">04</span>
         </div>
-        <h3>Lo que tu banco no te explica (y que te cuesta caro)</h3>
-        <p>Tu banco no es tu enemigo. Pero tampoco es tu aliado. Es un negocio. Y los negocios ganan cuando vos no prestás atención.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-finanzas">Finanzas</span>
+            <span class="read-time">5 min</span>
+          </div>
+          <h3>Lo que tu banco no te explica (y que te cuesta caro)</h3>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 5 -->
-      <a href="uso-ia-para-mis-finanzas.html" class="blog-card" data-cat="ia">
-        <div class="card-thumb" style="background-image:url('../img/thumb-ia.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-ia">IA Aplicada</span>
-          <span class="read-time">5 min</span>
+      <!-- ── 05 SMALL (span 4) ── -->
+      <a href="uso-ia-para-mis-finanzas.html" class="blog-card card-small card-4" data-cat="ia">
+        <div class="card-img" style="height:150px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-ia.png');height:150px"></div>
+          <span class="card-num">05</span>
         </div>
-        <h3>Cómo uso IA para revisar mis finanzas personales</h3>
-        <p>El mes pasado descubrí que gastaba $127 al mes en suscripciones. Lo descubrí porque le pedí a una IA que revisara mis estados de cuenta.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-ia">IA Aplicada</span>
+            <span class="read-time">5 min</span>
+          </div>
+          <h3>Cómo uso IA para revisar mis finanzas personales</h3>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 6 -->
-      <a href="dejar-de-planear-semana-perfecta.html" class="blog-card" data-cat="sistemas">
-        <div class="card-thumb" style="background-image:url('../img/thumb-sistemas.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-sistemas">Sistemas</span>
-          <span class="read-time">4 min</span>
+      <!-- ── 06 SMALL (span 4) ── -->
+      <a href="dejar-de-planear-semana-perfecta.html" class="blog-card card-small card-4" data-cat="sistemas">
+        <div class="card-img" style="height:150px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-sistemas.png');height:150px"></div>
+          <span class="card-num">06</span>
         </div>
-        <h3>Dejá de planear la semana perfecta</h3>
-        <p>La semana perfecta siempre se rompe. Siempre. Y si tu productividad depende de que todo salga como planeaste, es frágil.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-sistemas">Sistemas</span>
+            <span class="read-time">4 min</span>
+          </div>
+          <h3>Dejá de planear la semana perfecta</h3>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 7 -->
-      <a href="cuanto-necesitas-para-empezar-a-invertir.html" class="blog-card" data-cat="finanzas">
-        <div class="card-thumb" style="background-image:url('../img/thumb-finanzas.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-finanzas">Finanzas</span>
-          <span class="read-time">6 min</span>
+      <!-- ── 07 MEDIUM (span 6) ── -->
+      <a href="cuanto-necesitas-para-empezar-a-invertir.html" class="blog-card card-medium card-6" data-cat="finanzas">
+        <div class="card-img" style="height:180px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-finanzas.png');height:180px"></div>
+          <span class="card-num">07</span>
         </div>
-        <h3>Cuánto necesitás para empezar a invertir desde LATAM</h3>
-        <p>Te dijeron que para invertir hace falta tener mucha plata. No es cierto, no para LATAM y no en 2026. Te muestro con qué cifras reales se puede arrancar.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-finanzas">Finanzas</span>
+            <span class="read-time">6 min</span>
+          </div>
+          <h3>Cuánto necesitás para empezar a invertir desde LATAM</h3>
+          <p>Te dijeron que para invertir hace falta tener mucha plata. No es cierto, no para LATAM y no en 2026.</p>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 8 -->
-      <a href="5-prompts-que-uso-cada-semana.html" class="blog-card" data-cat="ia">
-        <div class="card-thumb" style="background-image:url('../img/thumb-ia.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-ia">IA Aplicada</span>
-          <span class="read-time">5 min</span>
+      <!-- ── 08 MEDIUM (span 6) ── -->
+      <a href="5-prompts-que-uso-cada-semana.html" class="blog-card card-medium card-6" data-cat="ia">
+        <div class="card-img" style="height:180px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-ia.png');height:180px"></div>
+          <span class="card-num">08</span>
         </div>
-        <h3>Los 5 prompts que uso cada semana en mi negocio</h3>
-        <p>No son los prompts virales que ves en Twitter. Son los que uso de verdad cada semana para tomar decisiones, escribir y entender mis números.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-ia">IA Aplicada</span>
+            <span class="read-time">5 min</span>
+          </div>
+          <h3>Los 5 prompts que uso cada semana en mi negocio</h3>
+          <p>No son los prompts virales que ves en Twitter. Son los que uso de verdad cada semana para tomar decisiones.</p>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 9 -->
-      <a href="como-crear-un-negocio-con-ia.html" class="blog-card" data-cat="emprendimiento">
-        <div class="card-thumb" style="background-image:url('../img/thumb-ia.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-emp">Emprendimiento</span>
-          <span class="read-time">7 min</span>
+      <!-- ── 09 SMALL (span 4) ── -->
+      <a href="como-crear-un-negocio-con-ia.html" class="blog-card card-small card-4" data-cat="emprendimiento">
+        <div class="card-img" style="height:150px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-ia.png');height:150px"></div>
+          <span class="card-num">09</span>
         </div>
-        <h3>Cómo crear un negocio con IA sin saber programar</h3>
-        <p>Construí mi primer producto digital en 11 días. Sin código, sin equipo, sin inversión inicial significativa. El proceso real, en orden, con lo que salió mal.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-emp">Emprendimiento</span>
+            <span class="read-time">7 min</span>
+          </div>
+          <h3>Cómo crear un negocio con IA sin saber programar</h3>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 10 -->
-      <a href="fondo-de-emergencia-cuanto-necesitas.html" class="blog-card" data-cat="finanzas">
-        <div class="card-thumb" style="background-image:url('../img/thumb-finanzas.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-finanzas">Finanzas</span>
-          <span class="read-time">6 min</span>
+      <!-- ── 10 SMALL (span 4) ── -->
+      <a href="fondo-de-emergencia-cuanto-necesitas.html" class="blog-card card-small card-4" data-cat="finanzas">
+        <div class="card-img" style="height:150px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-finanzas.png');height:150px"></div>
+          <span class="card-num">10</span>
         </div>
-        <h3>Fondo de emergencia: cuánto necesitás realmente</h3>
-        <p>Te dijeron que necesitás 6 meses de gastos ahorrados. Ese número no viene de ningún análisis de tu situación. Cómo calcularlo bien según tu contexto real.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-finanzas">Finanzas</span>
+            <span class="read-time">6 min</span>
+          </div>
+          <h3>Fondo de emergencia: cuánto necesitás realmente</h3>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 11 -->
-      <a href="que-trabajos-va-a-reemplazar-la-ia.html" class="blog-card" data-cat="ia">
-        <div class="card-thumb" style="background-image:url('../img/thumb-ia.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-ia">IA Aplicada</span>
-          <span class="read-time">8 min</span>
+      <!-- ── 11 SMALL (span 4) ── -->
+      <a href="que-trabajos-va-a-reemplazar-la-ia.html" class="blog-card card-small card-4" data-cat="ia">
+        <div class="card-img" style="height:150px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-ia.png');height:150px"></div>
+          <span class="card-num">11</span>
         </div>
-        <h3>Qué trabajos va a reemplazar la IA (y cuáles no)</h3>
-        <p>Esta pregunta dejó de ser filosófica. Ya hay empresas que redujeron headcount citando IA. Un análisis sin alarmismo pero sin anestesia.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-ia">IA Aplicada</span>
+            <span class="read-time">8 min</span>
+          </div>
+          <h3>Qué trabajos va a reemplazar la IA (y cuáles no)</h3>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 12 -->
-      <a href="como-negociar-tu-salario.html" class="blog-card" data-cat="emprendimiento">
-        <div class="card-thumb" style="background-image:url('../img/thumb-sistemas.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-emp">Emprendimiento</span>
-          <span class="read-time">6 min</span>
+      <!-- ── 12 SMALL (span 4) ── -->
+      <a href="como-negociar-tu-salario.html" class="blog-card card-small card-4" data-cat="emprendimiento">
+        <div class="card-img" style="height:150px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-sistemas.png');height:150px"></div>
+          <span class="card-num">12</span>
         </div>
-        <h3>Cómo negociar tu salario (y no morir en el intento)</h3>
-        <p>La mayoría acepta la primera oferta. Ese solo error puede costarles entre $50,000 y $200,000 a lo largo de una carrera. Cómo hacerlo bien.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-emp">Emprendimiento</span>
+            <span class="read-time">6 min</span>
+          </div>
+          <h3>Cómo negociar tu salario (y no morir en el intento)</h3>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 13 -->
-      <a href="herramientas-ia-que-uso-en-2026.html" class="blog-card" data-cat="ia">
-        <div class="card-thumb" style="background-image:url('../img/thumb-ia.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-ia">IA Aplicada</span>
-          <span class="read-time">5 min</span>
+      <!-- ── 13 LARGE (span 8) ── -->
+      <a href="herramientas-ia-que-uso-en-2026.html" class="blog-card card-large card-8" data-cat="ia">
+        <div class="card-img" style="height:220px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-ia.png');height:220px"></div>
+          <span class="card-num">13</span>
         </div>
-        <h3>Las herramientas de IA que más uso en 2026</h3>
-        <p>Mi stack real: lo que sigo usando 6 meses después de haberlo adoptado. Sin afiliados, sin hype. Solo lo que está en mi flujo de trabajo real.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-ia">IA Aplicada</span>
+            <span class="read-time">5 min</span>
+          </div>
+          <h3>Las herramientas de IA que más uso en 2026</h3>
+          <p>Mi stack real: lo que sigo usando 6 meses después de haberlo adoptado. Sin afiliados, sin hype. Solo lo que está en mi flujo de trabajo real.</p>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 14 -->
-      <a href="deep-work-para-emprendedores.html" class="blog-card" data-cat="sistemas">
-        <div class="card-thumb" style="background-image:url('../img/thumb-sistemas.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-sistemas">Sistemas</span>
-          <span class="read-time">6 min</span>
+      <!-- ── 14 MEDIUM (span 6) ── -->
+      <a href="deep-work-para-emprendedores.html" class="blog-card card-medium card-6" data-cat="sistemas">
+        <div class="card-img" style="height:180px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-sistemas.png');height:180px"></div>
+          <span class="card-num">14</span>
         </div>
-        <h3>Trabajo profundo para emprendedores con agenda rota</h3>
-        <p>El deep work asume que tenés bloques de 4 horas libres. La mayoría de emprendedores no tiene eso. Cómo aplicar el principio igual.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-sistemas">Sistemas</span>
+            <span class="read-time">6 min</span>
+          </div>
+          <h3>Trabajo profundo para emprendedores con agenda rota</h3>
+          <p>El deep work asume que tenés bloques de 4 horas libres. La mayoría de emprendedores no tiene eso.</p>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
-      <!-- Artículo 15 -->
-      <a href="como-construir-marca-personal-en-2026.html" class="blog-card" data-cat="emprendimiento">
-        <div class="card-thumb" style="background-image:url('../img/thumb-sistemas.png')"></div>
-        <div class="card-meta">
-          <span class="badge badge-emp">Emprendimiento</span>
-          <span class="read-time">7 min</span>
+      <!-- ── 15 MEDIUM (span 6) ── -->
+      <a href="como-construir-marca-personal-en-2026.html" class="blog-card card-medium card-6" data-cat="emprendimiento">
+        <div class="card-img" style="height:180px">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-sistemas.png');height:180px"></div>
+          <span class="card-num">15</span>
         </div>
-        <h3>Cómo construir tu marca personal en 2026</h3>
-        <p>La mayoría empieza eligiendo colores y comprando un dominio. Eso es el último paso, no el primero. Lo que va antes es más difícil y más importante.</p>
-        <span class="card-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-emp">Emprendimiento</span>
+            <span class="read-time">7 min</span>
+          </div>
+          <h3>Cómo construir tu marca personal en 2026</h3>
+          <p>La mayoría empieza eligiendo colores y comprando un dominio. Eso es el último paso, no el primero.</p>
+          <span class="card-cta">Leer →</span>
+        </div>
       </a>
 
     </div>
@@ -499,18 +844,30 @@
 
 <script src="../js/main.js"></script>
 <script>
-  // Filtro de categorías
   const filterBtns = document.querySelectorAll('.filter-btn');
   const cards = document.querySelectorAll('.blog-card');
+  const grid = document.getElementById('articlesList');
+  const countEl = document.getElementById('visibleCount');
+
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       const filter = btn.dataset.filter;
+
+      if (filter === 'all') {
+        grid.classList.remove('filtered');
+      } else {
+        grid.classList.add('filtered');
+      }
+
+      let visible = 0;
       cards.forEach(card => {
         const show = filter === 'all' || card.dataset.cat === filter;
         card.style.display = show ? '' : 'none';
+        if (show) visible++;
       });
+      if (countEl) countEl.textContent = visible;
     });
   });
 </script>
