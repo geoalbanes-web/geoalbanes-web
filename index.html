@@ -52,20 +52,19 @@
       overflow: hidden;
     }
     .hero-bg-img {
-      position: absolute; inset: 0;
-      background-image: url('img/hero-bg-cinematic.png');
-      background-size: cover;
-      background-position: center 30%;
-      opacity: 0.18;
-      z-index: 0;
+      display: none;
     }
     #neural-canvas {
+      display: none;
+    }
+    #hero-video {
       position: absolute;
       inset: 0;
       width: 100%;
       height: 100%;
+      object-fit: cover;
       z-index: 0;
-      opacity: 0.85;
+      opacity: 0.92;
     }
     .hero-fade-top {
       position: absolute;
@@ -609,8 +608,7 @@
 
   <!-- ══════════════════════ HERO ══════════════════════ -->
   <section class="hero" id="hero">
-    <div class="hero-bg-img"></div>
-    <canvas id="neural-canvas"></canvas>
+    <video id="hero-video" autoplay muted loop playsinline src="img/hero-neural-cosmos.mp4"></video>
     <div class="hero-fade-top"></div>
     <div class="hero-fade-bottom"></div>
     <div class="container">
