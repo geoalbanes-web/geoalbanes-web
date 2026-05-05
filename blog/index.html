@@ -411,9 +411,10 @@
 
   /* LARGE card (span 8) */
   .card-large .card-img {
-    height: 220px;
+    aspect-ratio: 16/9;
+    height: auto;
   }
-  .card-large .card-img-inner { height: 220px; }
+  .card-large .card-img-inner { height: 100%; }
   .card-large h3 {
     font-size: 1.35rem;
     line-height: 1.22;
@@ -422,14 +423,14 @@
   .card-large .card-body { padding: 28px 32px 32px; gap: 10px; }
 
   /* MEDIUM card (span 6) */
-  .card-medium .card-img { height: 180px; }
-  .card-medium .card-img-inner { height: 180px; }
+  .card-medium .card-img { aspect-ratio: 16/9; height: auto; }
+  .card-medium .card-img-inner { height: 100%; }
   .card-medium h3 { font-size: 1.15rem; }
   .card-medium .card-body { padding: 22px 26px 26px; }
 
   /* SMALL card (span 4) */
-  .card-small .card-img { height: 150px; }
-  .card-small .card-img-inner { height: 150px; }
+  .card-small .card-img { aspect-ratio: 16/9; height: auto; }
+  .card-small .card-img-inner { height: 100%; }
   .card-small h3 { font-size: 0.98rem; line-height: 1.3; }
   .card-small p { display: none; }
   .card-small .card-body { padding: 18px 22px 22px; gap: 8px; }
@@ -462,7 +463,7 @@
     .card-hero { min-height: 460px; }
     .card-hero .card-body { padding: 36px 40px; }
     .card-hero .article-num { font-size: 6rem; }
-    .card-large .card-img, .card-large .card-img-inner { height: 190px; }
+    .card-large .card-img { aspect-ratio: 16/9; height: auto; }
   }
   @media (max-width: 900px) {
     .card-small p { display: block; }
@@ -590,8 +591,8 @@
 
       <!-- ── 02 LARGE (span 8) ── -->
       <a href="por-que-ahorrar-no-es-estrategia.html" class="blog-card card-large card-8" data-cat="finanzas">
-        <div class="card-img" style="height:220px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-02-ahorrar.png');height:220px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-02-ahorrar.png')"></div>
           <span class="card-num">02</span>
         </div>
         <div class="card-body">
@@ -607,8 +608,8 @@
 
       <!-- ── 03 SMALL (span 4) ── -->
       <a href="sistema-4-pasos-habitos.html" class="blog-card card-small card-4" data-cat="sistemas">
-        <div class="card-img" style="height:150px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-03-habitos.png');height:150px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-03-habitos.png')"></div>
           <span class="card-num">03</span>
         </div>
         <div class="card-body">
@@ -623,8 +624,8 @@
 
       <!-- ── 04 SMALL (span 4) ── -->
       <a href="lo-que-tu-banco-no-te-explica.html" class="blog-card card-small card-4" data-cat="finanzas">
-        <div class="card-img" style="height:150px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-04-banco.png');height:150px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-04-banco.png')"></div>
           <span class="card-num">04</span>
         </div>
         <div class="card-body">
@@ -639,8 +640,8 @@
 
       <!-- ── 05 SMALL (span 4) ── -->
       <a href="uso-ia-para-mis-finanzas.html" class="blog-card card-small card-4" data-cat="ia">
-        <div class="card-img" style="height:150px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-05-ia-finanzas.png');height:150px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-05-ia-finanzas.png')"></div>
           <span class="card-num">05</span>
         </div>
         <div class="card-body">
@@ -655,7 +656,7 @@
 
       <!-- ── 06 SMALL (span 4) ── -->
       <a href="dejar-de-planear-semana-perfecta.html" class="blog-card card-small card-4" data-cat="sistemas">
-        <div class="card-img" style="height:150px">
+        <div class="card-img">
           <video class="card-video" autoplay muted loop playsinline>
             <source src="../img/videos/thumb-06-semana-perfecta.mp4" type="video/mp4">
           </video>
@@ -673,8 +674,8 @@
 
       <!-- ── 07 MEDIUM (span 6) ── -->
       <a href="cuanto-necesitas-para-empezar-a-invertir.html" class="blog-card card-medium card-6" data-cat="finanzas">
-        <div class="card-img" style="height:180px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-07-invertir.png');height:180px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-07-invertir.png')"></div>
           <span class="card-num">07</span>
         </div>
         <div class="card-body">
@@ -690,8 +691,8 @@
 
       <!-- ── 08 MEDIUM (span 6) ── -->
       <a href="5-prompts-que-uso-cada-semana.html" class="blog-card card-medium card-6" data-cat="ia">
-        <div class="card-img" style="height:180px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-08-prompts.png');height:180px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-08-prompts.png')"></div>
           <span class="card-num">08</span>
         </div>
         <div class="card-body">
@@ -707,8 +708,8 @@
 
       <!-- ── 09 SMALL (span 4) ── -->
       <a href="como-crear-un-negocio-con-ia.html" class="blog-card card-small card-4" data-cat="emprendimiento">
-        <div class="card-img" style="height:150px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-09-negocio-ia.png');height:150px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-09-negocio-ia.png')"></div>
           <span class="card-num">09</span>
         </div>
         <div class="card-body">
@@ -723,8 +724,8 @@
 
       <!-- ── 10 SMALL (span 4) ── -->
       <a href="fondo-de-emergencia-cuanto-necesitas.html" class="blog-card card-small card-4" data-cat="finanzas">
-        <div class="card-img" style="height:150px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-10-fondo-emergencia.png');height:150px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-10-fondo-emergencia.png')"></div>
           <span class="card-num">10</span>
         </div>
         <div class="card-body">
@@ -739,8 +740,8 @@
 
       <!-- ── 11 SMALL (span 4) ── -->
       <a href="que-trabajos-va-a-reemplazar-la-ia.html" class="blog-card card-small card-4" data-cat="ia">
-        <div class="card-img" style="height:150px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-11-trabajos-ia.png');height:150px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-11-trabajos-ia.png')"></div>
           <span class="card-num">11</span>
         </div>
         <div class="card-body">
@@ -755,7 +756,7 @@
 
       <!-- ── 12 SMALL (span 4) ── -->
       <a href="como-negociar-tu-salario.html" class="blog-card card-small card-4" data-cat="emprendimiento">
-        <div class="card-img" style="height:150px">
+        <div class="card-img">
           <video class="card-video" autoplay muted loop playsinline>
             <source src="../img/videos/thumb-12-salario.mp4" type="video/mp4">
           </video>
@@ -773,8 +774,8 @@
 
       <!-- ── 13 LARGE (span 8) ── -->
       <a href="herramientas-ia-que-uso-en-2026.html" class="blog-card card-large card-8" data-cat="ia">
-        <div class="card-img" style="height:220px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-13-herramientas-ia.png');height:220px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-13-herramientas-ia.png')"></div>
           <span class="card-num">13</span>
         </div>
         <div class="card-body">
@@ -790,7 +791,7 @@
 
       <!-- ── 14 MEDIUM (span 6) ── -->
       <a href="deep-work-para-emprendedores.html" class="blog-card card-medium card-6" data-cat="sistemas">
-        <div class="card-img" style="height:180px">
+        <div class="card-img">
           <video class="card-video" autoplay muted loop playsinline>
             <source src="../img/videos/thumb-14-deep-work.mp4" type="video/mp4">
           </video>
@@ -809,8 +810,8 @@
 
       <!-- ── 15 MEDIUM (span 6) ── -->
       <a href="como-construir-marca-personal-en-2026.html" class="blog-card card-medium card-6" data-cat="emprendimiento">
-        <div class="card-img" style="height:180px">
-          <div class="card-img-inner" style="background-image:url('../img/thumb-15-marca-personal.png');height:180px"></div>
+        <div class="card-img">
+          <div class="card-img-inner" style="background-image:url('../img/thumb-15-marca-personal.png')"></div>
           <span class="card-num">15</span>
         </div>
         <div class="card-body">
