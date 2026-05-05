@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQMHTTEQJ"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-MPQMHTTEQJ');
+    </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentes de IA: qué son y cómo automatizar tu negocio hoy — Geo Albanés</title>
+  <meta name="description" content="Los agentes de IA son la herramienta que más va a cambiar cómo trabajamos en 2026. Te explico qué son, cómo funcionan y cómo empezar sin ser técnico.">
+  <meta name="author" content="Geo Albanés">
+  <meta property="og:title" content="Agentes de IA: qué son y cómo automatizar tu negocio hoy">
+  <meta property="og:description" content="Los agentes de IA son la herramienta que más va a cambiar cómo trabajamos en 2026. Guía práctica para emprendedores LATAM.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://geoalbanes.com/blog/agentes-de-ia-para-tu-negocio.html">
+  <meta property="og:image" content="https://geoalbanes.com/img/og-home.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:image" content="https://geoalbanes.com/img/og-home.png">
+  <meta name="theme-color" content="#060608">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://geoalbanes.com/blog/agentes-de-ia-para-tu-negocio.html">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <link rel="apple-touch-icon" href="../img/favicon-512.png">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Agentes de IA: qué son y cómo automatizar tu negocio hoy",
+    "image": "https://geoalbanes.com/img/og-home.png",
+    "author": { "@type": "Person", "name": "Geo Albanés", "url": "https://geoalbanes.com/sobre-mi.html" },
+    "publisher": { "@type": "Organization", "name": "Geo Albanés", "logo": { "@type": "ImageObject", "url": "https://geoalbanes.com/img/favicon-512.png" } },
+    "datePublished": "2026-05-05",
+    "dateModified": "2026-05-05",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geoalbanes.com/blog/agentes-de-ia-para-tu-negocio.html" },
+    "description": "Los agentes de IA son la herramienta que más va a cambiar cómo trabajamos en 2026. Guía práctica para emprendedores LATAM."
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://geoalbanes.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://geoalbanes.com/blog/" },
+      { "@type": "ListItem", "position": 3, "name": "Agentes de IA: qué son y cómo automatizar tu negocio hoy" }
+    ]
+  }
+  </script>
+  <style>
+  /* ── Article Layout ── */
+  .article-hero {
+    padding: 160px 0 60px;
+  }
+  .article-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--f-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 40px;
+    transition: color 0.2s, gap 0.25s var(--ease-out);
+  }
+  .article-back:hover { color: var(--text-2); gap: 12px; }
+  .article-headline {
+    font-family: var(--f-display);
+    font-size: clamp(2rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: var(--text);
+    max-width: 820px;
+    margin: 20px 0 24px;
+  }
+  .article-lead {
+    font-size: 1.12rem;
+    max-width: 640px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+  }
+  .article-byline {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    max-width: 460px;
+  }
+  .article-byline img {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    object-fit: cover;
+    object-position: center top;
+    flex-shrink: 0;
+  }
+  .byline-name {
+    font-family: var(--f-ui);
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.2;
+  }
+  .byline-meta {
+    font-family: var(--f-mono);
+    font-size: 0.63rem;
+    color: var(--text-3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 4px;
+  }
+
+  /* Layout */
+  .article-layout {
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    gap: 64px;
+    align-items: start;
+    padding-bottom: 120px;
+  }
+  .article-content { min-width: 0; }
+
+  /* Level cards */
+  .level-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin: 36px 0;
+    position: relative;
+    transition: border-color 0.3s;
+  }
+  .level-card:hover { border-color: var(--border-2); }
+  .level-card.active {
+    border-color: var(--blue);
+    background: var(--blue-dim);
+  }
+  .level-num {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    color: var(--text-3);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .level-card.active .level-num { color: var(--blue-light); }
+  .level-card h3 {
+    font-family: var(--f-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: -0.015em;
+    margin-bottom: 12px;
+  }
+  .level-card p { font-size: 0.92rem; }
+  .level-card strong { color: var(--text); }
+
+  /* Article body overrides */
+  .article-content blockquote {
+    border-left: 2px solid var(--blue);
+    padding: 20px 28px;
+    margin: 36px 0;
+    background: var(--surface);
+    border-radius: 0 var(--radius) var(--radius) 0;
+  }
+  .article-content blockquote p { color: var(--text); font-style: italic; margin: 0; }
+  .article-content h2 {
+    font-family: var(--f-display);
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 56px 0 16px;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+  .article-content p { font-size: 1rem; line-height: 1.85; margin-bottom: 20px; }
+  .article-content strong { color: var(--text); font-weight: 600; }
+  .article-content em { font-style: italic; }
+  .article-content hr { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
+
+  /* Share / CTA box */
+  .article-cta {
+    margin-top: 56px;
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .article-cta p { margin-bottom: 12px; }
+  .article-cta a { color: var(--blue-light); text-decoration: underline; text-underline-offset: 3px; }
+  .article-cta strong { color: var(--text); }
+
+  /* Related */
+  .related-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 20px;
+  }
+  .related-card {
+    background: var(--bg);
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background 0.3s;
+    text-decoration: none;
+  }
+  .related-card:hover { background: var(--surface); }
+  .related-card h4 {
+    font-family: var(--f-display);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.3;
+  }
+  .related-card .rc-cta {
+    font-family: var(--f-ui);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-3);
+    margin-top: auto;
+    transition: color 0.25s;
+  }
+  .related-card:hover .rc-cta { color: var(--blue-light); }
+
+  /* Sidebar */
+  .article-sidebar {
+    position: sticky;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .sidebar-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+  }
+  .sidebar-box h5 {
+    font-family: var(--f-mono);
+    font-size: 0.63rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-3);
+    margin-bottom: 16px;
+  }
+  .sidebar-toc a {
+    display: block;
+    font-size: 0.84rem;
+    color: var(--text-2);
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border);
+    transition: color 0.2s;
+  }
+  .sidebar-toc a:last-child { border-bottom: none; }
+  .sidebar-toc a:hover { color: var(--text); }
+  .sidebar-author img {
+    width: 52px; height: 52px;
+    border-radius: 50%;
+    border: 2px solid var(--blue);
+    object-fit: cover;
+    object-position: center top;
+    margin-bottom: 12px;
+  }
+  .sidebar-author p { font-size: 0.82rem; margin-bottom: 16px; }
+  .sidebar-adsense {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-lg);
+  }
+  .sidebar-adsense span {
+    font-family: var(--f-mono);
+    font-size: 0.65rem;
+    color: var(--text-3);
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 900px) {
+    .article-layout { grid-template-columns: 1fr; }
+    .article-sidebar { display: none; }
+    .related-grid { grid-template-columns: 1fr; }
+  }
+  </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6854793053211209" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div id="cursor"></div>
+
+<!-- Ambient Orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ══════════════════════ NAV ══════════════════════ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="../" class="nav-logo">
+      <div class="mark">GA</div>
+      Geo Albanés
+    </a>
+    <ul class="nav-links">
+      <li><a href="../blog/" class="active">Blog</a></li>
+      <li><a href="../sobre-mi.html">Sobre mí</a></li>
+      <li><a href="../contacto.html">Contacto</a></li>
+    </ul>
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      IA Aplicada
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" id="closeMenu"><svg width="24" height="24" stroke="currentColor"><use href="../img/icons.svg#icon-close"/></svg></button>
+  <a href="../">Inicio</a>
+  <a href="../blog/">Blog</a>
+  <a href="../sobre-mi.html">Sobre mí</a>
+  <a href="../contacto.html">Contacto</a>
+</div>
+
+<!-- ══════════════════════ ARTICLE HERO ══════════════════════ -->
+<header class="article-hero">
+  <div class="container">
+    <a href="../blog/" class="article-back">← Volver al blog</a>
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+      <span class="badge badge-ia">IA Aplicada</span>
+      <span style="font-family:var(--f-mono);font-size:0.63rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;">7 min · 5 Mayo 2026</span>
+    </div>
+    <h1 class="article-headline">Agentes de IA: qué son y cómo automatizar tu negocio hoy</h1>
+    <p class="article-lead">Ya no es solo generarle texto a un modelo. Los agentes de IA toman decisiones, usan herramientas y ejecutan tareas completas sin que vos estés mirando. Acá te explico cómo funciona esto en la práctica y qué podés hacer con ello desde hoy.</p>
+    <div class="article-byline">
+      <img src="../img/geo-azul.webp" alt="Geo Albanés">
+      <div>
+        <div class="byline-name">Geo Albanés</div>
+        <div class="byline-meta">IA aplicada · El Salvador · LATAM</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════ ARTICLE BODY ══════════════════════ -->
+<div class="container">
+  <div class="article-layout">
+    <!-- Contenido principal -->
+    <article class="article-content">
+
+      <p>Hace unos meses le pedí a un agente de IA que revisara los correos de una carpeta específica, identificara cuáles eran consultas de clientes potenciales y me armara un resumen con los puntos clave de cada uno. Lo dejé corriendo antes de almorzar. Cuando volví, el resumen estaba listo.</p>
+
+      <p>Ninguna parte de eso fue magia. Fue un agente conectado a mi correo con instrucciones claras. Pero hace dos años eso requería contratar a alguien o construir algo técnico. Hoy lo hace un modelo de lenguaje con las herramientas correctas.</p>
+
+      <p>Eso es lo que está pasando en 2026 con los agentes de IA. Y si todavía no los estás usando, este artículo es para vos.</p>
+
+      <h2>Qué es un agente de IA, en términos simples</h2>
+
+      <p>Un modelo de lenguaje como ChatGPT responde preguntas. Vos escribís, él responde. Eso es todo.</p>
+
+      <p>Un agente es diferente. Tiene un objetivo, tiene herramientas (acceso a tu correo, a un calendario, a una base de datos, a internet) y toma decisiones en el camino para cumplir ese objetivo sin que vos tengas que guiar cada paso.</p>
+
+      <p>La diferencia en la práctica: le decís "analizá las ventas del mes y mandame un resumen el lunes a las 9am" y lo hace. No le tenés que preguntar cada parte por separado ni copiar resultados de un lado al otro.</p>
+
+      <blockquote>
+        <p>Un agente no solo responde — planifica, actúa y ajusta. La diferencia entre una herramienta y un colaborador.</p>
+      </blockquote>
+
+      <h2>Por qué 2026 es el año en que esto se vuelve práctico</h2>
+
+      <p>Los agentes de IA no son nuevos. Llevan años en los laboratorios de investigación. Lo que cambió es la accesibilidad. Hoy existen plataformas que te permiten armar agentes sin escribir una línea de código, con plantillas, interfaces visuales y conectores a las herramientas que ya usás.</p>
+
+      <p>El 99% de startups en LATAM ya usa IA en alguna parte de su operación. Pero la mayoría la usa como un asistente de texto. Los que están un paso adelante la están usando como fuerza de trabajo autónoma para tareas repetitivas y de análisis.</p>
+
+      <p>La brecha entre estos dos grupos va a crecer. Y se va a notar en los resultados.</p>
+
+      <h2>Tres casos de uso reales para emprendedores LATAM</h2>
+
+      <div class="level-card">
+        <div class="level-num">Caso 01 — Atención al cliente</div>
+        <h3>Primer filtro automatizado</h3>
+        <p>Un agente conectado a tu canal de mensajes (WhatsApp Business, email, Instagram DMs) puede responder preguntas frecuentes, calificar si la consulta es urgente y escalar solo las que realmente necesitan tu atención. No reemplaza la relación con el cliente. Filtra el ruido para que vos inviertas tiempo solo donde importa.</p>
+        <p style="margin-top:12px;"><strong>Herramientas para empezar:</strong> Make (antes Integromat) + cualquier modelo de lenguaje vía API. Tiempo de setup: medio día si ya tenés tus respuestas frecuentes escritas.</p>
+      </div>
+
+      <div class="level-card active">
+        <div class="level-num">Caso 02 — Investigación de mercado</div>
+        <h3>Inteligencia competitiva en automatico</h3>
+        <p>Le configurás un agente que revise semanalmente qué está publicando tu competencia, qué temas están siendo tendencia en tu nicho y qué preguntas está haciendo tu audiencia en foros y redes. El agente te manda un reporte cada lunes. Vos llegás a la semana con contexto sin haber invertido horas en investigar.</p>
+        <p style="margin-top:12px;"><strong>Por qué funciona:</strong> la investigación de mercado constante es una de las cosas que más se pospone porque "lleva mucho tiempo". Un agente la vuelve sistemática sin depender de tu energía.</p>
+      </div>
+
+      <div class="level-card">
+        <div class="level-num">Caso 03 — Administración financiera</div>
+        <h3>Revisión mensual sin excel manual</h3>
+        <p>Conectás tu hoja de gastos o tu sistema de facturación al agente, le definís qué métricas te importan (margen por cliente, categorías de gasto, tendencias) y cada fin de mes te manda un análisis con los números y observaciones. Nada de pasar horas mirando tablas.</p>
+        <p style="margin-top:12px;"><strong>El impacto real:</strong> cuando la revisión financiera deja de ser un evento doloroso y se vuelve algo que ya llegó procesado, tomás mejores decisiones más seguido. La frecuencia importa.</p>
+      </div>
+
+      <h2>Las herramientas más accesibles para empezar hoy</h2>
+
+      <p>No necesitás saber programar para armar un agente básico. Estas plataformas tienen interfaces visuales y plantillas que te dan una base lista:</p>
+
+      <p><strong>Make (make.com):</strong> el más flexible para conectar apps que ya usás. Podés hacer flujos entre tu correo, tu CRM, tus hojas de cálculo y un modelo de IA sin código. El plan gratuito alcanza para probar bien antes de pagar.</p>
+
+      <p><strong>n8n:</strong> similar a Make pero de código abierto. Si tenés alguien técnico en el equipo o querés más control, es la opción. También tiene plan gratuito en la nube.</p>
+
+      <p><strong>Zapier + AI by Zapier:</strong> más fácil de usar, menos flexible. Ideal si ya usás Zapier y querés agregarle una capa de inteligencia a los flujos que tenés.</p>
+
+      <p><strong>Claude Projects / GPT-s con acceso a herramientas:</strong> si el caso de uso es más de análisis y menos de automatización entre apps, un proyecto bien configurado en Claude o un GPT con acceso a archivos ya es un agente básico que funciona.</p>
+
+      <h2>Lo que los agentes no pueden hacer (todavía)</h2>
+
+      <p>Con todo el entusiasmo alrededor del tema, conviene ser honesto sobre los límites actuales.</p>
+
+      <p>Los agentes se equivocan. Toman decisiones basadas en lo que entienden de las instrucciones que les diste, y eso no siempre coincide con lo que vos tenías en mente. Para tareas donde un error tiene consecuencias grandes (enviar un contrato, aprobar un pago), todavía necesitás revisión humana antes de que el agente ejecute.</p>
+
+      <p>El 57% de los fundadores de startups LATAM identifican la imprecisión de la IA como un riesgo real en sus operaciones. No para no usarla, sino para diseñar los flujos con eso en mente: el agente prepara, vos aprobás.</p>
+
+      <p>También dependen de la calidad de las instrucciones que les des. Un agente mal instruido hace mal su trabajo con mucha consistencia. La inversión de tiempo real está en pensar bien qué querés que haga y cómo lo querés medir.</p>
+
+      <h2>Por dónde empezar esta semana</h2>
+
+      <p>No hagas un plan de automatización de 6 meses. Buscá una tarea que hoy te lleva tiempo repetitivo y que podría resolverse con una regla más un modelo de lenguaje. Algo específico, con entrada y salida claras.</p>
+
+      <p>Esa es tu primer agente. Hacelo funcionar, medí cuánto tiempo te ahorra, entendé dónde falla. Después expandís.</p>
+
+      <p>La mayoría no empieza porque espera el caso de uso perfecto. El caso de uso perfecto lo encontrás usándolos, no pensándolos.</p>
+
+      <hr>
+
+      <p><strong>¿Ya estás usando algún agente o automatización en tu negocio? ¿Qué tarea automatizarías primero si empezaras hoy?</strong></p>
+
+      <!-- Tags -->
+      <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:36px;">
+        <span class="badge badge-ia">IA Aplicada</span>
+        <span class="badge badge-sistemas">Sistemas</span>
+      </div>
+
+      <!-- CTA -->
+      <div class="article-cta">
+        <p><strong>¿Te fue útil este artículo?</strong></p>
+        <p>Compartilo con alguien que tenga una tarea repetitiva que le consume tiempo. Y si querés más contenido como este, seguime en <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank">LinkedIn</a> o <a href="https://www.instagram.com/geoalbanes/" target="_blank">Instagram</a>.</p>
+      </div>
+
+      <!-- Artículos relacionados -->
+      <div style="margin-top:60px;">
+        <p class="sec-num" style="margin-bottom:16px;">— Seguí leyendo</p>
+        <div class="related-grid">
+          <a href="los-3-niveles-de-ia.html" class="related-card">
+            <span class="badge badge-ia">IA Aplicada</span>
+            <h4>Los 3 niveles de uso de IA que nadie te explica</h4>
+            <span class="rc-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+          </a>
+          <a href="5-prompts-que-uso-cada-semana.html" class="related-card">
+            <span class="badge badge-ia">IA Aplicada</span>
+            <h4>5 prompts que uso cada semana (y por qué funcionan)</h4>
+            <span class="rc-cta">Leer <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-arrow"/></svg></span>
+          </a>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="article-sidebar">
+      <div class="sidebar-box sidebar-toc">
+        <h5>En este artículo</h5>
+        <a href="#">Qué es un agente de IA</a>
+        <a href="#">Por qué 2026 es el año</a>
+        <a href="#">3 casos de uso reales</a>
+        <a href="#">Herramientas para empezar</a>
+        <a href="#">Límites actuales</a>
+        <a href="#">Por dónde empezar</a>
+      </div>
+      <div class="sidebar-box sidebar-author">
+        <h5>Autor</h5>
+        <img src="../img/geo-azul.webp" alt="Geo Albanés">
+        <p>Geo comparte estrategias de IA aplicada, finanzas y sistemas para emprendedores en LATAM.</p>
+        <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;font-size:0.78rem;padding:11px 16px;">Seguir en LinkedIn</a>
+      </div>
+      <!-- AdSense placeholder -->
+      <div class="sidebar-adsense">
+        <span>AdSense</span>
+      </div>
+    </aside>
+  </div>
+</div>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../" class="nav-logo"><div class="mark">GA</div>Geo Albanés</a>
+        <p>Estrategias reales de IA, finanzas y sistemas para emprendedores en LATAM que quieren tomar el control de su vida profesional.</p>
+      </div>
+      <div class="footer-col">
+        <h6>Contenido</h6>
+        <a href="../blog/">Blog</a>
+        <a href="../sobre-mi.html">Sobre mí</a>
+        <a href="../contacto.html">Contacto</a>
+      </div>
+      <div class="footer-col">
+        <h6>Redes</h6>
+        <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener">LinkedIn <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-external"/></svg></a>
+        <a href="https://www.instagram.com/geoalbanes/" target="_blank" rel="noopener">Instagram <svg width="14" height="14" stroke="currentColor"><use href="../img/icons.svg#icon-external"/></svg></a>
+        <a href="../privacidad.html">Privacidad</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Geo Albanés · geoalbanes.com</p>
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+        <a href="https://www.instagram.com/geoalbanes/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
+        <a href="mailto:geoalbanes@geoalbanes.com" aria-label="Email">@</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>
