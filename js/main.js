@@ -301,65 +301,56 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 
-// ── Terminal Typing — 4 escenarios reales ──
+// ── Chat Animation — 4 escenarios reales ──
 (function() {
-  const output  = document.getElementById('terminal-output');
-  const inputEl = document.getElementById('terminal-input');
-  const titleEl = document.getElementById('terminal-scenario');
-  if (!output || !inputEl) return;
+  const messagesEl = document.getElementById('chat-messages');
+  const inputTxtEl = document.getElementById('chat-input-txt');
+  const scenarioEl = document.getElementById('chat-scenario');
+  const sendBtn    = document.getElementById('chat-send-btn');
+  if (!messagesEl || !inputTxtEl) return;
 
-  // 4 escenarios que se rotan
   const SCENARIOS = [
     {
-      label: 'MARKETING · LinkedIn viral',
-      lines: [
-        { type:'cmd',     text:'gpt "10 hooks que convierten en LinkedIn LATAM"',  d:0    },
-        { type:'out',     text:'Generando con GPT-4o · contexto: emprendedor LATAM',d:1100 },
-        { type:'out',     text:'──────────────────────────────────────',           d:1700 },
-        { type:'insight', text:'1. "Esto me costó $3,400 aprenderlo. Te lo regalo."',d:2200},
-        { type:'insight', text:'2. "Borré 7 herramientas. Ahora trabajo el doble."', d:2800},
-        { type:'insight', text:'3. "El 80% de la IA es saber preguntar bien."',     d:3400},
-        { type:'insight', text:'4. "No es disciplina. Es diseñar fricción correcta."',d:4000},
-        { type:'insight', text:'5. "Tu banco no te explica esto. Te conviene."',    d:4600},
-        { type:'success', text:'✓ 10 hooks · CTR estimado: 8.4%',                  d:5400 },
+      label: 'Marketing · LinkedIn',
+      userMsg: 'Dame 5 hooks virales para LinkedIn, enfoque LATAM',
+      aiLines: [
+        '1. "Esto me costó $3,400 aprenderlo. Te lo regalo."',
+        '2. "Borré 7 herramientas. Ahora trabajo el doble."',
+        '3. "El 80% de la IA es saber preguntar bien."',
+        '4. "No es disciplina. Es diseñar fricción correcta."',
+        '5. "Tu banco no te explica esto. Te conviene."',
+        'CTR estimado: 8.4% — basado en 1,200 posts analizados.'
       ]
     },
     {
-      label: 'FINANZAS · Análisis LATAM 2026',
-      lines: [
-        { type:'cmd',     text:'analyze --region=LATAM --year=2026',                d:0    },
-        { type:'out',     text:'Cargando dataset CEPAL + BID + INEC...',           d:1100 },
-        { type:'out',     text:'1,247 puntos procesados ✓',                        d:1700 },
-        { type:'out',     text:'──────────────────────────────────────',           d:2100 },
-        { type:'insight', text:'⚠ Inflación promedio: 5.8% · Ahorro bancario: 1.2%',d:2600},
-        { type:'insight', text:'⚠ 68% sin fondo de emergencia (3-6 meses)',         d:3200},
-        { type:'insight', text:'✓ Oportunidad: dólar estable + ETFs USA',           d:3800},
-        { type:'success', text:'✓ Reporte: ahorro real negativo de -4.6% anual',   d:4600 },
+      label: 'Finanzas · LATAM 2026',
+      userMsg: 'Analizá la situación financiera en LATAM para 2026',
+      aiLines: [
+        'Inflación promedio regional: 5.8% · Ahorro bancario: 1.2%',
+        'El 68% de la población no tiene fondo de emergencia.',
+        'Oportunidad clave: dólar estable + acceso a ETFs USA.',
+        'Ahorro bancario real: -4.6% anual. El banco te cobra por guardar.'
       ]
     },
     {
-      label: 'CONTENIDO · Captions Instagram',
-      lines: [
-        { type:'cmd',     text:'caption --tema="hábito de ahorro" --tono=directo', d:0    },
-        { type:'out',     text:'Generando 3 variantes con Claude...',              d:1100 },
-        { type:'out',     text:'──────────────────────────────────────',           d:1700 },
-        { type:'insight', text:'A › "El ahorro no es disciplina. Es estructura."', d:2200 },
-        { type:'insight', text:'B › "Si ahorrás lo que sobra, nunca ahorrás."',    d:2800 },
-        { type:'insight', text:'C › "Tu yo de 40 te paga el café. Hoy."',          d:3400 },
-        { type:'success', text:'✓ Hooks listos · best CTR predicho: B (12.1%)',   d:4200 },
+      label: 'Contenido · Instagram',
+      userMsg: '3 captions sobre hábito de ahorro, tono directo',
+      aiLines: [
+        'A › "El ahorro no es disciplina. Es estructura."',
+        'B › "Si ahorrás lo que sobra, nunca ahorrás."',
+        'C › "Tu yo de 40 te paga el café. Hoy."',
+        'Best CTR predicho: B — 12.1% en pruebas A/B.'
       ]
     },
     {
-      label: 'REPORTES · Auditoría de gastos',
-      lines: [
-        { type:'cmd',     text:'audit --bank=statement.pdf --period=30d',          d:0    },
-        { type:'out',     text:'Extrayendo 312 transacciones con OCR...',          d:1100 },
-        { type:'out',     text:'Categorizando con IA · 98% confianza',             d:1900 },
-        { type:'out',     text:'──────────────────────────────────────',           d:2400 },
-        { type:'insight', text:'💸 Suscripciones duplicadas detectadas: 3',        d:2900 },
-        { type:'insight', text:'💸 Gastos invisibles "delivery": $147/mes',        d:3500 },
-        { type:'insight', text:'📈 Patrón: 73% del gasto los viernes',             d:4100 },
-        { type:'success', text:'✓ Ahorro potencial mensual: $234',                d:4900 },
+      label: 'Reportes · Auditoría bancaria',
+      userMsg: 'Revisá este extracto bancario, últimos 30 días',
+      aiLines: [
+        'Procesé 312 transacciones · confianza del 98%.',
+        '💸 Suscripciones duplicadas detectadas: 3',
+        '💸 Gasto en delivery sin notarlo: $147/mes',
+        '📈 Patrón: el 73% del gasto ocurre los viernes.',
+        'Ahorro potencial mensual: $234'
       ]
     }
   ];
@@ -367,71 +358,126 @@ document.addEventListener('DOMContentLoaded', () => {
   let timers = [];
   let scenarioIdx = 0;
 
-  function clearTerm() {
+  function clearAll() {
     timers.forEach(clearTimeout);
     timers = [];
-    output.innerHTML = '';
-    inputEl.textContent = '';
+    messagesEl.innerHTML = '';
+    inputTxtEl.textContent = '';
+    if (sendBtn) sendBtn.classList.remove('active');
   }
 
-  function appendLine(item) {
-    if (item.type === 'empty') {
-      const sp = document.createElement('div');
-      sp.style.height = '8px';
-      output.appendChild(sp);
-      return;
-    }
-    const div = document.createElement('div');
-    div.className = 't-line ' + item.type;
-    if (item.type === 'cmd') {
-      div.innerHTML = `<span class="t-prompt">geo@studio:~$</span><span class="t-text"> ${item.text}</span>`;
-      inputEl.textContent = '';
-    } else {
-      div.innerHTML = `<span class="t-text">${item.text}</span>`;
-    }
-    output.appendChild(div);
+  function sleep(ms) {
+    return new Promise(resolve => {
+      const t = setTimeout(resolve, ms);
+      timers.push(t);
+    });
   }
 
-  function typeCommand(text, done) {
-    let i = 0;
-    inputEl.textContent = '';
-    function next() {
-      if (i < text.length) {
-        inputEl.textContent += text[i++];
-        timers.push(setTimeout(next, 32 + Math.random()*22));
-      } else {
-        timers.push(setTimeout(done, 220));
+  function addUserBubble(text) {
+    const msg = document.createElement('div');
+    msg.className = 'chat-msg user';
+    const av = document.createElement('div');
+    av.className = 'chat-msg-av';
+    av.textContent = 'GEO';
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    bubble.textContent = text;
+    msg.appendChild(av);
+    msg.appendChild(bubble);
+    messagesEl.appendChild(msg);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function addTypingIndicator() {
+    const msg = document.createElement('div');
+    msg.className = 'chat-msg ai';
+    msg.id = 'chat-typing-ind';
+    const av = document.createElement('div');
+    av.className = 'chat-msg-av';
+    av.textContent = 'C';
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    const dots = document.createElement('div');
+    dots.className = 'chat-typing-bubble';
+    for (let i = 0; i < 3; i++) {
+      const d = document.createElement('span');
+      d.className = 'chat-typing-dot';
+      dots.appendChild(d);
+    }
+    bubble.appendChild(dots);
+    msg.appendChild(av);
+    msg.appendChild(bubble);
+    messagesEl.appendChild(msg);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function removeTypingIndicator() {
+    const el = document.getElementById('chat-typing-ind');
+    if (el) el.remove();
+  }
+
+  async function typeInInput(text) {
+    inputTxtEl.textContent = '';
+    for (let i = 0; i < text.length; i++) {
+      inputTxtEl.textContent += text[i];
+      await sleep(28 + Math.random() * 20);
+    }
+  }
+
+  async function streamAiMsg(lines) {
+    removeTypingIndicator();
+    const msg = document.createElement('div');
+    msg.className = 'chat-msg ai';
+    const av = document.createElement('div');
+    av.className = 'chat-msg-av';
+    av.textContent = 'C';
+    const bubble = document.createElement('div');
+    bubble.className = 'chat-bubble';
+    msg.appendChild(av);
+    msg.appendChild(bubble);
+    messagesEl.appendChild(msg);
+
+    let text = '';
+    for (let li = 0; li < lines.length; li++) {
+      if (li > 0) {
+        text += '\n';
+        bubble.textContent = text;
+        await sleep(220);
+      }
+      const words = lines[li].split(' ');
+      for (let wi = 0; wi < words.length; wi++) {
+        text += (wi > 0 ? ' ' : '') + words[wi];
+        bubble.textContent = text;
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        await sleep(38 + Math.random() * 28);
       }
     }
-    next();
   }
 
-  function runScenario() {
-    clearTerm();
+  async function runScenario() {
+    clearAll();
     const sc = SCENARIOS[scenarioIdx];
-    if (titleEl) titleEl.textContent = sc.label;
+    if (scenarioEl) scenarioEl.textContent = sc.label;
 
-    let lastDelay = 0;
-    sc.lines.forEach(item => {
-      const t = setTimeout(() => {
-        if (item.type === 'cmd') {
-          typeCommand(item.text, () => appendLine(item));
-        } else {
-          appendLine(item);
-        }
-      }, item.d);
-      timers.push(t);
-      lastDelay = item.d;
-    });
+    await typeInInput(sc.userMsg);
+    if (sendBtn) sendBtn.classList.add('active');
+    await sleep(350);
 
-    // Próximo escenario en 2.5s después del último
-    timers.push(setTimeout(() => {
-      scenarioIdx = (scenarioIdx + 1) % SCENARIOS.length;
-      runScenario();
-    }, lastDelay + 2800));
+    inputTxtEl.textContent = '';
+    if (sendBtn) sendBtn.classList.remove('active');
+    addUserBubble(sc.userMsg);
+    await sleep(500);
+
+    addTypingIndicator();
+    await sleep(1300);
+
+    await streamAiMsg(sc.aiLines);
+    await sleep(3600);
+
+    scenarioIdx = (scenarioIdx + 1) % SCENARIOS.length;
+    runScenario();
   }
 
-  // Arrancar al cargar la página (1.5s después)
   setTimeout(runScenario, 1500);
 })();
 

@@ -64,7 +64,7 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      opacity: 0.92;
+      opacity: 0.07;
     }
     .hero-fade-top {
       position: absolute;
@@ -181,61 +181,15 @@
     .hero-photo-frame img {
       width: 100%;
       display: block;
-      border-radius: 20px 20px 0 0;
+      border-radius: 16px 16px 0 0;
       position: relative;
       z-index: 1;
+      filter: grayscale(8%) contrast(1.04);
     }
 
-    .photo-border {
-      position: absolute;
-      inset: 0;
-      border-radius: 20px 20px 0 0;
-      border: 1px solid var(--border-2);
-      pointer-events: none;
-      z-index: 2;
-    }
-
-    .photo-glow {
-      position: absolute;
-      bottom: -40px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80%;
-      height: 80px;
-      background: var(--blue-glow);
-      filter: blur(40px);
-      border-radius: 50%;
-    }
-
-    /* Floating badge on photo */
-    .photo-badge {
-      position: absolute;
-      top: 32px;
-      left: -24px;
-      background: var(--bg-2);
-      border: 1px solid var(--border-2);
-      border-radius: 12px;
-      padding: 14px 18px;
-      z-index: 3;
-      backdrop-filter: blur(8px);
-    }
-
-    .photo-badge .pb-num {
-      font-family: var(--f-mono);
-      font-size: 1.4rem;
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1;
-    }
-
-    .photo-badge .pb-label {
-      font-family: var(--f-mono);
-      font-size: 0.62rem;
-      color: var(--text-2);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      margin-top: 4px;
-    }
+    .photo-border { display: none; }
+    .photo-glow   { display: none; }
+    .photo-badge  { display: none; }
 
     /* Stats bar */
     .hero-stats {
@@ -774,32 +728,61 @@
   <!-- ══════════════════════ TERMINAL ══════════════════════ -->
   <section class="section" id="terminal-section" style="padding-top:0;">
     <div class="container">
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap; gap:24px;">
-        <div>
+      <div class="chat-section-wrap">
+
+        <!-- Texto izquierda -->
+        <div class="chat-section-text">
           <p class="sec-num">— 02</p>
           <h2 class="fade-in">Así uso la IA<br><em>cada día.</em></h2>
+          <p class="chat-section-desc fade-in d2">
+            No teoría. Prompts reales que uso para analizar datos, tomar decisiones y ahorrar tiempo.
+          </p>
+          <ul class="chat-feats fade-in d3">
+            <li><span class="cf-dot"></span>Análisis financiero al instante</li>
+            <li><span class="cf-dot"></span>Captions que convierten en LATAM</li>
+            <li><span class="cf-dot"></span>Auditorías bancarias automáticas</li>
+            <li><span class="cf-dot"></span>Hooks virales basados en datos reales</li>
+          </ul>
         </div>
-        <p style="max-width:300px;font-size:0.9rem;" class="fade-in d2">
-          No teoría. Prompts reales que uso para analizar datos, tomar decisiones y ahorrar tiempo.
-        </p>
-      </div>
-      <div class="terminal-window fade-in d1">
-        <div class="terminal-bar">
-          <span class="tb-dot red"></span>
-          <span class="tb-dot yellow"></span>
-          <span class="tb-dot green"></span>
-          <span class="tb-title">geo@studio — prompt-lab v2.4</span>
-          <span class="tb-scenario" id="terminal-scenario">— escenario: cargando</span>
-          <span class="tb-rec"><span class="tb-rec-dot"></span>LIVE</span>
-        </div>
-        <div class="terminal-body">
-          <div class="terminal-output" id="terminal-output"></div>
-          <div class="terminal-cursor-line">
-            <span class="t-prompt">geo@studio:~$</span>
-            <span class="t-input" id="terminal-input"></span>
-            <span class="t-cursor">▊</span>
+
+        <!-- Phone mockup derecha -->
+        <div class="chat-section-phone fade-in d1">
+          <div class="phone-frame">
+            <div class="phone-screen">
+              <div class="phone-topbar">
+                <span class="phone-time">9:41</span>
+                <div class="phone-island"></div>
+                <svg class="phone-battery" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity="0.5"/>
+                  <rect x="2" y="2" width="16" height="8" rx="2" fill="white" fill-opacity="0.75"/>
+                  <path d="M23 4.5V7.5C23.8 7.17 24.5 6.5 24.5 6C24.5 5.5 23.8 4.83 23 4.5Z" fill="white" fill-opacity="0.5"/>
+                </svg>
+              </div>
+              <div class="chat-window">
+                <div class="chat-header">
+                  <div class="chat-header-left">
+                    <div class="chat-avatar-hdr">C</div>
+                    <div>
+                      <div class="chat-header-name">Claude</div>
+                      <div class="chat-header-sub" id="chat-scenario">Iniciando sesión</div>
+                    </div>
+                  </div>
+                  <div class="chat-hdr-live"><span class="chat-hdr-dot"></span>LIVE</div>
+                </div>
+                <div class="chat-messages" id="chat-messages"></div>
+                <div class="chat-input-bar">
+                  <div class="chat-input-fake">
+                    <span class="chat-input-txt" id="chat-input-txt"></span>
+                    <span class="chat-input-caret">|</span>
+                  </div>
+                  <button class="chat-send-btn" id="chat-send-btn" aria-label="Enviar">↑</button>
+                </div>
+              </div>
+              <div class="phone-home-bar"></div>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
