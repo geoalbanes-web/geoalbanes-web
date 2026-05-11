@@ -247,9 +247,36 @@
 
     .pillar {
       background: var(--bg);
-      padding: 44px 36px;
+      padding: 0;
       position: relative;
       transition: background 0.3s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .pillar-photo {
+      width: 100%;
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .pillar-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s var(--ease-out);
+      filter: brightness(0.85) saturate(1.1);
+    }
+
+    .pillar:hover .pillar-photo img {
+      transform: scale(1.04);
+    }
+
+    .pillar-content {
+      padding: 32px 36px 40px;
+      flex: 1;
     }
 
     .pillar:hover {
@@ -278,7 +305,7 @@
       font-size: 0.68rem;
       color: var(--text-3);
       letter-spacing: 0.1em;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .pillar h3 {
@@ -693,37 +720,52 @@
       </div>
       <div class="pillars fade-in d2">
         <div class="pillar">
-          <div class="pillar-num">01 — IA</div>
-          <div class="pillar-icon">
-            <svg width="36" height="36" stroke="currentColor">
-              <use href="img/icons.svg#icon-ia" />
-            </svg>
+          <div class="pillar-photo">
+            <img src="img/pilar-ia.jpg" alt="Inteligencia Artificial aplicada" loading="lazy" width="800" height="450">
           </div>
-          <h3>Inteligencia Artificial</h3>
-          <p>No el hype. Cómo usar IA para pensar mejor, automatizar lo repetitivo y tomar decisiones con más
-            información. Los tres niveles que nadie te explica.</p>
+          <div class="pillar-content">
+            <div class="pillar-num">01 — IA</div>
+            <div class="pillar-icon">
+              <svg width="36" height="36" stroke="currentColor">
+                <use href="img/icons.svg#icon-ia" />
+              </svg>
+            </div>
+            <h3>Inteligencia Artificial</h3>
+            <p>No el hype. Cómo usar IA para pensar mejor, automatizar lo repetitivo y tomar decisiones con más
+              información. Los tres niveles que nadie te explica.</p>
+          </div>
         </div>
         <div class="pillar">
-          <div class="pillar-num">02 — Finanzas</div>
-          <div class="pillar-icon">
-            <svg width="36" height="36" stroke="currentColor">
-              <use href="img/icons.svg#icon-finanzas" />
-            </svg>
+          <div class="pillar-photo">
+            <img src="img/pilar-finanzas.jpg" alt="Finanzas personales" loading="lazy" width="800" height="450">
           </div>
-          <h3>Finanzas Personales</h3>
-          <p>Sin jerga bancaria. Entendé lo que tu banco no te dice, mové tu dinero con criterio y construí patrimonio
-            desde Centroamérica.</p>
+          <div class="pillar-content">
+            <div class="pillar-num">02 — Finanzas</div>
+            <div class="pillar-icon">
+              <svg width="36" height="36" stroke="currentColor">
+                <use href="img/icons.svg#icon-finanzas" />
+              </svg>
+            </div>
+            <h3>Finanzas Personales</h3>
+            <p>Sin jerga bancaria. Entendé lo que tu banco no te dice, mové tu dinero con criterio y construí patrimonio
+              desde Centroamérica.</p>
+          </div>
         </div>
         <div class="pillar">
-          <div class="pillar-num">03 — Sistemas</div>
-          <div class="pillar-icon">
-            <svg width="36" height="36" stroke="currentColor">
-              <use href="img/icons.svg#icon-sistemas" />
-            </svg>
+          <div class="pillar-photo">
+            <img src="img/pilar-sistemas.jpg" alt="Sistemas y productividad" loading="lazy" width="800" height="450">
           </div>
-          <h3>Sistemas y Productividad</h3>
-          <p>Hábitos que funcionan, frameworks para decidir y herramientas para operar tu vida y negocio de forma que
-            escalen.</p>
+          <div class="pillar-content">
+            <div class="pillar-num">03 — Sistemas</div>
+            <div class="pillar-icon">
+              <svg width="36" height="36" stroke="currentColor">
+                <use href="img/icons.svg#icon-sistemas" />
+              </svg>
+            </div>
+            <h3>Sistemas y Productividad</h3>
+            <p>Hábitos que funcionan, frameworks para decidir y herramientas para operar tu vida y negocio de forma que
+              escalen.</p>
+          </div>
         </div>
       </div>
     </div>
