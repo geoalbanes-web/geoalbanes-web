@@ -3,7 +3,7 @@
    Editorial Dark · Premium · 2026
    ============================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap');
+/* Google Fonts cargadas en <head> via link no-render-blocking */
 
 /* ── Variables ── */
 :root {

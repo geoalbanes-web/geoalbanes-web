@@ -448,7 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for (let wi = 0; wi < words.length; wi++) {
         text += (wi > 0 ? ' ' : '') + words[wi];
         bubble.textContent = text;
-        messagesEl.scrollTop = messagesEl.scrollHeight;
+        requestAnimationFrame(() => { messagesEl.scrollTop = messagesEl.scrollHeight; });
         await sleep(38 + Math.random() * 28);
       }
     }
@@ -591,25 +591,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let pct = 0;
   function tick() {
-    pct += Math.random() * 9 + 4;
+    pct += Math.random() * 18 + 12; // más rápido: ~6-8 ticks para llegar a 100
     if (pct > 100) pct = 100;
     fill.style.width = pct + '%';
     pctEl.textContent = Math.floor(pct) + '%';
     const s = stages.find(x => pct <= x.at);
     if (s && status) status.textContent = s.msg;
     if (pct < 100) {
-      setTimeout(tick, 110 + Math.random() * 90);
+      setTimeout(tick, 30 + Math.random() * 30); // 30-60ms por tick (~300ms total)
     } else {
       setTimeout(() => {
         loader.classList.add('done');
         document.body.style.overflow = '';
         const idx = document.getElementById('section-index');
         if (idx) idx.classList.add('ready');
-      }, 380);
+      }, 150); // era 380ms, ahora 150ms
     }
   }
   document.body.style.overflow = 'hidden';
-  setTimeout(tick, 200);
+  setTimeout(tick, 50); // era 200ms de espera inicial
 })();
 
 // ── Manifesto reveal on scroll ──
@@ -630,12 +630,19 @@ document.addEventListener('DOMContentLoaded', () => {
     el: document.getElementById(it.getAttribute('data-section'))
   })).filter(x => x.el);
 
+  // Cachear offsetTop al cargar y en resize — evita forced reflow en cada scroll
+  let tops = [];
+  function cacheTops() {
+    tops = sections.map(s => s.el.getBoundingClientRect().top + window.scrollY);
+  }
+  cacheTops();
+  window.addEventListener('resize', cacheTops, { passive: true });
+
   function update() {
     const y = window.scrollY + window.innerHeight * 0.35;
     let active = sections[0];
-    sections.forEach(s => {
-      const top = s.el.offsetTop;
-      if (top <= y) active = s;
+    tops.forEach((top, i) => {
+      if (top <= y) active = sections[i];
     });
     items.forEach(it => it.classList.remove('active'));
     if (active) active.item.classList.add('active');
