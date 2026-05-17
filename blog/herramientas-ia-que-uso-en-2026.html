@@ -12,11 +12,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6854793053211209" crossorigin="anonymous"></script>
-  <title>Las herramientas de IA que más uso en 2026 — Geo Albanés</title>
-  <meta name="description" content="Mi stack real de IA en 2026: qué uso, para qué, cuánto cuesta y qué descarta. Sin afiliados, sin hype. Solo lo que realmente está en mi flujo de trabajo.">
+  <title>Las herramientas de IA que uso en 2026 (y por qué sobrevivieron) — Geo Albanés</title>
+  <meta name="description" content="Mi stack real de IA en 2026: Claude, ChatGPT, Make, Midjourney, ElevenLabs. Qué uso, para qué exactamente, cuánto cuesta desde LATAM, y qué descarto. Sin afiliados.">
   <meta name="author" content="Geo Albanés">
-  <meta property="og:title" content="Las herramientas de IA que más uso en 2026">
-  <meta property="og:description" content="Mi stack real de IA: qué uso, para qué, cuánto cuesta. Sin afiliados, sin hype.">
+  <meta property="og:title" content="Las herramientas de IA que uso en 2026 (y por qué sobrevivieron)">
+  <meta property="og:description" content="Stack real de IA con usos concretos, costos en dólares y lo que descarto. Sin afiliados, sin hype.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://geoalbanes.com/blog/herramientas-ia-que-uso-en-2026.html">
   <meta property="og:image" content="https://geoalbanes.com/img/og-home.png">
@@ -29,19 +29,20 @@
   <link rel="canonical" href="https://geoalbanes.com/blog/herramientas-ia-que-uso-en-2026.html">
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   <link rel="apple-touch-icon" href="../img/favicon-512.png">
+  <link rel="manifest" href="../manifest.json">
   <link rel="stylesheet" href="../css/styles.css">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Las herramientas de IA que más uso en 2026",
+    "headline": "Las herramientas de IA que uso en 2026 (y por qué sobrevivieron)",
     "image": "https://geoalbanes.com/img/og-home.png",
     "author": { "@type": "Person", "name": "Geo Albanés", "url": "https://geoalbanes.com/sobre-mi.html" },
     "publisher": { "@type": "Organization", "name": "Geo Albanés", "logo": { "@type": "ImageObject", "url": "https://geoalbanes.com/img/favicon-512.png" } },
     "datePublished": "2026-05-29",
     "dateModified": "2026-05-29",
     "mainEntityOfPage": { "@type": "WebPage", "@id": "https://geoalbanes.com/blog/herramientas-ia-que-uso-en-2026.html" },
-    "description": "Stack real de herramientas de IA con uso cotidiano, costos y casos de uso concretos."
+    "description": "Stack real de herramientas de IA en 2026 con costos, usos concretos y criterios de selección desde LATAM."
   }
   </script>
   <script type="application/ld+json">
@@ -51,7 +52,7 @@
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://geoalbanes.com/" },
       { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://geoalbanes.com/blog/" },
-      { "@type": "ListItem", "position": 3, "name": "Las herramientas de IA que más uso en 2026" }
+      { "@type": "ListItem", "position": 3, "name": "Las herramientas de IA que uso en 2026 (y por qué sobrevivieron)" }
     ]
   }
   </script>
@@ -68,9 +69,13 @@
   .article-layout { display: grid; grid-template-columns: 1fr 280px; gap: 64px; align-items: start; padding-bottom: 120px; }
   .article-content { min-width: 0; }
   .article-content h2 { font-family: var(--f-display); font-size: 1.7rem; font-weight: 600; color: var(--text); margin: 56px 0 16px; letter-spacing: -0.02em; line-height: 1.15; }
+  .article-content h3 { font-family: var(--f-display); font-size: 1.15rem; font-weight: 600; color: var(--text); margin: 32px 0 12px; letter-spacing: -0.01em; }
   .article-content p { font-size: 1rem; line-height: 1.85; margin-bottom: 20px; }
+  .article-content ul { padding-left: 20px; margin-bottom: 20px; }
+  .article-content ul li { font-size: 1rem; line-height: 1.8; margin-bottom: 8px; }
   .article-content strong { color: var(--text); font-weight: 600; }
   .article-content em { font-style: italic; }
+  .article-content a { color: var(--blue-light); text-underline-offset: 3px; }
   .article-content blockquote { border-left: 2px solid var(--blue); padding: 20px 28px; margin: 36px 0; background: var(--surface); border-radius: 0 var(--radius) var(--radius) 0; }
   .article-content blockquote p { color: var(--text); font-style: italic; margin: 0; }
   .article-content hr { border: none; border-top: 1px solid var(--border); margin: 56px 0; }
@@ -79,7 +84,16 @@
   .tool-name { font-family: var(--f-ui); font-size: 1.05rem; font-weight: 700; color: var(--text); }
   .tool-price { font-family: var(--f-mono); font-size: 0.68rem; color: var(--blue-light); background: rgba(36,96,232,0.1); border: 1px solid rgba(36,96,232,0.2); border-radius: 6px; padding: 3px 10px; }
   .tool-use { font-family: var(--f-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); margin-bottom: 10px; }
-  .tool-card p { font-size: 0.93rem; margin: 0; line-height: 1.7; }
+  .tool-card p { font-size: 0.93rem; margin-bottom: 12px; line-height: 1.7; }
+  .tool-card p:last-child { margin-bottom: 0; }
+  .example-block { background: rgba(36,96,232,0.04); border: 1px solid rgba(36,96,232,0.15); border-radius: var(--radius); padding: 20px 24px; margin: 16px 0; }
+  .example-label { font-family: var(--f-mono); font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--blue-light); margin-bottom: 8px; }
+  .example-block p { font-size: 0.88rem; margin: 0; line-height: 1.65; }
+  .cost-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+  .cost-table th { font-family: var(--f-mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--border); }
+  .cost-table td { font-size: 0.9rem; padding: 12px 14px; border-bottom: 1px solid rgba(255,255,255,0.04); line-height: 1.5; }
+  .cost-table tr:last-child td { border-bottom: none; }
+  .cost-total { font-family: var(--f-ui); font-weight: 700; color: var(--blue-light); }
   .article-cta { margin-top: 56px; padding: 32px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); }
   .article-cta a { color: var(--blue-light); text-decoration: underline; text-underline-offset: 3px; }
   .article-cta strong { color: var(--text); }
@@ -88,6 +102,9 @@
   .sidebar-box h5 { font-family: var(--f-mono); font-size: 0.63rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-3); margin-bottom: 16px; }
   .sidebar-box img { width: 52px; height: 52px; border-radius: 50%; border: 2px solid var(--blue); object-fit: cover; object-position: center top; margin-bottom: 12px; }
   .sidebar-box p { font-size: 0.82rem; margin-bottom: 16px; }
+  .toc a { display: block; font-size: 0.8rem; color: var(--text-2); padding: 6px 0; border-bottom: 1px solid var(--border); text-decoration: none; transition: color 0.2s; line-height: 1.4; }
+  .toc a:last-child { border-bottom: none; }
+  .toc a:hover { color: var(--blue-light); }
   @media (max-width: 900px) { .article-layout { grid-template-columns: 1fr; } .article-sidebar { display: none; } }
   </style>
 </head>
@@ -120,10 +137,10 @@
     <a href="../blog/" class="article-back">← Volver al blog</a>
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
       <span class="badge badge-ia">IA Aplicada</span>
-      <span style="font-family:var(--f-mono);font-size:0.63rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;">5 min · 29 Mayo 2026</span>
+      <span style="font-family:var(--f-mono);font-size:0.63rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.08em;">8 min · 29 Mayo 2026</span>
     </div>
-    <h1 class="article-headline">Las herramientas de IA que más uso en 2026</h1>
-    <p class="article-lead">Cada semana aparece una herramienta nueva de IA. La mayoría no vale el tiempo que tardás en probarla. Acá el stack que sobrevivió: lo que sigo usando 6 meses después de haberlo adoptado.</p>
+    <h1 class="article-headline">Las herramientas de IA que uso en 2026 (y por qué sobrevivieron)</h1>
+    <p class="article-lead">Cada semana hay una herramienta nueva que "cambia todo". La mayoría no sobrevive el primer mes. Acá el stack que sigo usando después de haberlo probado de verdad: qué es, para qué exactamente, cuánto cuesta desde El Salvador, y qué descarto.</p>
     <div class="article-byline">
       <img src="../img/geo-azul.webp" alt="Geo Albanés">
       <div>
@@ -138,97 +155,178 @@
   <div class="article-layout">
     <article class="article-content">
 
-      <p>Aclaración antes de empezar: no tengo afiliados con ninguna de estas herramientas. Las pago de mi bolsillo y las incluyo acá porque las uso de verdad, no porque me convengan.</p>
+      <p>Primero lo que no vas a encontrar acá: no tengo ningún afiliado. Pago todo de mi bolsillo. Eso significa que la lista que ves abajo es lo que sobrevivió mi filtro más duro: ¿sigo pagando esto cuando llega la factura mensual?</p>
 
-      <p>También aclaro que esto va a quedar desactualizado. El espacio de IA se mueve tan rápido que lo que escribo hoy puede cambiar en 3 meses. Lo que no cambia es el criterio para elegir: ¿Resuelve un problema real? ¿Sigue funcionando después del primer mes de entusiasmo?</p>
+      <p>La mayoría no sobrevive ese filtro. Empezás con entusiasmo, lo usás dos semanas, y el tercer mes lo cancelás porque nunca lo integraste a tu flujo real. Me pasó con por lo menos ocho herramientas antes de llegar a este stack.</p>
 
-      <h2>Para pensar y escribir</h2>
+      <h2 id="criterio">El criterio que uso para elegir</h2>
+
+      <p>Antes de mostrar las herramientas, el criterio que aplico para decidir si una entra al stack o no. Lo llamo la prueba de autonomía: ¿la herramienta puede ejecutar algo útil con instrucciones generales, o necesita que yo la microgestione cada paso?</p>
+
+      <p>Una herramienta que necesita instrucciones perfectas para dar resultados medianamente útiles no ahorra tiempo. Solo cambia el trabajo de "hacer la tarea" a "describir la tarea con precisión quirúrgica". Eso no es automatización, es burocracia con mejor interfaz.</p>
+
+      <p>Lo segundo que miro: ¿sigue funcionando después del mes uno? El entusiasmo inicial te hace usar cualquier cosa. Lo que importa es el mes cuatro. Si en el mes cuatro todavía la usás sin pensarlo, está en el stack. Si en el mes cuatro tenés que recordarte de usarla, ya no vale lo que cuesta.</p>
+
+      <h2 id="claude">Claude Pro: el que más uso</h2>
 
       <div class="tool-card">
         <div class="tool-header">
-          <div class="tool-name">Claude Pro</div>
+          <div class="tool-name">Claude Pro (Anthropic)</div>
           <div class="tool-price">$20/mes</div>
         </div>
-        <div class="tool-use">Uso principal: análisis, escritura, razonamiento complejo</div>
-        <p>Mi herramienta de IA más usada. Lo que más me gusta no es la capacidad de generar texto, es la capacidad de razonamiento. Cuando tengo un problema que no veo claro, se lo explico a Claude como si fuera a otra persona. El proceso de explicarlo solo ya aclara el pensamiento. Y las respuestas suelen ser lo suficientemente buenas para avanzar. También es lo que uso para analizar documentos largos: contratos, reportes, estados financieros.</p>
+        <div class="tool-use">Razonamiento complejo · Escritura · Análisis de documentos · Proyectos con contexto</div>
+        <p>Empecé con ChatGPT como todos. Lo usé para cosas básicas durante meses y nunca sentí que cambiara algo real. El cambio llegó cuando probé Claude y entendí la diferencia entre tener contexto y no tenerlo.</p>
+        <p>Con Claude Projects puedo darle de una vez toda la información relevante: quién soy, en qué trabaje, el estilo en que escribo, los proyectos activos. Cada conversación arranca desde ese contexto, no desde cero. Eso cambia completamente la calidad del output.</p>
+        <p>Lo que más uso: análisis de documentos largos (contratos, reportes, PDFs que no voy a leer solos), escribir y editar contenido manteniendo mi voz, y trabajar problemas de estrategia que necesito pensar en voz alta con alguien que no me dé respuestas genéricas.</p>
       </div>
+
+      <div class="example-block">
+        <div class="example-label">Ejemplo real 1</div>
+        <p>Tenía un contrato de servicios de 14 páginas en inglés. En vez de leerlo completo, lo subí a Claude y le pedí: "Dame los tres puntos donde yo como proveedor tengo más riesgo legal si el cliente incumple, y las cláusulas exactas donde están". En 90 segundos tenía la respuesta con los números de cláusula específicos. Lo que me hubiera tomado dos horas de lectura tomó dos minutos.</p>
+      </div>
+
+      <div class="example-block">
+        <div class="example-label">Ejemplo real 2</div>
+        <p>Necesitaba preparar una propuesta de consultoría para una empresa mediana. Le di a Claude el contexto del cliente, lo que yo ofrezco, y el presupuesto aproximado que esperaban. Me devolvió una estructura de propuesta, los ángulos que normalmente convencen a ese tipo de empresa, y los puntos débiles que probablemente iban a cuestionar. Tardé 20 minutos en armar algo que normalmente me llevaría medio día.</p>
+      </div>
+
+      <h2 id="chatgpt">ChatGPT Plus: el complemento, no el reemplazo</h2>
 
       <div class="tool-card">
         <div class="tool-header">
-          <div class="tool-name">ChatGPT Plus</div>
+          <div class="tool-name">ChatGPT Plus (OpenAI)</div>
           <div class="tool-price">$20/mes</div>
         </div>
-        <div class="tool-use">Uso principal: búsqueda en tiempo real, generación de imágenes, código</div>
-        <p>Lo uso en paralelo con Claude, no en vez de. Tiene mejor integración con búsqueda web actualizada y el generador de imágenes de DALL-E 3 es lo que más me convence para hacer gráficos rápidos. Para código es sólido, aunque Claude también. El modo voz también mejoró bastante, lo uso cuando estoy caminando y quiero "hablar" sobre un problema.</p>
+        <div class="tool-use">Búsqueda en tiempo real · Generación de imágenes · Modo voz</div>
+        <p>Sí, pago los dos. No es redundante si entendés para qué sirve cada uno.</p>
+        <p>ChatGPT tiene lo que Claude no tiene por defecto: acceso a internet en tiempo real. Cuando necesito datos de hoy, precios actuales, noticias recientes, o verificar algo que pasó esta semana, lo uso a él. Claude tiene fecha de corte de conocimiento; ChatGPT puede buscar ahora mismo.</p>
+        <p>También uso DALL-E 3 integrado para generar imágenes conceptuales rápido. No son imágenes finales de producción, son referencias visuales para explorar ideas antes de invertir tiempo en un diseño real. Y el modo voz es genuinamente bueno para "hablar" sobre un problema cuando estoy caminando y no quiero abrir la computadora.</p>
       </div>
 
-      <h2>Para automatizar sin código</h2>
+      <div class="example-block">
+        <div class="example-label">Ejemplo real 3</div>
+        <p>Antes de escribir un artículo sobre herramientas de IA para LATAM, le pedí a ChatGPT con búsqueda web: "¿Cuáles son las herramientas de IA más buscadas en El Salvador, Guatemala y Honduras en los últimos tres meses?" Me trajo datos de tendencias actuales, no de hace seis meses como hubiera dado cualquier modelo sin acceso web. Eso cambia el ángulo del artículo completamente.</p>
+      </div>
+
+      <h2 id="make">Make.com: el pegamento de todo</h2>
 
       <div class="tool-card">
         <div class="tool-header">
-          <div class="tool-name">Make (Integromat)</div>
-          <div class="tool-price">Gratis hasta 1000 ops/mes · $9/mes plan básico</div>
+          <div class="tool-name">Make (antes Integromat)</div>
+          <div class="tool-price">Gratis hasta 1,000 ops/mes · $9/mes plan básico</div>
         </div>
-        <div class="tool-use">Uso principal: automatizaciones, conexión entre apps</div>
-        <p>El pegamento de mi stack. Conecta formularios con IA con email con hojas de cálculo con notificaciones. Sin Make, varias de las cosas que hago serían manualmente imposibles de escalar. No es la herramienta más amigable al principio, pero una vez que le agarrás la lógica, abre un mundo entero de posibilidades sin tocar código.</p>
+        <div class="tool-use">Automatizaciones · Conexión entre aplicaciones · Flujos sin código</div>
+        <p>Esta es la que más impacto tiene en tiempo real ahorrado, aunque no es IA pura. Es la herramienta que conecta todo lo demás sin que yo tenga que estar en el medio.</p>
+        <p>El concepto básico: cuando pasa X en una app, automáticamente pasa Y en otra. Sin necesidad de código. La curva de aprendizaje existe, pero una vez que la agarrás, empezás a ver automatizaciones en todos lados.</p>
+        <p>Mis flujos activos: formularios de contacto que van directo a un doc con resumen generado por IA, notificaciones automáticas cuando alguien descarga algo de mi sitio, y un sistema que procesa actualizaciones de proyectos sin que tenga que mover datos manualmente entre apps.</p>
       </div>
 
-      <h2>Para crear contenido y diseño</h2>
+      <div class="example-block">
+        <div class="example-label">Ejemplo real 4</div>
+        <p>Tengo un flujo en Make que cada vez que alguien llena un formulario de contacto en mi sitio, automáticamente crea un registro en Notion con los datos del prospecto, genera un resumen del tipo de cliente basado en sus respuestas (usando la API de Claude), y me manda una notificación con ese resumen ya procesado. En vez de abrir el email, copiar datos a Notion, y analizar el prospecto manualmente, veo directamente en mi teléfono: "Prospecto: empresa de 15 personas, busca automatizar reportes financieros, presupuesto medio". Todo automático.</p>
+      </div>
+
+      <h2 id="midjourney">Midjourney: cuando necesito ver antes de hacer</h2>
 
       <div class="tool-card">
         <div class="tool-header">
           <div class="tool-name">Midjourney</div>
           <div class="tool-price">$10/mes plan básico</div>
         </div>
-        <div class="tool-use">Uso principal: imágenes para contenido, referencias visuales</div>
-        <p>Para lo que más lo uso es iterar referencias visuales rápido. Cuando tengo una idea de concepto visual y necesito explorar variantes antes de comprometer tiempo a un diseño final. Los resultados son impredecibles, lo que puede ser bueno o frustrante dependiendo de cuánto control necesitás. Lo que sí es claro: para contenido visual a escala, cambia el juego.</p>
+        <div class="tool-use">Referencias visuales · Exploración de concepto · Contenido visual a escala</div>
+        <p>La forma en que lo uso no es "generar la imagen final". Es explorar rápido antes de comprometer tiempo. Cuando tengo un concepto visual en la cabeza y necesito ver si funciona, genero cuatro variantes en dos minutos y decido si vale la pena desarrollarlo o no.</p>
+        <p>También lo uso para thumbnails y visuales de contenido cuando no tengo un fotógrafo disponible, que en El Salvador es la norma y no la excepción. Los resultados son impredecibles y eso puede ser frustrante si necesitás control total. Pero para velocidad de exploración no hay nada igual en este precio.</p>
       </div>
+
+      <h2 id="elevenlabs">ElevenLabs: para lo que viene con audio</h2>
 
       <div class="tool-card">
         <div class="tool-header">
           <div class="tool-name">ElevenLabs</div>
-          <div class="tool-price">Gratis hasta 10k caracteres/mes · $5/mes básico</div>
+          <div class="tool-price">Gratis hasta 10k caracteres/mes · $5/mes plan básico</div>
         </div>
-        <div class="tool-use">Uso principal: audio, voiceovers, contenido en audio</div>
-        <p>La calidad de síntesis de voz aquí es otra categoría comparada con lo que había hace dos años. Lo uso para crear voiceovers de contenido educativo y para prototipar ideas de podcasts. También para hacer versiones en audio de artículos, algo que estoy explorando para llegar a personas que prefieren escuchar.</p>
+        <div class="tool-use">Voiceovers · Contenido en audio · Prototipos de podcast</div>
+        <p>La síntesis de voz acá es de otra categoría. No suena a robot ni a texto leído en voz alta. Suena como una persona hablando.</p>
+        <p>Lo uso para prototipar contenido de audio: tengo artículos del blog que quiero convertir en versiones de audio para personas que prefieren escuchar mientras manejan o caminan. También para hacer voiceovers de contenido educativo sin tener que grabarme en un estudio.</p>
+        <p>El plan gratuito alcanza para probar. Si producís contenido de audio regularmente, el plan de $5 tiene suficiente capacidad para la mayoría de los casos de uso individuales.</p>
       </div>
 
-      <h2>Para gestión y productividad</h2>
-
-      <div class="tool-card">
-        <div class="tool-header">
-          <div class="tool-name">Notion AI</div>
-          <div class="tool-price">$8/mes (incluido en plan Notion Plus)</div>
-        </div>
-        <div class="tool-use">Uso principal: documentación, resúmenes, bases de conocimiento</div>
-        <p>No es el modelo más potente, pero el contexto de tener la IA dentro de donde ya tengo mi información es conveniente. Lo uso para resumir notas de reuniones, generar borradores de documentos internos, y buscar dentro de bases de conocimiento extensas. No lo reemplaza a Claude para razonamiento complejo, pero para tareas dentro de mi espacio de trabajo es cómodo.</p>
+      <div class="example-block">
+        <div class="example-label">Ejemplo real 5</div>
+        <p>Convertí un artículo de 1,200 palabras en un audio de 8 minutos. Ajusté el tono de la voz para que sonara conversacional, no formal. Lo subí como contenido adicional del artículo. El resultado: personas que no leen el artículo completo escuchan el audio. Es el mismo contenido llegando a una audiencia adicional sin trabajo extra proporcional.</p>
       </div>
 
-      <h2>Lo que probé y descartei</h2>
+      <h2 id="descartados">Lo que probé y descartei</h2>
 
-      <p>Para ser justo, hay herramientas que probé y no quedaron en el stack:</p>
+      <p>Hay un patrón en las herramientas que no sobrevivieron: generan mucho output, pero el output requiere tanta edición que el tiempo "ahorrado" es ilusorio. Eso es lo que llaman tokenmaxxing: optimizar para cantidad de texto generado, no para calidad del resultado. Muchas herramientas especializadas en "contenido" caen acá.</p>
 
-      <p><strong>Jasper y Copy.ai:</strong> Probé ambos para redacción de marketing. Generan texto rápido pero el output necesita tanta edición que el ahorro de tiempo es marginal comparado con hacerlo directamente en Claude con mejores prompts.</p>
+      <p><strong>Jasper y Copy.ai:</strong> Los probé para contenido de marketing. Generan texto rápido. Pero el texto generado tiene el mismo problema que cualquier IA mal usada: suena genérico, requiere reescritura sustancial, y al final hacés casi el mismo trabajo que si lo hubiera escrito desde cero con un buen prompt en Claude. Costo: no justificado.</p>
 
-      <p><strong>Zapier:</strong> Funciona, pero Make hace lo mismo más barato. Para equipos grandes con integración de herramientas enterprise, puede tener sentido. Para lo que yo hago, no.</p>
+      <p><strong>Zapier:</strong> Hace lo que hace Make pero más caro. Para equipos grandes con integraciones de herramientas enterprise, puede tener sentido. Para lo que yo hago, $9 de Make reemplaza $49 de Zapier sin sacrificar nada.</p>
 
-      <p><strong>Gamma para presentaciones:</strong> Buena idea, ejecución mejorable. Las presentaciones tienen demasiada personalidad visual para que una IA las genere de principio a fin con resultados que me convenzan.</p>
+      <p><strong>Perplexity Pro:</strong> Bueno para búsqueda de investigación. Pero con ChatGPT tengo la misma funcionalidad de búsqueda web más todo lo demás. No tiene sentido pagar por separado cuando ya tengo la funcionalidad integrada.</p>
 
-      <h2>El costo total y si vale la pena</h2>
+      <p><strong>Gamma para presentaciones:</strong> Idea correcta, ejecución todavía inmadura. Las presentaciones tienen demasiada personalidad visual para que una IA las genere de principio a fin con resultados que me representen. Lo revisaré en seis meses.</p>
 
-      <p>Mi inversión mensual en IA ronda los $70 al mes. Eso es lo que gasto en herramientas que uso regularmente.</p>
+      <h2 id="costos">El costo total desde LATAM</h2>
 
-      <p>¿Vale la pena? Depende de cuánto valga tu tiempo. Si esas herramientas me ahorran 20 horas al mes de trabajo que de otra forma haría manualmente o no haría, y mi tiempo tiene un valor de $20/hora (un número conservador para alguien con habilidades técnicas), el retorno es obvio.</p>
+      <p>Esto importa más de lo que parece. Desde El Salvador, cada dólar que sale en suscripciones es un dólar real, no un dólar "barato" como lo calcularía alguien en Estados Unidos. El contexto de poder adquisitivo cambia completamente el análisis de si vale la pena.</p>
 
-      <p>Si las usás para cosas que no impactan ningún resultado, $70 al mes es caro. La herramienta no es el diferenciador. Cómo la usás sí lo es. Para eso, el artículo de <a href="los-3-niveles-de-ia.html" style="color:var(--blue-light);">los 3 niveles de uso de IA</a> es una buena guía de hacia dónde apuntar.</p>
+      <table class="cost-table">
+        <thead>
+          <tr>
+            <th>Herramienta</th>
+            <th>Costo mensual</th>
+            <th>¿Uso activo?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Claude Pro</td>
+            <td>$20</td>
+            <td>Diario</td>
+          </tr>
+          <tr>
+            <td>ChatGPT Plus</td>
+            <td>$20</td>
+            <td>4-5 veces/semana</td>
+          </tr>
+          <tr>
+            <td>Make.com</td>
+            <td>$9</td>
+            <td>Siempre activo</td>
+          </tr>
+          <tr>
+            <td>Midjourney</td>
+            <td>$10</td>
+            <td>2-3 veces/semana</td>
+          </tr>
+          <tr>
+            <td>ElevenLabs</td>
+            <td>$5</td>
+            <td>Semanal</td>
+          </tr>
+          <tr>
+            <td style="font-weight:600;">Total</td>
+            <td class="cost-total">$64/mes</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>¿Vale la pena $64 al mes? Esa pregunta tiene una respuesta honesta: depende de cuánto gana o facturás. Si esas herramientas te permiten hacer en una hora lo que tomaría cuatro, y esa diferencia se traduce en más proyectos, más clientes o mejor trabajo, el retorno es claro. Si las usás para cosas que no impactan ningún resultado medible, $64 es caro para entretenimiento.</p>
+
+      <p>Lo que sí es cierto: el retorno no viene de tener las herramientas. Viene de saber usarlas. Para eso, el artículo sobre <a href="los-3-niveles-de-ia.html">los 3 niveles de uso de IA</a> explica exactamente en qué nivel de uso están la mayoría de las personas y cómo avanzar al siguiente.</p>
 
       <hr>
 
-      <p><strong>¿Cuál herramienta de IA te generó el cambio más real en tu flujo de trabajo? Me interesa saber qué está funcionando para otros.</strong></p>
+      <p>Una última cosa: este stack va a cambiar. Garantizado. El espacio de IA en 2026 se mueve tan rápido que lo que escribo hoy puede verse diferente en seis meses. Lo actualizo cuando algo entra o sale del stack con uso real.</p>
+
+      <p><strong>¿Qué herramienta de tu stack sobrevivió el mes cuatro? Me interesa saber qué está funcionando para otros desde LATAM.</strong></p>
 
       <div class="article-cta">
         <p><strong>¿Te resultó útil este artículo?</strong></p>
-        <p>Actualizo estas listas regularmente en <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank">LinkedIn</a>.</p>
+        <p>Comparto actualizaciones del stack y experimentos con IA en <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank">LinkedIn</a>. Y si querés ver cómo integro IA a las finanzas, el artículo de <a href="uso-ia-para-mis-finanzas.html">cómo uso IA para mis finanzas personales</a> tiene otro ángulo concreto.</p>
       </div>
 
     </article>
@@ -239,6 +337,28 @@
         <img src="../img/geo-azul.webp" alt="Geo Albanés">
         <p>Geo comparte estrategias de IA aplicada, finanzas y sistemas para emprendedores en LATAM.</p>
         <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" class="btn btn-primary" style="width:100%;justify-content:center;font-size:0.78rem;padding:11px 16px;">Seguir en LinkedIn</a>
+      </div>
+      <div class="sidebar-box">
+        <h5>En este artículo</h5>
+        <div class="toc">
+          <a href="#criterio">El criterio para elegir</a>
+          <a href="#claude">Claude Pro</a>
+          <a href="#chatgpt">ChatGPT Plus</a>
+          <a href="#make">Make.com</a>
+          <a href="#midjourney">Midjourney</a>
+          <a href="#elevenlabs">ElevenLabs</a>
+          <a href="#descartados">Lo que descartei</a>
+          <a href="#costos">Costo total desde LATAM</a>
+        </div>
+      </div>
+      <div class="sidebar-box">
+        <h5>Artículos relacionados</h5>
+        <div class="toc">
+          <a href="los-3-niveles-de-ia.html">Los 3 niveles de uso de IA</a>
+          <a href="uso-ia-para-mis-finanzas.html">IA para finanzas personales</a>
+          <a href="5-prompts-que-uso-cada-semana.html">5 prompts que uso cada semana</a>
+          <a href="agentes-de-ia-para-tu-negocio.html">Agentes de IA para tu negocio</a>
+        </div>
       </div>
     </aside>
   </div>
