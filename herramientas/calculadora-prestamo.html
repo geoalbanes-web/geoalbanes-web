@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6854793053211209" crossorigin="anonymous"></script>
+  <title>Calculadora de Préstamo con Abono a Capital — Geo Albanés</title>
+  <meta name="description" content="Calculá tu cuota mensual y descubrí cuánto tiempo y dinero ahorras abonando extra a capital. Simulador de préstamos personales e hipotecas para LATAM.">
+  <meta name="keywords" content="calculadora prestamo, abono a capital, simulador credito, cuota mensual, amortizacion, prestamo personal latam, credito hipotecario">
+  <meta property="og:title" content="Calculadora de Préstamo con Abono a Capital — Geo Albanés">
+  <meta property="og:description" content="Calculá tu cuota y descubrí cuánto ahorrás abonando extra al capital cada mes. Gratis.">
+  <meta property="og:url" content="https://geoalbanes.com/herramientas/calculadora-prestamo.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://geoalbanes.com/img/og-calculadora-prestamo.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://geoalbanes.com/herramientas/calculadora-prestamo.html">
+  <link rel="icon" href="../favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Calculadora de Préstamo con Abono a Capital",
+    "url": "https://geoalbanes.com/herramientas/calculadora-prestamo.html",
+    "description": "Simulador de préstamos que muestra cuánto tiempo y dinero ahorrás haciendo abonos extra a capital cada mes.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Geo Albanés", "url": "https://geoalbanes.com" }
+  }
+  </script>
+
+  <style>
+    :root {
+      --green: #22c55e;
+      --green-light: #4ade80;
+      --green-glow: rgba(34,197,94,0.3);
+      --amber: #f59e0b;
+      --amber-light: #fbbf24;
+    }
+
+    .tool-page { padding-top: 80px; }
+
+    /* ── Hero ── */
+    .tool-hero {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      background: linear-gradient(170deg, rgba(34,197,94,0.06) 0%, transparent 55%);
+    }
+    .tool-hero::after {
+      content: '';
+      position: absolute; right: -120px; top: -100px;
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(34,197,94,0.07) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .tool-breadcrumb {
+      display: flex; align-items: center; gap: 8px;
+      font-family: var(--f-mono); font-size: 0.68rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-3); margin-bottom: 28px;
+    }
+    .tool-breadcrumb a { color: var(--text-3); transition: color 0.2s; }
+    .tool-breadcrumb a:hover { color: var(--green-light); }
+    .tool-breadcrumb span { opacity: 0.4; }
+    .tool-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      line-height: 1.1; max-width: 680px; margin-bottom: 16px;
+    }
+    .tool-hero p {
+      font-size: 1rem; color: var(--text-2);
+      max-width: 560px; line-height: 1.65;
+    }
+
+    /* ── Layout ── */
+    .tool-body { padding: 60px 0 100px; }
+    .tool-grid {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── Panel de inputs ── */
+    .input-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      position: sticky; top: 100px;
+    }
+    .input-panel h3 {
+      font-size: 0.8rem;
+      font-family: var(--f-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-3);
+      margin-bottom: 28px;
+    }
+
+    .field { margin-bottom: 24px; }
+    .field label {
+      display: block;
+      font-size: 0.82rem;
+      color: var(--text-2);
+      margin-bottom: 8px;
+      font-family: var(--f-mono);
+      letter-spacing: 0.04em;
+    }
+    .field label span {
+      color: var(--text-3);
+      font-size: 0.72rem;
+      margin-left: 6px;
+    }
+    .input-wrap {
+      position: relative; display: flex; align-items: center;
+    }
+    .input-prefix {
+      position: absolute; left: 14px;
+      font-family: var(--f-mono); font-size: 0.85rem;
+      color: var(--text-3); pointer-events: none;
+    }
+    .input-suffix {
+      position: absolute; right: 14px;
+      font-family: var(--f-mono); font-size: 0.85rem;
+      color: var(--text-3); pointer-events: none;
+    }
+    .field input[type="number"] {
+      width: 100%; padding: 13px 40px 13px 32px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-family: var(--f-mono); font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      -moz-appearance: textfield;
+    }
+    .field input[type="number"]::-webkit-inner-spin-button { display: none; }
+    .field input[type="number"]:focus {
+      outline: none;
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(34,197,94,0.15);
+    }
+
+    .field-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 28px 0;
+    }
+    .field-extra-label {
+      font-size: 0.75rem;
+      font-family: var(--f-mono);
+      color: var(--green-light);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 6px;
+    }
+
+    /* ── Resultados principales ── */
+    .results-panel { display: flex; flex-direction: column; gap: 24px; }
+
+    .result-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .result-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: border-color 0.3s;
+    }
+    .result-card.highlight {
+      border-color: var(--green);
+      background: rgba(34,197,94,0.05);
+    }
+    .result-card .rc-label {
+      font-family: var(--f-mono); font-size: 0.65rem;
+      text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--text-3); margin-bottom: 10px;
+    }
+    .result-card .rc-value {
+      font-family: var(--f-mono); font-size: 1.7rem;
+      font-weight: 700; color: var(--text); line-height: 1;
+    }
+    .result-card.highlight .rc-value { color: var(--green-light); }
+    .result-card .rc-sub {
+      font-size: 0.78rem; color: var(--text-3); margin-top: 6px;
+    }
+
+    /* ── Comparador ── */
+    .compare-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .compare-header {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .compare-header div {
+      padding: 16px 20px;
+      font-family: var(--f-mono); font-size: 0.65rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-3);
+    }
+    .compare-header div:nth-child(2) { border-left: 1px solid var(--border); }
+    .compare-header div:nth-child(3) {
+      border-left: 1px solid var(--border);
+      color: var(--green-light);
+    }
+    .compare-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .compare-row:last-child { border-bottom: none; }
+    .compare-row div {
+      padding: 14px 20px;
+      font-family: var(--f-mono); font-size: 0.88rem;
+      color: var(--text-2);
+    }
+    .compare-row div:first-child { font-size: 0.75rem; color: var(--text-3); }
+    .compare-row div:nth-child(2) { border-left: 1px solid rgba(255,255,255,0.04); }
+    .compare-row div:nth-child(3) {
+      border-left: 1px solid rgba(255,255,255,0.04);
+      color: var(--green-light);
+    }
+
+    /* ── Barra de progreso ── */
+    .savings-bar-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 28px 24px;
+    }
+    .savings-bar-title {
+      font-family: var(--f-mono); font-size: 0.68rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-3); margin-bottom: 16px;
+    }
+    .savings-headline {
+      font-size: 1.1rem; font-weight: 600;
+      color: var(--text); margin-bottom: 20px; line-height: 1.4;
+    }
+    .savings-headline strong { color: var(--green-light); }
+    .bar-track {
+      height: 8px; background: rgba(255,255,255,0.06);
+      border-radius: 99px; overflow: hidden; margin-bottom: 8px;
+    }
+    .bar-fill {
+      height: 100%; border-radius: 99px;
+      background: linear-gradient(90deg, var(--green), var(--green-light));
+      transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .bar-labels {
+      display: flex; justify-content: space-between;
+      font-family: var(--f-mono); font-size: 0.68rem; color: var(--text-3);
+    }
+
+    /* ── Tabla de amortización ── */
+    .amort-wrap {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .amort-head {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .amort-head h4 {
+      font-family: var(--f-mono); font-size: 0.68rem;
+      text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3);
+    }
+    .amort-toggle {
+      font-family: var(--f-mono); font-size: 0.72rem;
+      color: var(--green-light); cursor: pointer;
+      border: none; background: none; padding: 0;
+      transition: opacity 0.2s;
+    }
+    .amort-toggle:hover { opacity: 0.7; }
+    .amort-table { width: 100%; border-collapse: collapse; }
+    .amort-table th {
+      text-align: left; padding: 12px 16px;
+      font-family: var(--f-mono); font-size: 0.62rem;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--text-3);
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+    .amort-table td {
+      padding: 11px 16px;
+      font-family: var(--f-mono); font-size: 0.8rem;
+      color: var(--text-2);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .amort-table tr:last-child td { border-bottom: none; }
+    .amort-table td.col-capital { color: var(--green-light); }
+    .amort-table td.col-saldo { color: var(--text); }
+    .amort-table td.col-extra { color: var(--amber-light); }
+    .amort-table tr.paid-off { background: rgba(34,197,94,0.05); }
+    .amort-table tr.paid-off td { color: var(--green-light); }
+
+    /* ── Nota educativa ── */
+    .edu-note {
+      background: rgba(36,96,232,0.08);
+      border: 1px solid rgba(36,96,232,0.2);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+    .edu-note p {
+      font-size: 0.85rem; color: var(--text-2); line-height: 1.6; margin: 0;
+    }
+    .edu-note p strong { color: var(--blue-light); }
+
+    /* ── No extra message ── */
+    .no-extra { display: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .tool-grid { grid-template-columns: 1fr; }
+      .input-panel { position: static; }
+      .result-cards { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 560px) {
+      .result-cards { grid-template-columns: 1fr; }
+      .compare-header, .compare-row { grid-template-columns: 1fr 1fr; }
+      .compare-header div:first-child, .compare-row div:first-child { display: none; }
+    }
+  </style>
+</head>
+<body class="tool-page">
+
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <a href="../" class="nav-logo">
+      <div class="mark">GA</div>
+      Geo Albanés
+    </a>
+    <div class="nav-links">
+      <a href="../blog/">Blog</a>
+      <a href="../herramientas/" class="active">Herramientas</a>
+      <a href="../sobre-mi.html">Sobre mí</a>
+      <a href="../contacto.html">Contacto</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<header class="tool-hero">
+  <div class="container">
+    <div class="tool-breadcrumb">
+      <a href="../herramientas/">Herramientas</a>
+      <span>/</span>
+      Calculadora de Préstamo
+    </div>
+    <h1>Calculadora de préstamo con abono a capital</h1>
+    <p>Ingresá los datos de tu crédito y descubrí exactamente cuánto tiempo y dinero ahorrás si cada mes abonás un poco más al capital. Simple, sin letra chica.</p>
+  </div>
+</header>
+
+<!-- ══════════════════════ BODY ══════════════════════ -->
+<main class="tool-body">
+  <div class="container">
+    <div class="tool-grid">
+
+      <!-- INPUTS -->
+      <div class="input-panel">
+        <h3>— Datos del préstamo</h3>
+
+        <div class="field">
+          <label>Monto del préstamo <span>(capital inicial)</span></label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="monto" value="10000" min="100" max="10000000" step="100">
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Tasa de interés anual</label>
+          <div class="input-wrap">
+            <input type="number" id="tasa" value="18" min="0.1" max="100" step="0.1" style="padding-right: 36px; padding-left: 14px;">
+            <span class="input-suffix">%</span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Plazo del préstamo</label>
+          <div class="input-wrap">
+            <input type="number" id="plazo" value="36" min="1" max="360" step="1" style="padding-right: 60px; padding-left: 14px;">
+            <span class="input-suffix">meses</span>
+          </div>
+        </div>
+
+        <hr class="field-divider">
+
+        <div class="field-extra-label">Abono extra a capital (opcional)</div>
+
+        <div class="field">
+          <label>¿Cuánto extra abonás al capital cada mes? <span>(puede ser $0)</span></label>
+          <div class="input-wrap">
+            <span class="input-prefix">$</span>
+            <input type="number" id="extra" value="100" min="0" max="100000" step="50">
+          </div>
+        </div>
+
+        <div class="edu-note" style="margin-top: 8px;">
+          <p>El abono extra va directo al capital, no al interés. Por eso reduce el saldo más rápido y <strong>te ahorra intereses reales</strong>.</p>
+        </div>
+      </div>
+
+      <!-- RESULTADOS -->
+      <div class="results-panel">
+
+        <!-- Cards resumen -->
+        <div class="result-cards">
+          <div class="result-card">
+            <div class="rc-label">Cuota mensual base</div>
+            <div class="rc-value" id="cuota-display">$0</div>
+            <div class="rc-sub">Sin abono extra</div>
+          </div>
+          <div class="result-card highlight">
+            <div class="rc-label">Cuota total con extra</div>
+            <div class="rc-value" id="cuota-extra-display">$0</div>
+            <div class="rc-sub">Cuota + abono a capital</div>
+          </div>
+          <div class="result-card">
+            <div class="rc-label">Interés total sin extra</div>
+            <div class="rc-value" id="interes-display">$0</div>
+            <div class="rc-sub">Lo que pagás de más</div>
+          </div>
+          <div class="result-card highlight">
+            <div class="rc-label">Interés total con extra</div>
+            <div class="rc-value" id="interes-extra-display">$0</div>
+            <div class="rc-sub">Reducido por el abono</div>
+          </div>
+        </div>
+
+        <!-- Barra de ahorro -->
+        <div class="savings-bar-wrap" id="savings-section">
+          <div class="savings-bar-title">— Impacto del abono extra</div>
+          <div class="savings-headline" id="savings-headline">
+            Abonando <strong id="extra-label">$100</strong> extra al mes,
+            terminás <strong id="meses-antes">0 meses</strong> antes
+            y ahorrás <strong id="ahorro-display">$0</strong> en intereses.
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill" id="savings-bar" style="width: 0%"></div>
+          </div>
+          <div class="bar-labels">
+            <span>Ahorro: <span id="bar-pct">0%</span> del interés total</span>
+            <span id="tiempo-sin">0 meses sin extra → <span id="tiempo-con">0 meses</span> con extra</span>
+          </div>
+        </div>
+
+        <!-- Tabla comparativa -->
+        <div class="compare-box">
+          <div class="compare-header">
+            <div>Concepto</div>
+            <div>Sin abono extra</div>
+            <div>Con abono extra</div>
+          </div>
+          <div class="compare-row">
+            <div>Cuota mensual</div>
+            <div id="cmp-cuota-sin">-</div>
+            <div id="cmp-cuota-con">-</div>
+          </div>
+          <div class="compare-row">
+            <div>Plazo real</div>
+            <div id="cmp-plazo-sin">-</div>
+            <div id="cmp-plazo-con">-</div>
+          </div>
+          <div class="compare-row">
+            <div>Total pagado</div>
+            <div id="cmp-total-sin">-</div>
+            <div id="cmp-total-con">-</div>
+          </div>
+          <div class="compare-row">
+            <div>Intereses pagados</div>
+            <div id="cmp-int-sin">-</div>
+            <div id="cmp-int-con">-</div>
+          </div>
+          <div class="compare-row">
+            <div>Ahorro en intereses</div>
+            <div>—</div>
+            <div id="cmp-ahorro">-</div>
+          </div>
+        </div>
+
+        <!-- Tabla de amortización -->
+        <div class="amort-wrap">
+          <div class="amort-head">
+            <h4>— Tabla de amortización mensual</h4>
+            <button class="amort-toggle" id="amort-toggle" onclick="toggleTable()">Ver tabla</button>
+          </div>
+          <div id="amort-table-wrap" style="display:none; max-height: 420px; overflow-y: auto;">
+            <table class="amort-table">
+              <thead>
+                <tr>
+                  <th>Mes</th>
+                  <th>Cuota</th>
+                  <th>Interés</th>
+                  <th>Capital</th>
+                  <th>Extra</th>
+                  <th>Saldo</th>
+                </tr>
+              </thead>
+              <tbody id="amort-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Nota educativa -->
+        <div class="edu-note">
+          <p>
+            <strong>¿Por qué funciona el abono a capital?</strong> En un préstamo con amortización francesa (el más común en LATAM), cada cuota paga primero el interés del mes y luego reduce el capital. Si abonás extra directamente al capital, el saldo baja más rápido, el interés del mes siguiente es menor, y cada cuota regular elimina más capital. El efecto se compone mes a mes.
+          </p>
+        </div>
+
+        <!-- Link al artículo relacionado -->
+        <div style="border-top: 1px solid var(--border); padding-top: 28px;">
+          <p style="font-size: 0.82rem; color: var(--text-3); margin-bottom: 12px; font-family: var(--f-mono); text-transform: uppercase; letter-spacing: 0.1em;">— Seguí aprendiendo</p>
+          <a href="../blog/por-que-ahorrar-no-es-estrategia.html" style="display: inline-flex; align-items: center; gap: 8px; color: var(--blue-light); font-size: 0.9rem; transition: gap 0.2s;">
+            Por qué ahorrar no es una estrategia financiera
+            <svg width="14" height="14" stroke="currentColor" fill="none" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+
+      </div><!-- /results-panel -->
+    </div><!-- /tool-grid -->
+  </div><!-- /container -->
+</main>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="../" class="nav-logo"><div class="mark">GA</div>Geo Albanés</a>
+        <p>Estrategias reales de IA, finanzas y sistemas para emprendedores en LATAM.</p>
+      </div>
+      <div class="footer-col">
+        <h6>Herramientas</h6>
+        <a href="calculadora-prestamo.html">Calculadora de préstamo</a>
+        <a href="calculadora-tarjeta.html">Calculadora de tarjeta</a>
+        <a href="calculadora-costos.html">Calculadora de costos</a>
+      </div>
+      <div class="footer-col">
+        <h6>Contenido</h6>
+        <a href="../blog/">Blog</a>
+        <a href="../sobre-mi.html">Sobre mí</a>
+        <a href="../contacto.html">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Geo Albanés · geoalbanes.com</p>
+      <p><a href="../privacidad.html" style="color:var(--text-3);">Privacidad</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── Nav scroll ──
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // ── Formateo ──
+  const fmt = (n) => '$' + n.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fmtMeses = (m) => m === 1 ? '1 mes' : `${m} meses`;
+
+  // ── Cálculo principal ──
+  function calcular() {
+    const monto = parseFloat(document.getElementById('monto').value) || 0;
+    const tasaAnual = parseFloat(document.getElementById('tasa').value) || 0;
+    const plazoMeses = parseInt(document.getElementById('plazo').value) || 0;
+    const extra = parseFloat(document.getElementById('extra').value) || 0;
+
+    if (monto <= 0 || tasaAnual <= 0 || plazoMeses <= 0) return;
+
+    const tasaMensual = tasaAnual / 100 / 12;
+
+    // Cuota mensual estándar (fórmula de amortización francesa)
+    const cuota = monto * (tasaMensual * Math.pow(1 + tasaMensual, plazoMeses)) /
+                  (Math.pow(1 + tasaMensual, plazoMeses) - 1);
+
+    const totalSin = cuota * plazoMeses;
+    const interesSin = totalSin - monto;
+
+    // Simulación con abono extra
+    let saldo = monto;
+    let mesesCon = 0;
+    let interesConTotal = 0;
+    const rows = [];
+
+    while (saldo > 0.005 && mesesCon < plazoMeses * 2) {
+      mesesCon++;
+      const intMes = saldo * tasaMensual;
+      let capitalCuota = cuota - intMes;
+      let extraReal = extra;
+
+      // Si la cuota ya cubre el saldo
+      if (saldo <= cuota) {
+        capitalCuota = saldo;
+        extraReal = 0;
+        interesConTotal += intMes;
+        rows.push({ mes: mesesCon, cuota: saldo + intMes, interes: intMes, capital: saldo, extra: 0, saldo: 0, ultimo: true });
+        saldo = 0;
+        break;
+      }
+
+      let abono = capitalCuota + extraReal;
+      if (abono > saldo) { extraReal = saldo - capitalCuota; abono = saldo; }
+      saldo -= abono;
+      if (saldo < 0.01) saldo = 0;
+      interesConTotal += intMes;
+
+      rows.push({
+        mes: mesesCon,
+        cuota: cuota,
+        interes: intMes,
+        capital: capitalCuota,
+        extra: extraReal,
+        saldo: saldo,
+        ultimo: saldo === 0
+      });
+    }
+
+    const totalCon = mesesCon * cuota - (extra > 0 ? (plazoMeses - mesesCon) * cuota : 0) + interesConTotal + monto - interesConTotal;
+    // Total real pagado con extra
+    let totalConReal = rows.reduce((acc, r) => acc + r.cuota + r.extra, 0);
+    const ahorro = interesSin - interesConTotal;
+    const mesesAntes = plazoMeses - mesesCon;
+    const pctAhorro = interesSin > 0 ? (ahorro / interesSin) * 100 : 0;
+
+    // ── Actualizar UI ──
+    document.getElementById('cuota-display').textContent = fmt(cuota);
+    document.getElementById('cuota-extra-display').textContent = fmt(cuota + extra);
+    document.getElementById('interes-display').textContent = fmt(interesSin);
+    document.getElementById('interes-extra-display').textContent = fmt(interesConTotal);
+
+    document.getElementById('extra-label').textContent = fmt(extra);
+    document.getElementById('meses-antes').textContent = mesesAntes > 0 ? fmtMeses(mesesAntes) : '0 meses';
+    document.getElementById('ahorro-display').textContent = fmt(Math.max(0, ahorro));
+    document.getElementById('savings-bar').style.width = Math.min(100, Math.max(0, pctAhorro)).toFixed(1) + '%';
+    document.getElementById('bar-pct').textContent = pctAhorro.toFixed(1) + '%';
+    document.getElementById('tiempo-sin').textContent = '';
+    document.getElementById('tiempo-con').textContent = '';
+    document.getElementById('tiempo-sin').parentElement.innerHTML =
+      `<span>${fmtMeses(plazoMeses)} sin extra → <strong style="color:var(--green-light)">${fmtMeses(mesesCon)}</strong> con extra</span>`;
+
+    // Comparador
+    document.getElementById('cmp-cuota-sin').textContent = fmt(cuota);
+    document.getElementById('cmp-cuota-con').textContent = fmt(cuota + extra);
+    document.getElementById('cmp-plazo-sin').textContent = fmtMeses(plazoMeses);
+    document.getElementById('cmp-plazo-con').textContent = fmtMeses(mesesCon);
+    document.getElementById('cmp-total-sin').textContent = fmt(totalSin);
+    document.getElementById('cmp-total-con').textContent = fmt(totalConReal);
+    document.getElementById('cmp-int-sin').textContent = fmt(interesSin);
+    document.getElementById('cmp-int-con').textContent = fmt(interesConTotal);
+    document.getElementById('cmp-ahorro').textContent = ahorro > 0 ? fmt(ahorro) : '$0.00';
+
+    // Tabla de amortización
+    const tbody = document.getElementById('amort-body');
+    tbody.innerHTML = '';
+    rows.forEach(r => {
+      const tr = document.createElement('tr');
+      if (r.ultimo) tr.classList.add('paid-off');
+      tr.innerHTML = `
+        <td>${r.mes}</td>
+        <td>${fmt(r.cuota)}</td>
+        <td>${fmt(r.interes)}</td>
+        <td class="col-capital">${fmt(r.capital)}</td>
+        <td class="col-extra">${r.extra > 0 ? fmt(r.extra) : '—'}</td>
+        <td class="col-saldo">${fmt(r.saldo)}</td>
+      `;
+      tbody.appendChild(tr);
+    });
+  }
+
+  function toggleTable() {
+    const wrap = document.getElementById('amort-table-wrap');
+    const btn = document.getElementById('amort-toggle');
+    const visible = wrap.style.display !== 'none';
+    wrap.style.display = visible ? 'none' : 'block';
+    btn.textContent = visible ? 'Ver tabla' : 'Ocultar tabla';
+  }
+
+  // ── Eventos ──
+  ['monto','tasa','plazo','extra'].forEach(id => {
+    document.getElementById(id).addEventListener('input', calcular);
+  });
+
+  // ── Calcular al cargar ──
+  calcular();
+</script>
+</body>
+</html>
