@@ -281,6 +281,24 @@
       font-family: var(--f-mono); font-size: 0.68rem;
       text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3);
     }
+    .btn-calcular {
+      width: 100%; margin-top: 24px;
+      padding: 16px 24px;
+      background: var(--green);
+      color: #000;
+      font-family: var(--f-ui); font-size: 1rem; font-weight: 700;
+      border: none; border-radius: var(--radius);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: transform 0.15s, background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 0 0 rgba(34,197,94,0);
+    }
+    .btn-calcular:hover { background: #4ade80; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(34,197,94,0.25); }
+    .btn-calcular:active { transform: scale(0.97); }
+    .btn-calcular.calculando { background: #4ade80; transform: scale(0.97); }
+    .btn-calcular.listo { background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,0.3); }
+    .btn-calcular-icon { font-size: 1.1rem; transition: transform 0.4s; display: inline-block; }
+    .btn-calcular.calculando .btn-calcular-icon { transform: rotate(360deg); }
     .amort-toggle {
       font-family: var(--f-mono); font-size: 0.72rem;
       color: var(--green-light); cursor: pointer;
@@ -429,6 +447,12 @@
         <div class="edu-note" style="margin-top: 8px;">
           <p>El abono extra va directo al capital, no al interés. Por eso reduce el saldo más rápido y <strong>te ahorra intereses reales</strong>.</p>
         </div>
+
+        <button class="btn-calcular" id="btn-calcular" onclick="calcularConFeedback()">
+          <span class="btn-calcular-icon">⟳</span>
+          <span class="btn-calcular-text">Calcular</span>
+        </button>
+
       </div>
 
       <!-- RESULTADOS -->
@@ -711,12 +735,40 @@
     document.getElementById('amort-badge').textContent = `${rows.length} cuota${rows.length !== 1 ? 's' : ''}`;
   }
 
-  // ── Eventos ──
+  // ── Botón con feedback visual ──
+  function calcularConFeedback() {
+    const btn = document.getElementById('btn-calcular');
+    const icon = btn.querySelector('.btn-calcular-icon');
+    const text = btn.querySelector('.btn-calcular-text');
+
+    btn.classList.add('calculando');
+    btn.disabled = true;
+    text.textContent = 'Calculando...';
+
+    setTimeout(() => {
+      calcular();
+      btn.classList.remove('calculando');
+      btn.classList.add('listo');
+      text.textContent = '¡Listo!';
+      icon.textContent = '✓';
+
+      setTimeout(() => {
+        btn.classList.remove('listo');
+        btn.disabled = false;
+        text.textContent = 'Calcular';
+        icon.textContent = '⟳';
+      }, 1400);
+    }, 280);
+  }
+
+  // ── Enter en cualquier input también dispara el botón ──
   ['monto','tasa','plazo','extra'].forEach(id => {
-    document.getElementById(id).addEventListener('input', calcular);
+    document.getElementById(id).addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') calcularConFeedback();
+    });
   });
 
-  // ── Calcular al cargar ──
+  // ── Calcular al cargar con los valores default ──
   calcular();
 </script>
 </body>
