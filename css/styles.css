@@ -53,6 +53,15 @@ button { cursor: none; font-family: inherit; }
 table, th, td, tr { cursor: none; }
 input, select, textarea { cursor: none; }
 
+/* ── Tool pages: native cursor (better UX for calculadoras) ── */
+body.tool-page { cursor: default !important; }
+body.tool-page * { cursor: default !important; }
+body.tool-page a, body.tool-page button, body.tool-page label,
+body.tool-page input[type="range"], body.tool-page select { cursor: pointer !important; }
+body.tool-page input[type="number"], body.tool-page input[type="text"],
+body.tool-page input[type="email"], body.tool-page textarea { cursor: text !important; }
+body.tool-page #cursor { display: none !important; }
+
 /* ── Custom Cursor ── */
 #cursor {
   position: fixed;

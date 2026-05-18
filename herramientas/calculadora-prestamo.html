@@ -288,29 +288,38 @@
       transition: opacity 0.2s;
     }
     .amort-toggle:hover { opacity: 0.7; }
-    .amort-table { width: 100%; border-collapse: collapse; cursor: none; }
-    #amort-table-wrap { cursor: none; }
-    .amort-table th, .amort-table td, .amort-table tr { cursor: none; }
+    .amort-badge { font-family: var(--f-mono); font-size: 0.65rem; color: var(--text-3); background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px; padding: 3px 10px; }
+    .amort-legend { display: flex; gap: 20px; margin: 10px 0 14px; flex-wrap: wrap; }
+    .amort-legend span { display: flex; align-items: center; gap: 6px; font-family: var(--f-mono); font-size: 0.65rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; }
+    .legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+    .amort-table { width: 100%; border-collapse: collapse; }
+    #amort-table-wrap { border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; }
     .amort-table th {
-      text-align: left; padding: 12px 16px;
-      font-family: var(--f-mono); font-size: 0.62rem;
+      text-align: left; padding: 10px 14px;
+      font-family: var(--f-mono); font-size: 0.6rem;
       text-transform: uppercase; letter-spacing: 0.1em;
       color: var(--text-3);
       border-bottom: 1px solid var(--border);
       background: rgba(255,255,255,0.02);
+      white-space: nowrap;
     }
     .amort-table td {
-      padding: 11px 16px;
-      font-family: var(--f-mono); font-size: 0.8rem;
+      padding: 9px 14px;
+      font-family: var(--f-mono); font-size: 0.78rem;
       color: var(--text-2);
       border-bottom: 1px solid rgba(255,255,255,0.04);
+      white-space: nowrap;
     }
+    .amort-table tr:hover td { background: rgba(255,255,255,0.02); }
     .amort-table tr:last-child td { border-bottom: none; }
     .amort-table td.col-capital { color: var(--green-light); }
     .amort-table td.col-saldo { color: var(--text); }
     .amort-table td.col-extra { color: var(--amber-light); }
     .amort-table tr.paid-off { background: rgba(34,197,94,0.05); }
     .amort-table tr.paid-off td { color: var(--green-light); }
+    /* Mini barra capital vs interés */
+    .mini-bar { width: 80px; height: 6px; background: rgba(255,255,255,0.06); border-radius: 3px; overflow: hidden; display: inline-block; vertical-align: middle; }
+    .mini-bar-cap { height: 100%; background: var(--green-light); border-radius: 3px; transition: width 0.3s; }
 
     /* ── Nota educativa ── */
     .edu-note {
@@ -504,13 +513,19 @@
         <div class="amort-wrap">
           <div class="amort-head">
             <h4>— Tabla de amortización mensual</h4>
-            <button class="amort-toggle" id="amort-toggle" onclick="toggleTable()">Ver tabla</button>
+            <span class="amort-badge" id="amort-badge">0 cuotas</span>
           </div>
-          <div id="amort-table-wrap" style="display:none; max-height: 420px; overflow-y: auto;">
+          <div class="amort-legend">
+            <span><span class="legend-dot" style="background:var(--green-light)"></span>Capital</span>
+            <span><span class="legend-dot" style="background:#f87171"></span>Interés</span>
+            <span><span class="legend-dot" style="background:var(--amber-light)"></span>Abono extra</span>
+          </div>
+          <div id="amort-table-wrap" style="max-height: 460px; overflow-y: auto;">
             <table class="amort-table">
               <thead>
                 <tr>
                   <th>Mes</th>
+                  <th>Capital / Interés</th>
                   <th>Cuota</th>
                   <th>Interés</th>
                   <th>Capital</th>
@@ -680,24 +695,20 @@
     rows.forEach(r => {
       const tr = document.createElement('tr');
       if (r.ultimo) tr.classList.add('paid-off');
+      const cuotaTotal = r.cuota + r.extra;
+      const pctCap = cuotaTotal > 0 ? Math.round((r.capital / cuotaTotal) * 100) : 0;
       tr.innerHTML = `
         <td>${r.mes}</td>
+        <td><div class="mini-bar"><div class="mini-bar-cap" style="width:${pctCap}%"></div></div></td>
         <td>${fmt(r.cuota)}</td>
-        <td>${fmt(r.interes)}</td>
+        <td style="color:#f87171">${fmt(r.interes)}</td>
         <td class="col-capital">${fmt(r.capital)}</td>
         <td class="col-extra">${r.extra > 0 ? fmt(r.extra) : '—'}</td>
         <td class="col-saldo">${fmt(r.saldo)}</td>
       `;
       tbody.appendChild(tr);
     });
-  }
-
-  function toggleTable() {
-    const wrap = document.getElementById('amort-table-wrap');
-    const btn = document.getElementById('amort-toggle');
-    const visible = wrap.style.display !== 'none';
-    wrap.style.display = visible ? 'none' : 'block';
-    btn.textContent = visible ? 'Ver tabla' : 'Ocultar tabla';
+    document.getElementById('amort-badge').textContent = `${rows.length} cuota${rows.length !== 1 ? 's' : ''}`;
   }
 
   // ── Eventos ──
