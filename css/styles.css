@@ -50,6 +50,8 @@ a  { color: inherit; text-decoration: none; cursor: none; }
 ul { list-style: none; }
 img { max-width: 100%; display: block; }
 button { cursor: none; font-family: inherit; }
+table, th, td, tr { cursor: none; }
+input, select, textarea { cursor: none; }
 
 /* ── Custom Cursor ── */
 #cursor {
