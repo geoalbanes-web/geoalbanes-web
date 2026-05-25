@@ -1,1147 +1,233 @@
 <!DOCTYPE html>
-<html lang="es">
 
-<head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MPQMHTTEQJ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-MPQMHTTEQJ');
+<html class="scroll-smooth" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Geo Albanés — Radical clarity in technical thought</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        surface: "#F5F5F7",
+                        "surface-alt": "#FBFBFD",
+                        "text-primary": "#1D1D1F",
+                        "text-secondary": "#6E6E73",
+                        "text-tertiary": "#86868B",
+                        "accent-blue": "#0071E3",
+                        "accent-blue-hover": "#0077ED",
+                        separator: "#D2D2D7",
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    fontFamily: {
+                        headline: ["Inter", "sans-serif"],
+                        display: ["Inter", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                        label: ["Inter", "sans-serif"]
+                    },
+                    boxShadow: {
+                        'card': '0 2px 12px rgba(0,0,0,0.08)',
+                        'card-hover': '0 8px 30px rgba(0,0,0,0.12)',
+                    }
+                },
+            },
+        }
     </script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6854793053211209" crossorigin="anonymous"></script>
-  <title>Geo Albanés — IA, Finanzas y Sistemas para LATAM</title>
-  <meta name="description"
-    content="Geo Albanés comparte estrategias reales de inteligencia artificial, finanzas personales y sistemas de productividad para emprendedores en LATAM.">
-  <link rel="canonical" href="https://geoalbanes.com/">
-  <meta name="theme-color" content="#060608">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://geoalbanes.com/">
-  <meta property="og:title" content="Geo Albanés — IA, Finanzas y Sistemas para LATAM">
-  <meta property="og:description" content="Estrategias reales de IA aplicada, finanzas personales y sistemas de productividad para emprendedores en LATAM.">
-  <meta property="og:image" content="https://geoalbanes.com/img/og-hero-landing.png">
-  <meta property="og:image:width" content="1344">
-  <meta property="og:image:height" content="768">
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="Geo Albanés — IA, Finanzas y Sistemas para LATAM">
-  <meta property="twitter:description" content="Estrategias reales de IA, finanzas y sistemas para emprendedores en LATAM.">
-  <meta property="twitter:image" content="https://geoalbanes.com/img/og-hero-landing.png">
-  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-  <link rel="apple-touch-icon" href="img/favicon-512.png">
-  <link rel="manifest" href="manifest.json">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
-  <link rel="stylesheet" href="css/styles.css">
-  <script
-    type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Geo Albanés","url":"https://geoalbanes.com","sameAs":["https://www.linkedin.com/in/geoalbanes/","https://www.instagram.com/geoalbanes/"]}</script>
-  <style>
-    /* ═══════════════════════════════════════
-     HOME — Estilos específicos
-  ═══════════════════════════════════════ */
-
-    /* ── Hero ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding-bottom: 0;
-      position: relative;
-      background: var(--bg) url('img/hero-bg.jpg') center/cover no-repeat;
-      overflow: hidden;
-    }
-    .hero-bg-img {
-      display: none;
-    }
-    #neural-canvas {
-      display: none;
-    }
-    #hero-video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      opacity: 0.07;
-    }
-    .hero-fade-top {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 200px;
-      background: linear-gradient(to bottom, var(--bg), transparent);
-      z-index: 1;
-      pointer-events: none;
-    }
-    .hero-fade-bottom {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 200px;
-      background: linear-gradient(to top, var(--bg), transparent);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 60px;
-      align-items: flex-end;
-      padding: 160px 0 60px;
-    }
-
-    .hero-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .hero-eyebrow .label {
-      color: var(--text-2);
-    }
-
-    .hero-title {
-      margin-bottom: 36px;
-    }
-
-    .hero-title .line {
-      overflow: hidden;
-      line-height: 0.97;
-    }
-
-    .hero-title .line span {
-      display: block;
-      transform: translateY(108%);
-      animation: lineUp 1s var(--ease-out) forwards;
-      padding-bottom: 0.06em;
-    }
-
-    .hero-title .line:nth-child(1) span {
-      animation-delay: 0.05s;
-    }
-
-    .hero-title .line:nth-child(2) span {
-      animation-delay: 0.18s;
-    }
-
-    .hero-title .line:nth-child(3) span {
-      animation-delay: 0.31s;
-    }
-
-    @keyframes lineUp {
-      to {
-        transform: translateY(0);
-      }
-    }
-
-    .hero-sub {
-      font-size: 1.05rem;
-      max-width: 460px;
-      margin-bottom: 40px;
-      opacity: 0;
-      animation: fadeUp 0.8s var(--ease-out) 0.55s forwards;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 14px;
-      opacity: 0;
-      animation: fadeUp 0.8s var(--ease-out) 0.7s forwards;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(16px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Photo side */
-    .hero-photo-col {
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      position: relative;
-      opacity: 0;
-      animation: fadeUp 1s var(--ease-out) 0.3s forwards;
-    }
-
-    .hero-photo-frame {
-      position: relative;
-      width: 380px;
-    }
-
-    .hero-photo-frame img {
-      width: 100%;
-      display: block;
-      border-radius: 16px 16px 0 0;
-      position: relative;
-      z-index: 1;
-      filter: grayscale(8%) contrast(1.04);
-    }
-
-    .photo-border { display: none; }
-    .photo-glow   { display: none; }
-    .photo-badge  { display: none; }
-
-    /* Stats bar */
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border-top: 1px solid var(--border);
-      opacity: 0;
-      animation: fadeUp 0.8s var(--ease-out) 0.85s forwards;
-    }
-
-    .stat {
-      background: var(--bg);
-      padding: 28px 32px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .stat-val {
-      font-family: var(--f-mono);
-      font-size: 1.6rem;
-      font-weight: 500;
-      color: var(--text);
-      line-height: 1;
-    }
-
-    .stat-val em {
-      font-style: normal;
-      color: var(--blue-light);
-    }
-
-    .stat-desc {
-      font-size: 0.82rem;
-      color: var(--text-2);
-      line-height: 1.3;
-      max-width: 120px;
-    }
-
-    /* ── Pillars ── */
-    .pillars {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-
-    .pillar {
-      background: var(--bg);
-      padding: 0;
-      position: relative;
-      transition: background 0.3s;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .pillar-photo {
-      width: 100%;
-      aspect-ratio: 16/9;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .pillar-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s var(--ease-out);
-      filter: brightness(0.85) saturate(1.1);
-    }
-
-    .pillar:hover .pillar-photo img {
-      transform: scale(1.04);
-    }
-
-    .pillar-content {
-      padding: 32px 36px 40px;
-      flex: 1;
-    }
-
-    .pillar:hover {
-      background: var(--surface);
-    }
-
-    .pillar::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--blue);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.4s var(--ease-out);
-    }
-
-    .pillar:hover::after {
-      transform: scaleX(1);
-    }
-
-    .pillar-num {
-      font-family: var(--f-mono);
-      font-size: 0.68rem;
-      color: var(--text-3);
-      letter-spacing: 0.1em;
-      margin-bottom: 28px;
-    }
-
-    .pillar h3 {
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-    }
-
-    .pillar p {
-      font-size: 0.88rem;
-    }
-
-    /* ── Articles editorial ── */
-    .articles-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
-      margin-bottom: 48px;
-    }
-
-    .articles-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-    }
-
-    .art-main {
-      background: var(--bg);
-      padding: 48px;
-      grid-row: span 2;
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      transition: background 0.3s;
-    }
-
-    .art-main:hover {
-      background: var(--surface);
-    }
-
-    .art-main .big-num {
-      font-family: var(--f-mono);
-      font-size: 5rem;
-      font-weight: 500;
-      color: var(--text-3);
-      line-height: 1;
-      margin-bottom: 32px;
-      transition: color 0.3s;
-    }
-
-    .art-main:hover .big-num {
-      color: var(--blue);
-    }
-
-    .art-main h3 {
-      font-family: var(--f-display);
-      font-size: 1.7rem;
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 16px;
-      margin-top: 16px;
-      color: var(--text);
-    }
-
-    .art-main p {
-      font-size: 0.92rem;
-      margin-bottom: 32px;
-      flex: 1;
-    }
-
-    .art-small {
-      background: var(--bg);
-      padding: 36px 40px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      transition: background 0.3s;
-      border-left: 1px solid transparent;
-    }
-
-    .art-small:hover {
-      background: var(--surface);
-    }
-
-    .art-small h4 {
-      font-family: var(--f-display);
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1.3;
-    }
-
-    .art-small p {
-      font-size: 0.84rem;
-    }
-
-    /* ── Newsletter ── */
-    .nl-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      padding: 80px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nl-right {}
-
-    .nl-form {
-      margin-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .nl-form input {
-      width: 100%;
-      padding: 16px 20px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      color: var(--text);
-      font-size: 0.95rem;
-      font-family: var(--f-body);
-      outline: none;
-      transition: border-color 0.25s;
-    }
-
-    .nl-form input:focus {
-      border-color: var(--blue);
-    }
-
-    .nl-form input::placeholder {
-      color: var(--text-3);
-    }
-
-    .nl-note {
-      font-family: var(--f-mono);
-      font-size: 0.65rem;
-      color: var(--text-3);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin-top: 4px;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-photo-col {
-        display: none;
-      }
-
-      .pillars {
-        grid-template-columns: 1fr;
-      }
-
-      .articles-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .art-main {
-        grid-row: span 1;
-      }
-
-      .nl-section {
-        grid-template-columns: 1fr;
-        gap: 48px;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-        background: none;
-      }
-
-      .stat {
-        border-top: 1px solid var(--border);
-      }
-    }
-
-    @media (max-width: 600px) {
-      .hero-ctas {
-        flex-direction: column;
-      }
-
-      .articles-header {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 16px;
-      }
-
-      .art-main {
-        padding: 32px;
-      }
-
-      .art-small {
-        padding: 28px 32px;
-      }
-    }
-  </style>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; color: #1D1D1F; }
+        .glass-nav { background: rgba(255,255,255,0.72); backdrop-filter: saturate(180%) blur(20px); -webkit-backdrop-filter: saturate(180%) blur(20px); }
+    * { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; }
+        </style>
 </head>
-
-<body>
-
-  <!-- ══════ Page Loader ══════ -->
-  <div class="page-loader" id="page-loader">
-    <div class="loader-inner">
-      <div class="loader-mark">GA</div>
-      <div class="loader-meta">
-        <span class="loader-tag">GEOALBANES.COM</span>
-        <span class="loader-tag-r">v3.0 · LATAM</span>
-      </div>
-      <div class="loader-bar"><div class="loader-bar-fill" id="loader-bar-fill"></div></div>
-      <div class="loader-foot">
-        <span class="loader-pct" id="loader-pct">0%</span>
-        <span class="loader-status" id="loader-status">Inicializando · neural · stack · datos</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- ══════ Section Index ══════ -->
-  <nav class="section-index" id="section-index" aria-hidden="true">
-    <a href="#hero" class="si-item active" data-section="hero"><span class="si-line"></span><span class="si-label">01 · Hero</span></a>
-    <a href="#pillars" class="si-item" data-section="pillars"><span class="si-line"></span><span class="si-label">02 · Temas</span></a>
-    <a href="#terminal-section" class="si-item" data-section="terminal-section"><span class="si-line"></span><span class="si-label">03 · Lab IA</span></a>
-    <a href="#stack-section" class="si-item" data-section="stack-section"><span class="si-line"></span><span class="si-label">04 · Stack</span></a>
-    <a href="#metrics-section" class="si-item" data-section="metrics-section"><span class="si-line"></span><span class="si-label">05 · Datos</span></a>
-    <a href="#articles" class="si-item" data-section="articles"><span class="si-line"></span><span class="si-label">06 · Blog</span></a>
-    <a href="#manifesto" class="si-item" data-section="manifesto"><span class="si-line"></span><span class="si-label">07 · Manifesto</span></a>
-  </nav>
-
-  <!-- Scroll Progress -->
-  <div id="scroll-progress"></div>
-
-  <!-- Custom Cursor -->
-  <div id="cursor"></div>
-
-  <!-- Ambient Orbs -->
-  <div class="orb orb-1"></div>
-  <div class="orb orb-2"></div>
-  <div class="orb orb-3"></div>
-
-  <!-- ══════════════════════ NAV ══════════════════════ -->
-  <nav class="nav" id="nav">
-    <div class="container">
-      <a href="/" class="nav-logo">
-        <div class="mark">GA</div>
-        Geo Albanés
-      </a>
-      <ul class="nav-links">
-        <li><a href="blog/">Blog</a></li>
-        <li><a href="herramientas/">Herramientas</a></li>
-        <li><a href="sobre-mi.html">Sobre mí</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-      <div class="nav-status">
-        <span class="status-dot"></span>
-        Publicando 3× / semana
-      </div>
-      <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-      </div>
-    </div>
-  </nav>
-
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="close-btn" id="closeMenu"><svg width="24" height="24" stroke="currentColor">
-        <use href="img/icons.svg#icon-close" />
-      </svg></button>
-    <a href="blog/">Blog</a>
-  <a href="herramientas/">Herramientas</a>
-    <a href="sobre-mi.html">Sobre mí</a>
-    <a href="contacto.html">Contacto</a>
-    <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank">LinkedIn <svg width="14" height="14"
-        stroke="currentColor">
-        <use href="img/icons.svg#icon-external" />
-      </svg></a>
-  </div>
-
-  <!-- ══════════════════════ HERO ══════════════════════ -->
-  <section class="hero" id="hero">
-    <video id="hero-video" autoplay muted loop playsinline src="img/hero-neural-cosmos.mp4"></video>
-    <div class="hero-fade-top"></div>
-    <div class="hero-fade-bottom"></div>
-    <div class="container">
-      <div class="hero-grid">
-        <!-- Left: texto -->
-        <div>
-          <div class="hero-eyebrow">
-            <span class="label">El Salvador · LATAM</span>
-          </div>
-          <h1 class="display hero-title">
-            <div class="line"><span>La ventaja</span></div>
-            <div class="line"><span>está en cómo</span></div>
-            <div class="line"><span><em>pensás.</em></span></div>
-          </h1>
-          <p class="hero-sub">
-            Estrategias reales de IA aplicada, finanzas personales y sistemas de productividad. Sin hype, sin teoría de
-            libro. Solo lo que funciona en LATAM.
-          </p>
-          <div class="hero-ctas">
-            <a href="blog/" class="btn btn-primary">Leer el blog <svg width="14" height="14" stroke="currentColor">
-                <use href="img/icons.svg#icon-arrow" />
-              </svg></a>
-            <a href="sobre-mi.html" class="btn btn-ghost">Quién soy</a>
-          </div>
-        </div>
-        <!-- Right: foto -->
-        <div class="hero-photo-col">
-          <div class="hero-photo-frame">
-            <div class="photo-badge">
-              <div class="pb-num">3×</div>
-              <div class="pb-label">Posts / semana</div>
+<body class="antialiased selection:bg-accent-blue selection:text-white">
+<!-- TopNavBar -->
+<nav class="sticky top-0 w-full z-50 glass-nav border-b border-separator">
+<div class="flex justify-between items-center max-w-[1200px] mx-auto px-6 md:px-12 h-14">
+<a href="/" class="flex items-center gap-2.5 group">
+  <span class="w-2 h-2 rounded-full bg-[#0071E3] inline-block flex-shrink-0 group-hover:scale-125 transition-transform duration-200"></span>
+  <span class="text-[17px] font-semibold tracking-tight text-[#1D1D1F]">Geo Albanés</span>
+</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-text-primary hover:text-accent-blue transition-colors text-sm font-medium" href="#">Blog</a>
+<a class="text-text-primary hover:text-accent-blue transition-colors text-sm font-medium" href="#">Herramientas</a>
+<a class="text-text-primary hover:text-accent-blue transition-colors text-sm font-medium" href="#">Sobre mí</a>
+</div>
+<div>
+<button class="bg-accent-blue hover:bg-accent-blue-hover text-white px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300">Suscribir</button>
+</div>
+</div>
+</nav>
+<!-- HERO SECTION -->
+<section class="min-h-[calc(100vh-56px)] flex flex-col lg:flex-row items-center max-w-[1200px] mx-auto px-6 md:px-12 py-16 lg:py-0">
+<div class="w-full lg:w-1/2 flex flex-col items-start z-10">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-[#EBF4FF] text-accent-blue text-xs font-semibold rounded-full mb-8 tracking-wider">
+<span>EL SALVADOR · LATAM · 2026</span>
+</div>
+<h1 class="text-6xl md:text-[72px] leading-[1.05] tracking-tight text-text-primary mb-6">
+<span class="font-black block">La ventaja</span>
+<span class="font-black block">está en cómo</span>
+<span class="font-light italic text-accent-blue block mt-2">pensás.</span>
+</h1>
+<p class="text-[18px] leading-relaxed text-text-secondary max-w-md mb-10">
+                Estrategias reales de IA, finanzas y productividad. Sin hype. Solo lo que funciona.
+            </p>
+<div class="flex flex-col sm:flex-row gap-4 mb-6 w-full sm:w-auto">
+<a class="inline-flex justify-center items-center px-6 py-3.5 bg-accent-blue hover:bg-accent-blue-hover text-white font-medium rounded-lg transition-colors" href="#blog">
+                    Leer el blog <span class="ml-2">→</span>
+</a>
+<a class="inline-flex justify-center items-center px-6 py-3.5 bg-white border border-accent-blue text-accent-blue hover:bg-surface-alt font-medium rounded-lg transition-colors" href="#about">
+                    Quién soy
+                </a>
+</div>
+<div class="text-sm text-text-tertiary mt-4">
+                17 artículos · publicación 3×/semana
             </div>
-            <img src="img/geo-principal.webp" alt="Geo Albanés">
-            <div class="photo-border"></div>
-            <div class="photo-glow"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Stats bar -->
-    <div class="hero-stats">
-      <div class="stat">
-        <div>
-          <div class="stat-val"><em data-count="15">0</em><span style="color:var(--text-3);font-size:1rem"> arts</span></div>
-          <div class="stat-desc">Artículos publicados sobre IA, finanzas y sistemas</div>
-        </div>
-      </div>
-      <div class="stat">
-        <div>
-          <div class="stat-val"><em data-count="3">0</em><span style="color:var(--text-3);font-size:1rem">×/sem</span></div>
-          <div class="stat-desc">Publicaciones semanales con estrategias reales</div>
-        </div>
-      </div>
-      <div class="stat">
-        <div>
-          <div class="stat-val"><em data-count="4">0</em><span style="color:var(--text-3);font-size:1rem"> temas</span></div>
-          <div class="stat-desc">IA · Finanzas · Productividad · Emprendimiento</div>
-        </div>
-      </div>
-    </div>
-    <div class="particles">
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span>
-    </div>
-  </section>
-
-  <!-- ══════════════════════ MARQUEE ══════════════════════ -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <!-- duplicado para loop infinito -->
-      <div class="marquee-item">IA Aplicada</div>
-      <div class="marquee-item">Finanzas Personales</div>
-      <div class="marquee-item">El Salvador</div>
-      <div class="marquee-item">Productividad</div>
-      <div class="marquee-item">Sistemas</div>
-      <div class="marquee-item">LATAM</div>
-      <div class="marquee-item">Emprendimiento</div>
-      <div class="marquee-item">ChatGPT</div>
-      <div class="marquee-item">Inversión</div>
-      <div class="marquee-item">IA Aplicada</div>
-      <div class="marquee-item">Finanzas Personales</div>
-      <div class="marquee-item">El Salvador</div>
-      <div class="marquee-item">Productividad</div>
-      <div class="marquee-item">Sistemas</div>
-      <div class="marquee-item">LATAM</div>
-      <div class="marquee-item">Emprendimiento</div>
-      <div class="marquee-item">ChatGPT</div>
-      <div class="marquee-item">Inversión</div>
-    </div>\n <div class="marquee-track reverse">
-      <!-- duplicado para loop infinito -->
-      <div class="marquee-item">IA Aplicada</div>
-      <div class="marquee-item">Finanzas Personales</div>
-      <div class="marquee-item">El Salvador</div>
-      <div class="marquee-item">Productividad</div>
-      <div class="marquee-item">Sistemas</div>
-      <div class="marquee-item">LATAM</div>
-      <div class="marquee-item">Emprendimiento</div>
-      <div class="marquee-item">ChatGPT</div>
-      <div class="marquee-item">Inversión</div>
-      <div class="marquee-item">IA Aplicada</div>
-      <div class="marquee-item">Finanzas Personales</div>
-      <div class="marquee-item">El Salvador</div>
-      <div class="marquee-item">Productividad</div>
-      <div class="marquee-item">Sistemas</div>
-      <div class="marquee-item">LATAM</div>
-      <div class="marquee-item">Emprendimiento</div>
-      <div class="marquee-item">ChatGPT</div>
-      <div class="marquee-item">Inversión</div>
-    </div>
-  </div>
-
-  <!-- ══════════════════════ PILARES ══════════════════════ -->
-  <section class="section" id="pillars">
-    <div class="container">
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px;">
-        <div>
-          <p class="sec-num">— 01</p>
-          <h2 class="fade-in">Tres temas.<br>Un objetivo.</h2>
-        </div>
-        <p style="max-width:280px;font-size:0.9rem;" class="fade-in d2">
-          Todo lo que publico gira en torno a darte las herramientas para tomar el control de tu vida profesional.
-        </p>
-      </div>
-      <div class="pillars fade-in d2">
-        <div class="pillar">
-          <div class="pillar-photo">
-            <img src="img/pilar-ia.jpg" alt="Inteligencia Artificial aplicada" loading="lazy" width="800" height="450">
-          </div>
-          <div class="pillar-content">
-            <div class="pillar-num">01 — IA</div>
-            <div class="pillar-icon">
-              <svg width="36" height="36" stroke="currentColor">
-                <use href="img/icons.svg#icon-ia" />
-              </svg>
-            </div>
-            <h3>Inteligencia Artificial</h3>
-            <p>No el hype. Cómo usar IA para pensar mejor, automatizar lo repetitivo y tomar decisiones con más
-              información. Los tres niveles que nadie te explica.</p>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-photo">
-            <img src="img/pilar-finanzas.jpg" alt="Finanzas personales" loading="lazy" width="800" height="450">
-          </div>
-          <div class="pillar-content">
-            <div class="pillar-num">02 — Finanzas</div>
-            <div class="pillar-icon">
-              <svg width="36" height="36" stroke="currentColor">
-                <use href="img/icons.svg#icon-finanzas" />
-              </svg>
-            </div>
-            <h3>Finanzas Personales</h3>
-            <p>Sin jerga bancaria. Entendé lo que tu banco no te dice, mové tu dinero con criterio y construí patrimonio
-              desde Centroamérica.</p>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-photo">
-            <img src="img/pilar-sistemas.jpg" alt="Sistemas y productividad" loading="lazy" width="800" height="450">
-          </div>
-          <div class="pillar-content">
-            <div class="pillar-num">03 — Sistemas</div>
-            <div class="pillar-icon">
-              <svg width="36" height="36" stroke="currentColor">
-                <use href="img/icons.svg#icon-sistemas" />
-              </svg>
-            </div>
-            <h3>Sistemas y Productividad</h3>
-            <p>Hábitos que funcionan, frameworks para decidir y herramientas para operar tu vida y negocio de forma que
-              escalen.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════ TERMINAL ══════════════════════ -->
-  <section class="section" id="terminal-section" style="padding-top:0;">
-    <div class="container">
-      <div class="chat-section-wrap">
-
-        <!-- Texto izquierda -->
-        <div class="chat-section-text">
-          <p class="sec-num">— 02</p>
-          <h2 class="fade-in">Así uso la IA<br><em>cada día.</em></h2>
-          <p class="chat-section-desc fade-in d2">
-            No teoría. Prompts reales que uso para analizar datos, tomar decisiones y ahorrar tiempo.
-          </p>
-          <ul class="chat-feats fade-in d3">
-            <li><span class="cf-dot"></span>Análisis financiero al instante</li>
-            <li><span class="cf-dot"></span>Captions que convierten en LATAM</li>
-            <li><span class="cf-dot"></span>Auditorías bancarias automáticas</li>
-            <li><span class="cf-dot"></span>Hooks virales basados en datos reales</li>
-          </ul>
-        </div>
-
-        <!-- Phone mockup derecha -->
-        <div class="chat-section-phone fade-in d1">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <div class="phone-topbar">
-                <span class="phone-time">9:41</span>
-                <div class="phone-island"></div>
-                <svg class="phone-battery" viewBox="0 0 25 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="0.5" y="0.5" width="21" height="11" rx="3.5" stroke="white" stroke-opacity="0.5"/>
-                  <rect x="2" y="2" width="16" height="8" rx="2" fill="white" fill-opacity="0.75"/>
-                  <path d="M23 4.5V7.5C23.8 7.17 24.5 6.5 24.5 6C24.5 5.5 23.8 4.83 23 4.5Z" fill="white" fill-opacity="0.5"/>
-                </svg>
-              </div>
-              <div class="chat-window">
-                <div class="chat-header">
-                  <div class="chat-header-left">
-                    <div class="chat-avatar-hdr">C</div>
-                    <div>
-                      <div class="chat-header-name">Claude</div>
-                      <div class="chat-header-sub" id="chat-scenario">Iniciando sesión</div>
-                    </div>
-                  </div>
-                  <div class="chat-hdr-live"><span class="chat-hdr-dot"></span>LIVE</div>
-                </div>
-                <div class="chat-messages" id="chat-messages"></div>
-                <div class="chat-input-bar">
-                  <div class="chat-input-fake">
-                    <span class="chat-input-txt" id="chat-input-txt"></span>
-                    <span class="chat-input-caret">|</span>
-                  </div>
-                  <button class="chat-send-btn" id="chat-send-btn" aria-label="Enviar">↑</button>
-                </div>
-              </div>
-              <div class="phone-home-bar"></div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════ STACK ══════════════════════ -->
-  <section class="section stack-section" style="padding-top:0;">
-    <div class="container">
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap; gap:24px;">
-        <div>
-          <p class="sec-num">— 03</p>
-          <h2 class="fade-in">Mi stack<br><em>de cada día.</em></h2>
-        </div>
-        <p style="max-width:300px;font-size:0.9rem;" class="fade-in d2">
-          Las herramientas que uso para pensar, crear y operar. Sin lock-in, sin hype. Lo que de verdad funciona.
-        </p>
-      </div>
-      <div class="stack-grid">
-        <div class="stack-card fade-in" data-color="#10A37F" data-label="LLM">
-          <div class="stack-icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M22.28 9.82a5.94 5.94 0 0 0-.51-4.91 6 6 0 0 0-6.5-2.88A6 6 0 0 0 4.91 4.18 5.95 5.95 0 0 0 1.71 14.18a6 6 0 0 0 .51 4.91 6 6 0 0 0 6.5 2.88 6 6 0 0 0 10.36-2.13 5.94 5.94 0 0 0 3.2-9.99zM13.49 20.91a4.45 4.45 0 0 1-2.86-1.04l.14-.08 4.79-2.77a.79.79 0 0 0 .39-.68v-6.76l2.03 1.17a.07.07 0 0 1 .04.05v5.6a4.46 4.46 0 0 1-4.53 4.51zM3.84 16.79a4.43 4.43 0 0 1-.53-2.97l.14.08 4.79 2.77a.78.78 0 0 0 .79 0l5.84-3.38v2.34a.07.07 0 0 1-.03.06l-4.84 2.79a4.45 4.45 0 0 1-6.16-1.69zm-1.27-10.5a4.43 4.43 0 0 1 2.34-1.95v5.7a.78.78 0 0 0 .39.68l5.84 3.38-2.03 1.17a.07.07 0 0 1-.07 0l-4.85-2.81a4.45 4.45 0 0 1-1.62-6.17zm16.59 3.86l-5.84-3.41 2.03-1.17a.07.07 0 0 1 .07 0l4.85 2.79a4.45 4.45 0 0 1-.67 8.04v-5.7a.79.79 0 0 0-.43-.65zm2.02-3.04l-.14-.09-4.79-2.79a.78.78 0 0 0-.79 0l-5.84 3.38V5.27a.07.07 0 0 1 .03-.06l4.85-2.79a4.45 4.45 0 0 1 6.69 4.62zm-12.66 4.18L8.49 10.12V7.79a.07.07 0 0 1 .03-.06l4.85-2.79a4.45 4.45 0 0 1 6.6 4.61l-.14-.08-4.79-2.77a.78.78 0 0 0-.79 0l-5.84 3.38zm1.1-2.43l2.6-1.5 2.6 1.5v3l-2.6 1.5-2.6-1.5z"/></svg>
-          </div>
-          <h4>ChatGPT</h4>
-          <p>Pensar más rápido</p>
-          <span class="stack-tag">Diario</span>
-        </div>
-        <div class="stack-card fade-in d1" data-color="#D97757" data-label="LLM">
-          <div class="stack-icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M4.5 4.5h6.4l4 8.6 4-8.6h6.4v15h-3.5V9.7L17.4 19.5h-2L11.5 9.7v9.8H4.5z" transform="translate(-2.5 0)"/><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
-          </div>
-          <h4>Claude</h4>
-          <p>Análisis profundo</p>
-          <span class="stack-tag">Diario</span>
-        </div>
-        <div class="stack-card fade-in d2" data-color="#000000" data-label="EDITOR">
-          <div class="stack-icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M3 4l9 16 9-16H3zm3.4 2h11.2L12 16.4 6.4 6z"/></svg>
-          </div>
-          <h4>Notion</h4>
-          <p>Segundo cerebro</p>
-          <span class="stack-tag">Diario</span>
-        </div>
-        <div class="stack-card fade-in d3" data-color="#000" data-label="DEV">
-          <div class="stack-icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14" y1="4" x2="10" y2="20"/></svg>
-          </div>
-          <h4>Cursor</h4>
-          <p>Código con IA</p>
-          <span class="stack-tag">Semanal</span>
-        </div>
-        <div class="stack-card fade-in d4" data-color="#22C55E" data-label="FINANZAS">
-          <div class="stack-icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
-          </div>
-          <h4>Wise / Mercury</h4>
-          <p>Banca multi-divisa</p>
-          <span class="stack-tag">Semanal</span>
-        </div>
-        <div class="stack-card fade-in d5" data-color="#A78BFA" data-label="GRAFOS">
-          <div class="stack-icon">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="12" y1="9" x2="6" y2="6"/><line x1="12" y1="9" x2="18" y2="6"/><line x1="12" y1="15" x2="6" y2="18"/><line x1="12" y1="15" x2="18" y2="18"/></svg>
-          </div>
-          <h4>Obsidian</h4>
-          <p>Conexión de ideas</p>
-          <span class="stack-tag">Diario</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════ MÉTRICAS ══════════════════════ -->
-  <section class="section metrics-section" style="padding-top:0;">
-    <div class="container">
-      <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:48px; flex-wrap:wrap; gap:24px;">
-        <div>
-          <p class="sec-num">— 04</p>
-          <h2 class="fade-in">Datos que importan<br><em>en LATAM 2026.</em></h2>
-        </div>
-        <p style="max-width:300px;font-size:0.9rem;" class="fade-in d2">
-          La realidad financiera de la región en números. Los puntos de partida para tomar mejores decisiones.
-        </p>
-      </div>
-      <div class="metrics-grid">
-        <!-- Card 1: Inflación -->
-        <div class="metric-card fade-in">
-          <div class="metric-head">
-            <span class="metric-label">Inflación promedio LATAM</span>
-            <span class="metric-trend up">↑ 5.8%</span>
-          </div>
-          <div class="metric-value"><span data-count="58">0</span><small>‰ × 10</small></div>
-          <svg class="metric-chart" viewBox="0 0 280 80" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="grdRed" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stop-color="#FF5F57" stop-opacity="0.4"/>
-                <stop offset="100%" stop-color="#FF5F57" stop-opacity="0"/>
-              </linearGradient>
-            </defs>
-            <path class="chart-area" d="M0,55 L40,52 L80,48 L120,42 L160,36 L200,30 L240,22 L280,15 L280,80 L0,80 Z" fill="url(#grdRed)"/>
-            <path class="chart-line" d="M0,55 L40,52 L80,48 L120,42 L160,36 L200,30 L240,22 L280,15" fill="none" stroke="#FF5F57" stroke-width="2"/>
-          </svg>
-          <p class="metric-foot">Tu cuenta de ahorro paga 1.2%. Pierdes 4.6% real al año.</p>
-        </div>
-
-        <!-- Card 2: Sin fondo de emergencia -->
-        <div class="metric-card fade-in d1">
-          <div class="metric-head">
-            <span class="metric-label">Sin fondo de emergencia</span>
-            <span class="metric-trend warn">⚠ Alto</span>
-          </div>
-          <div class="metric-value"><span data-count="68">0</span><small>%</small></div>
-          <div class="metric-donut">
-            <svg viewBox="0 0 120 120" width="120" height="120">
-              <circle cx="60" cy="60" r="48" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="12"/>
-              <circle class="donut-arc" cx="60" cy="60" r="48" fill="none" stroke="#FBBF24" stroke-width="12"
-                stroke-dasharray="301.6" stroke-dashoffset="301.6" stroke-linecap="round" data-pct="0.68"
-                transform="rotate(-90 60 60)"/>
-            </svg>
-          </div>
-          <p class="metric-foot">7 de cada 10 adultos en LATAM viven al borde del riesgo financiero.</p>
-        </div>
-
-        <!-- Card 3: AI adoption -->
-        <div class="metric-card fade-in d2">
-          <div class="metric-head">
-            <span class="metric-label">Adopción IA en LATAM</span>
-            <span class="metric-trend up">↑ +146%</span>
-          </div>
-          <div class="metric-value"><span data-count="34">0</span><small>%</small></div>
-          <div class="metric-bars">
-            <div class="bar"><span class="bar-label">2023</span><div class="bar-fill" style="--w:14%; --c:var(--blue-dim);"></div></div>
-            <div class="bar"><span class="bar-label">2024</span><div class="bar-fill" style="--w:22%; --c:rgba(36,96,232,0.4);"></div></div>
-            <div class="bar"><span class="bar-label">2025</span><div class="bar-fill" style="--w:28%; --c:rgba(36,96,232,0.65);"></div></div>
-            <div class="bar"><span class="bar-label">2026</span><div class="bar-fill" style="--w:34%; --c:var(--blue);"></div></div>
-          </div>
-          <p class="metric-foot">El gap entre quienes usan IA y quienes no se ensancha cada trimestre.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════ ARTÍCULOS ══════════════════════ -->
-  <section class="section" id="articles" style="padding-top:0;">
-    <div class="container">
-      <div class="articles-header">
-        <div>
-          <p class="sec-num">— 05</p>
-          <h2 class="fade-in">Últimas publicaciones</h2>
-        </div>
-        <a href="blog/" class="read-more fade-in d2">Ver todos los artículos <svg width="14" height="14"
-            stroke="currentColor">
-            <use href="img/icons.svg#icon-arrow" />
-          </svg></a>
-      </div>
-      <div class="articles-layout fade-in d1">
-        <!-- Artículo principal -->
-        <a href="blog/los-3-niveles-de-ia.html" class="art-main">
-          <div class="art-thumb">
-            <div class="art-thumb-grid"></div>
-            <div class="art-thumb-gradient" style="background:linear-gradient(135deg,rgba(36,96,232,0.2),rgba(91,142,244,0.08),transparent)"></div>
-            <div class="art-thumb-scan"></div>
-            <span class="art-thumb-badge">IA · ANÁLISIS</span>
-            <div class="art-thumb-nodes" id="thumb-canvas-1"></div>
-            <span class="art-thumb-topic">Los 3 niveles de IA que cambian todo</span>
-          </div>
-          <div class="big-num" data-text="01">01</div>
-          <span class="badge badge-ia">IA Aplicada</span>
-          <h3>Los 3 niveles de uso de IA que nadie te explica</h3>
-          <p>La mayoría usa ChatGPT para escribir emails más rápido. Eso no es IA aplicada. Hay tres niveles que cambian
-            completamente lo que podés hacer con estas herramientas.</p>
-          <span class="read-more">Leer artículo <svg width="14" height="14" stroke="currentColor">
-              <use href="img/icons.svg#icon-arrow" />
-            </svg></span>
-        </a>
-        <!-- Artículos secundarios -->
-        <a href="blog/por-que-ahorrar-no-es-estrategia.html" class="art-small">
-          <div class="art-thumb" style="height:120px;">
-            <div class="art-thumb-grid"></div>
-            <div class="art-thumb-gradient" style="background:linear-gradient(135deg,rgba(34,197,94,0.15),rgba(74,222,128,0.05),transparent)"></div>
-            <div class="art-thumb-scan" style="animation-delay:-1s;"></div>
-            <span class="art-thumb-badge" style="color:#4ADE80;">FINANZAS · LATAM</span>
-          </div>
-          <span class="badge badge-finanzas">Finanzas</span>
-          <h4>Por qué ahorrar no es una estrategia financiera</h4>
-          <p style="font-size:0.84rem;">La inflación promedia 4-6% en LATAM. Tu cuenta de ahorro paga 1%. Hacé la resta.</p>
-          <span class="read-more" style="font-size:0.78rem; margin-top: auto;">Leer <svg width="14" height="14"
-              stroke="currentColor">
-              <use href="img/icons.svg#icon-arrow" />
-            </svg></span>
-        </a>
-        <a href="blog/sistema-4-pasos-habitos.html" class="art-small">
-          <div class="art-thumb" style="height:120px;">
-            <div class="art-thumb-grid"></div>
-            <div class="art-thumb-gradient" style="background:linear-gradient(135deg,rgba(251,191,36,0.15),rgba(251,191,36,0.05),transparent)"></div>
-            <div class="art-thumb-scan" style="animation-delay:-2s;"></div>
-            <span class="art-thumb-badge" style="color:#FBBF24;">SISTEMAS · HÁBITOS</span>
-          </div>
-          <span class="badge badge-sistemas">Sistemas</span>
-          <h4>El sistema de 4 pasos para instalar cualquier hábito</h4>
-          <p style="font-size:0.84rem;">No es disciplina. Es estructura. La diferencia entre quien logra lo que se propone y quien no.</p>
-          <span class="read-more" style="font-size:0.78rem; margin-top: auto;">Leer <svg width="14" height="14"
-              stroke="currentColor">
-              <use href="img/icons.svg#icon-arrow" />
-            </svg></span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════ MANIFESTO ══════════════════════ -->
-  <section class="manifesto" id="manifesto">
-    <div class="manifesto-bg" aria-hidden="true">
-      <span>GEO</span><span>ALBANES</span><span>GEO</span><span>ALBANES</span>
-    </div>
-    <div class="container">
-      <div class="manifesto-meta">
-        <p class="sec-num">— 07 · Manifesto</p>
-        <span class="manifesto-loc">San Salvador · 13.6929° N</span>
-      </div>
-      <h2 class="manifesto-text">
-        <span class="m-line"><span>La diferencia</span></span>
-        <span class="m-line"><span>entre quien lo <em>logra</em></span></span>
-        <span class="m-line"><span>y quien no</span></span>
-        <span class="m-line"><span>es saber <em>pensar.</em></span></span>
-      </h2>
-      <div class="manifesto-foot">
-        <div class="mf-col">
-          <span class="mf-num">01</span>
-          <p>No vendemos atajos. Construimos sistemas.</p>
-        </div>
-        <div class="mf-col">
-          <span class="mf-num">02</span>
-          <p>No es disciplina. Es estructura, fricción y diseño.</p>
-        </div>
-        <div class="mf-col">
-          <span class="mf-num">03</span>
-          <p>No es teoría de libro. Es lo que funciona en LATAM.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════ NEWSLETTER ══════════════════════ -->
-  <section class="section" style="padding-top:0;background:url('img/newsletter-bg.jpg') center/cover no-repeat;position:relative;">
-    <div style="position:absolute;inset:0;background:rgba(6,6,8,0.85);"></div>
-    <div class="container" style="position:relative;z-index:1;">
-      <div class="nl-section">
-        <div>
-          <p class="sec-num">— 06</p>
-          <h2 class="fade-in" style="margin-bottom:16px;">Una idea útil.<br>Cada semana.</h2>
-          <p class="fade-in d1">Sin spam. Solo estrategias reales de IA, finanzas y sistemas que podás aplicar de
-            inmediato. Te podés dar de baja cuando quieras.</p>
-        </div>
-        <div class="fade-in d2">
-          <p
-            style="font-family:var(--f-mono);font-size:0.7rem;color:var(--text-3);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:20px;">
-            Newsletter gratuito</p>
-          <form class="nl-form" action="https://formsubmit.co/geoalbanes@geoalbanes.com" method="POST">
-            <input type="hidden" name="_subject" value="Nueva suscripción — geoalbanes.com">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="email" name="email" placeholder="tu@email.com" required>
-            <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
-              Suscribirme <svg width="14" height="14" stroke="currentColor">
-                <use href="img/icons.svg#icon-arrow" />
-              </svg>
-            </button>
-            <p class="nl-note">Sin spam · Baja cuando quieras</p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══════════════════════ FOOTER ══════════════════════ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <a href="/" class="nav-logo">
-            <div class="mark">GA</div>Geo Albanés
-          </a>
-          <p>Estrategias reales de IA, finanzas y sistemas para emprendedores en LATAM que quieren tomar el control de
-            su vida profesional.</p>
-        </div>
-        <div class="footer-col">
-          <h6>Contenido</h6>
-          <a href="blog/">Blog</a>
-          <a href="blog/?cat=ia">IA Aplicada</a>
-          <a href="blog/?cat=finanzas">Finanzas</a>
-          <a href="blog/?cat=sistemas">Sistemas</a>
-        </div>
-        <div class="footer-col">
-          <h6>Geo</h6>
-          <a href="sobre-mi.html">Sobre mí</a>
-          <a href="contacto.html">Contacto</a>
-          <a href="privacidad.html">Privacidad</a>
-          <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener">LinkedIn <svg width="14"
-              height="14" stroke="currentColor">
-              <use href="img/icons.svg#icon-external" />
-            </svg></a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2026 Geo Albanés · geoalbanes.com</p>
-        <div class="social-row">
-          <a href="https://www.linkedin.com/in/geoalbanes/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-          <a href="https://www.instagram.com/geoalbanes/" target="_blank" rel="noopener" aria-label="Instagram">ig</a>
-          <a href="mailto:geoalbanes@geoalbanes.com" aria-label="Email">@</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-
-</html>
+</div>
+<div class="w-full lg:w-1/2 mt-16 lg:mt-0 relative flex justify-center lg:justify-end">
+<img alt="Abstract 3D Shape" class="w-full max-w-[500px] lg:max-w-none object-contain scale-110 opacity-90" data-alt="A pristine 3D rendered abstract mesh sphere floating in a bright white environment. The sphere is constructed from a delicate wireframe of pale, icy blue lines and nodes, creating a geometric, futuristic aesthetic. The lighting is incredibly soft and high-key, casting no harsh shadows and emphasizing a clean, minimalist, light-mode Apple-inspired design language." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDgdmHgdyqg7rhJGRro3t0MKgrC3ScJy310y6XeHCVNS4ewHcMrbnZDTAzxuqqGd7ZUC6ruvAciMpxL0YtLRGYE_987Iv5aAcNSwVUgg99D-Ysn7iQZft92Yk4RFUZutqlLcorBbnivbKPDoYyViFlt6rqpU0hTXwKYP75ls2Eq-VyEGGaaE0FtN3So0YQFZUmA-Dcy31dEJNge9akTFEYS-FCIP0b_O4hysEI-tHKowZ69yN8RRbr72I2U6FfEz89K-ALUp70lw"/>
+</div>
+</section>
+<!-- STATS BAR -->
+<section class="bg-surface py-16 border-y border-separator">
+<div class="max-w-[1200px] mx-auto px-6 md:px-12">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x md:divide-separator text-center">
+<div class="px-4">
+<div class="text-[52px] font-bold text-text-primary leading-none mb-2 tracking-tighter">17</div>
+<div class="text-sm text-text-secondary font-medium tracking-wide uppercase">Artículos</div>
+</div>
+<div class="px-4">
+<div class="text-[52px] font-bold text-text-primary leading-none mb-2 tracking-tighter">3×</div>
+<div class="text-sm text-text-secondary font-medium tracking-wide uppercase">Por semana</div>
+</div>
+<div class="px-4">
+<div class="text-[28px] font-bold text-text-primary leading-[1.2] mb-2 flex items-center justify-center h-[52px] tracking-tight">IA · Finanzas<br/>Productividad</div>
+<div class="text-sm text-text-secondary font-medium tracking-wide uppercase">Temáticas</div>
+</div>
+<div class="px-4">
+<div class="text-[52px] font-bold text-text-primary leading-none mb-2 tracking-tighter">2024<span class="text-accent-blue">→</span></div>
+<div class="text-sm text-text-secondary font-medium tracking-wide uppercase">En curso</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ARTICLES SECTION -->
+<section class="py-24 max-w-[1200px] mx-auto px-6 md:px-12" id="blog">
+<div class="mb-12 flex justify-between items-end">
+<h2 class="text-4xl font-bold tracking-tight text-text-primary">Últimos Artículos</h2>
+<a class="text-accent-blue font-medium hover:underline flex items-center gap-1" href="#">Ver todos <span class="material-symbols-outlined text-sm">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-shadow duration-300 overflow-hidden flex flex-col group cursor-pointer border border-separator/50">
+<div class="aspect-[16/10] overflow-hidden bg-surface relative">
+<img alt="IA" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/card-ia.jpg"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="mb-4">
+<span class="inline-block px-2.5 py-1 bg-[#EBF4FF] text-accent-blue text-[11px] font-bold tracking-wider rounded">IA · ANÁLISIS</span>
+</div>
+<h3 class="text-xl font-bold text-text-primary mb-3 leading-tight group-hover:text-accent-blue transition-colors">Los 3 niveles de IA que cambian todo</h3>
+<div class="mt-auto flex items-center text-xs text-text-tertiary font-mono">
+<span>4 min read</span>
+<span class="mx-2">·</span>
+<span>Oct 24</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-shadow duration-300 overflow-hidden flex flex-col group cursor-pointer border border-separator/50">
+<div class="aspect-[16/10] overflow-hidden bg-surface relative">
+<img alt="Finanzas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/card-finanzas.jpg"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="mb-4">
+<span class="inline-block px-2.5 py-1 bg-[#EAFAF1] text-[#1D8348] text-[11px] font-bold tracking-wider rounded">FINANZAS</span>
+</div>
+<h3 class="text-xl font-bold text-text-primary mb-3 leading-tight group-hover:text-accent-blue transition-colors">Por qué ahorrar no es una estrategia financiera</h3>
+<div class="mt-auto flex items-center text-xs text-text-tertiary font-mono">
+<span>6 min read</span>
+<span class="mx-2">·</span>
+<span>Oct 21</span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-white rounded-xl shadow-card hover:shadow-card-hover transition-shadow duration-300 overflow-hidden flex flex-col group cursor-pointer border border-separator/50">
+<div class="aspect-[16/10] overflow-hidden bg-surface relative">
+<img alt="Sistemas" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="img/card-sistemas.jpg"/>
+</div>
+<div class="p-6 flex flex-col flex-grow">
+<div class="mb-4">
+<span class="inline-block px-2.5 py-1 bg-[#F5EEF8] text-[#6C3483] text-[11px] font-bold tracking-wider rounded">SISTEMAS</span>
+</div>
+<h3 class="text-xl font-bold text-text-primary mb-3 leading-tight group-hover:text-accent-blue transition-colors">Sistema de 4 pasos para crear hábitos que duran</h3>
+<div class="mt-auto flex items-center text-xs text-text-tertiary font-mono">
+<span>5 min read</span>
+<span class="mx-2">·</span>
+<span>Oct 18</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- NEWSLETTER SECTION -->
+<section class="py-24 px-6">
+<div class="max-w-[640px] mx-auto bg-surface rounded-2xl p-10 md:p-14 text-center shadow-sm border border-separator/30">
+<span class="text-accent-blue text-xs font-bold tracking-[0.15em] mb-4 block">NEWSLETTER</span>
+<h2 class="text-3xl md:text-4xl font-bold text-text-primary mb-4 tracking-tight">Ideas que llegan directo.</h2>
+<p class="text-text-secondary mb-8 leading-relaxed max-w-md mx-auto">Únete a cientos de lectores recibiendo ensayos sobre IA, finanzas y sistemas directamente en su inbox.</p>
+<form class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+<input class="flex-grow px-4 py-3.5 rounded-lg border border-separator focus:border-accent-blue focus:ring-1 focus:ring-accent-blue outline-none transition-all text-text-primary placeholder:text-text-tertiary" placeholder="tu@email.com" required="" type="email"/>
+<button class="px-6 py-3.5 bg-accent-blue hover:bg-accent-blue-hover text-white font-medium rounded-lg transition-colors whitespace-nowrap" type="submit">
+                    Suscribir
+                </button>
+</form>
+<p class="text-xs text-text-tertiary mt-4 font-mono">Sin spam. Desuscribite cuando querrás.</p>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white border-t border-separator py-16 px-6 md:px-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-[1200px] mx-auto">
+<div class="md:col-span-2">
+<div class="flex items-center gap-2.5 mb-4">
+  <span class="w-2 h-2 rounded-full bg-[#0071E3] inline-block flex-shrink-0"></span>
+  <span class="font-semibold text-[17px] text-[#1D1D1F] tracking-tight">Geo Albanés</span>
+</div>
+<p class="text-[13px] text-text-secondary leading-relaxed max-w-sm mb-6">
+                    Radical clarity in technical thought. Explorando la intersección entre inteligencia artificial, finanzas personales y sistemas de productividad.
+                </p>
+<p class="text-[13px] text-text-tertiary font-mono">
+                    © 2024 Geo Albanés. Todos los derechos reservados.
+                </p>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-text-primary mb-4 tracking-wide uppercase">Lectura</h4>
+<ul class="space-y-3">
+<li><a class="text-[13px] text-text-secondary hover:text-text-primary transition-colors" href="#">Ensayos</a></li>
+<li><a class="text-[13px] text-text-secondary hover:text-text-primary transition-colors" href="#">Sistemas</a></li>
+<li><a class="text-[13px] text-text-secondary hover:text-text-primary transition-colors" href="#">IA Aplicada</a></li>
+<li><a class="text-[13px] text-text-secondary hover:text-text-primary transition-colors" href="#">Finanzas</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-sm font-semibold text-text-primary mb-4 tracking-wide uppercase">Conectar</h4>
+<ul class="space-y-3">
+<li><a class="text-[13px] text-text-secondary hover:text-text-primary transition-colors" href="#">Twitter</a></li>
+<li><a class="text-[13px] text-text-secondary hover:text-text-primary transition-colors" href="#">LinkedIn</a></li>
+<li><a class="text-[13px] text-text-secondary hover:text-text-primary transition-colors" href="#">Newsletter</a></li>
+<li><a class="text-[13px] text-text-secondary hover:text-text-primary transition-colors" href="#">RSS</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</body></html>
