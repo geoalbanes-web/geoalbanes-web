@@ -1,31 +1,31 @@
 /* =============================================
-   GEOALBANES.COM — Sistema de Diseño v2
-   Editorial Dark · Premium · 2026
+   GEOALBANES.COM — Sistema de Diseño v3
+   Apple Light · Editorial · 2026
    ============================================= */
 
-/* Google Fonts cargadas en <head> via link no-render-blocking */
+/* Inter cargada via link en <head> */
 
 /* ── Variables ── */
 :root {
-  --bg:         #060608;
-  --bg-2:       #0B0B0F;
-  --surface:    rgba(255,255,255,0.025);
-  --surface-2:  rgba(255,255,255,0.045);
-  --border:     rgba(255,255,255,0.07);
-  --border-2:   rgba(255,255,255,0.12);
-  --blue:       #2460E8;
-  --blue-light: #5B8EF4;
-  --blue-glow:  rgba(36,96,232,0.3);
-  --blue-dim:   rgba(36,96,232,0.08);
-  --text:       #EEEAE4;
-  --text-2:     #7A7A8C;
-  --text-3:     #3D3D50;
+  --bg:         #FFFFFF;
+  --bg-2:       #F5F5F7;
+  --surface:    #F5F5F7;
+  --surface-2:  #FBFBFD;
+  --border:     #D2D2D7;
+  --border-2:   rgba(0,0,0,0.14);
+  --blue:       #0071E3;
+  --blue-light: #0077ED;
+  --blue-glow:  rgba(0,113,227,0.18);
+  --blue-dim:   rgba(0,113,227,0.06);
+  --text:       #1D1D1F;
+  --text-2:     #6E6E73;
+  --text-3:     #86868B;
   --green:      #22C55E;
 
-  --f-display: 'Fraunces', serif;
-  --f-ui:      'Syne', sans-serif;
-  --f-body:    'DM Sans', sans-serif;
-  --f-mono:    'JetBrains Mono', monospace;
+  --f-display: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-ui:      'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-body:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-mono:    'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -43,6 +43,7 @@ body {
   font-weight: 400;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   cursor: none;
 }
@@ -86,18 +87,9 @@ body.tool-page #cursor { display: none !important; }
   width: 6px; height: 6px;
 }
 
-/* ── Grain Overlay ── */
+/* ── Grain Overlay — disabled for light theme ── */
 body::after {
-  content: '';
-  position: fixed;
-  inset: -200px;
-  width: calc(100% + 400px);
-  height: calc(100% + 400px);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  opacity: 0.038;
-  pointer-events: none;
-  z-index: 9998;
-  animation: grain 0.6s steps(1) infinite;
+  display: none;
 }
 @keyframes grain {
   0%   { transform: translate(0, 0); }
@@ -147,7 +139,7 @@ body::after {
 .display em {
   font-style: italic;
   font-weight: 300;
-  color: var(--blue-light);
+  color: var(--blue);
 }
 h2 {
   font-family: var(--f-display);
@@ -263,9 +255,9 @@ p { color: var(--text-2); line-height: 1.75; }
 }
 .nav.scrolled {
   padding: 16px 0;
-  background: rgba(6,6,8,0.82);
-  backdrop-filter: blur(24px) saturate(1.4);
-  -webkit-backdrop-filter: blur(24px) saturate(1.4);
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-color: var(--border);
 }
 .nav .container {
@@ -433,7 +425,7 @@ p { color: var(--text-2); line-height: 1.75; }
 .card:hover {
   border-color: var(--border-2);
   transform: translateY(-3px);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10);
 }
 
 /* ── Badge ── */
@@ -447,12 +439,12 @@ p { color: var(--text-2); line-height: 1.75; }
   padding: 4px 10px;
   border-radius: 4px;
 }
-.badge-ia       { background: rgba(36,96,232,0.12); color: var(--blue-light); border: 1px solid rgba(36,96,232,0.2); }
-.badge-finanzas { background: rgba(34,197,94,0.08); color: #4ADE80; border: 1px solid rgba(34,197,94,0.15); }
-.badge-sistemas { background: rgba(251,191,36,0.08); color: #FBBF24; border: 1px solid rgba(251,191,36,0.15); }
-.badge-emp      { background: rgba(244,114,182,0.08); color: #F472B6; border: 1px solid rgba(244,114,182,0.15); }
-.badge-prod     { background: rgba(167,139,250,0.08); color: #A78BFA; border: 1px solid rgba(167,139,250,0.15); }
-.badge-fin      { background: rgba(34,197,94,0.08); color: #4ADE80; border: 1px solid rgba(34,197,94,0.15); }
+.badge-ia       { background: #EBF4FF; color: #0071E3; border: 1px solid rgba(0,113,227,0.2); }
+.badge-finanzas { background: #EAFAF1; color: #1D8348; border: 1px solid rgba(29,131,72,0.2); }
+.badge-sistemas { background: #F5EEF8; color: #6C3483; border: 1px solid rgba(108,52,131,0.2); }
+.badge-emp      { background: #FEF9E7; color: #9A7D0A; border: 1px solid rgba(154,125,10,0.2); }
+.badge-prod     { background: #F5EEF8; color: #6C3483; border: 1px solid rgba(108,52,131,0.2); }
+.badge-fin      { background: #EAFAF1; color: #1D8348; border: 1px solid rgba(29,131,72,0.2); }
 
 /* ── Read more ── */
 .read-more {

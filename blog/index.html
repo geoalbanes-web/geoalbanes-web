@@ -27,16 +27,19 @@
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   <link rel="apple-touch-icon" href="../img/favicon-512.png">
   <link rel="manifest" href="../manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
   <style>
   /* ══════════════════════════════════════════
      CATEGORY TOKENS
   ══════════════════════════════════════════ */
   :root {
-    --c-ia:    #2460E8; --c-ia-g:    rgba(36,96,232,0.22);  --c-ia-t:    rgba(36,96,232,0.08);
-    --c-fin:   #22c55e; --c-fin-g:   rgba(34,197,94,0.22);  --c-fin-t:   rgba(34,197,94,0.08);
-    --c-sis:   #a78bfa; --c-sis-g:   rgba(167,139,250,0.22);--c-sis-t:   rgba(167,139,250,0.08);
-    --c-emp:   #f59e0b; --c-emp-g:   rgba(245,158,11,0.22); --c-emp-t:   rgba(245,158,11,0.08);
+    --c-ia:    #0071E3; --c-ia-g:    rgba(0,113,227,0.15);  --c-ia-t:    #EBF4FF;
+    --c-fin:   #1D8348; --c-fin-g:   rgba(29,131,72,0.15);  --c-fin-t:   #EAFAF1;
+    --c-sis:   #6C3483; --c-sis-g:   rgba(108,52,131,0.15); --c-sis-t:   #F5EEF8;
+    --c-emp:   #9A7D0A; --c-emp-g:   rgba(154,125,10,0.15); --c-emp-t:   #FEF9E7;
   }
 
   /* ══════════════════════════════════════════
@@ -115,10 +118,10 @@
   }
   .filter-btn:hover { border-color: var(--border-2); color: var(--text); }
   .filter-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
-  .filter-btn[data-filter="ia"].active    { background: var(--c-ia); border-color: var(--c-ia); }
-  .filter-btn[data-filter="finanzas"].active { background: var(--c-fin); border-color: var(--c-fin); color: #000; }
-  .filter-btn[data-filter="sistemas"].active  { background: var(--c-sis); border-color: var(--c-sis); color: #000; }
-  .filter-btn[data-filter="emprendimiento"].active { background: var(--c-emp); border-color: var(--c-emp); color: #000; }
+  .filter-btn[data-filter="ia"].active    { background: var(--c-ia); border-color: var(--c-ia); color: #fff; }
+  .filter-btn[data-filter="finanzas"].active { background: var(--c-fin); border-color: var(--c-fin); color: #fff; }
+  .filter-btn[data-filter="sistemas"].active  { background: var(--c-sis); border-color: var(--c-sis); color: #fff; }
+  .filter-btn[data-filter="emprendimiento"].active { background: var(--c-emp); border-color: var(--c-emp); color: #fff; }
 
   /* Article count */
   .article-count {
@@ -287,10 +290,10 @@
     border-radius: 4px;
     border: 1px solid;
   }
-  .badge-ia            { color: #93c5fd; background: var(--c-ia-t); border-color: rgba(36,96,232,0.3); }
-  .badge-finanzas      { color: #86efac; background: var(--c-fin-t); border-color: rgba(34,197,94,0.3); }
-  .badge-sistemas      { color: #c4b5fd; background: var(--c-sis-t); border-color: rgba(167,139,250,0.3); }
-  .badge-emp           { color: #fcd34d; background: var(--c-emp-t); border-color: rgba(245,158,11,0.3); }
+  .badge-ia            { color: #0071E3; background: var(--c-ia-t); border-color: rgba(0,113,227,0.25); }
+  .badge-finanzas      { color: #1D8348; background: var(--c-fin-t); border-color: rgba(29,131,72,0.25); }
+  .badge-sistemas      { color: #6C3483; background: var(--c-sis-t); border-color: rgba(108,52,131,0.25); }
+  .badge-emp           { color: #9A7D0A; background: var(--c-emp-t); border-color: rgba(154,125,10,0.25); }
 
   /* Title */
   .blog-card h3 {
@@ -303,7 +306,10 @@
     margin: 0;
     transition: color 0.2s;
   }
-  .blog-card:hover h3 { color: #fff; }
+  .blog-card:hover h3 { color: var(--blue); }
+  .blog-card[data-cat="finanzas"]:hover h3 { color: var(--c-fin); }
+  .blog-card[data-cat="sistemas"]:hover h3 { color: var(--c-sis); }
+  .blog-card[data-cat="emprendimiento"]:hover h3 { color: var(--c-emp); }
 
   /* Excerpt */
   .blog-card p {
@@ -328,10 +334,10 @@
     transition: gap 0.25s, color 0.25s;
   }
   .blog-card:hover .card-cta { gap: 12px; }
-  .blog-card[data-cat="ia"]:hover            .card-cta { color: #93c5fd; }
-  .blog-card[data-cat="finanzas"]:hover      .card-cta { color: #86efac; }
-  .blog-card[data-cat="sistemas"]:hover      .card-cta { color: #c4b5fd; }
-  .blog-card[data-cat="emprendimiento"]:hover .card-cta { color: #fcd34d; }
+  .blog-card[data-cat="ia"]:hover            .card-cta { color: var(--c-ia); }
+  .blog-card[data-cat="finanzas"]:hover      .card-cta { color: var(--c-fin); }
+  .blog-card[data-cat="sistemas"]:hover      .card-cta { color: var(--c-sis); }
+  .blog-card[data-cat="emprendimiento"]:hover .card-cta { color: var(--c-emp); }
 
   /* ══════════════════════════════════════════
      CARD SIZES
@@ -357,10 +363,10 @@
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(6,6,8,0.97) 0%,
-      rgba(6,6,8,0.75) 35%,
-      rgba(6,6,8,0.3)  65%,
-      rgba(6,6,8,0.05) 100%
+      rgba(255,255,255,0.98) 0%,
+      rgba(255,255,255,0.82) 35%,
+      rgba(255,255,255,0.4)  65%,
+      rgba(255,255,255,0.08) 100%
     );
     z-index: 1;
   }
@@ -377,14 +383,14 @@
     font-weight: 700;
     line-height: 1.06;
     letter-spacing: -0.035em;
-    color: #fff;
+    color: var(--text);
     margin: 0;
     transition: color 0.2s;
   }
-  .card-hero h2 em { font-style: italic; color: #93c5fd; }
+  .card-hero h2 em { font-style: italic; color: var(--blue); }
   .card-hero p {
     font-size: 0.95rem;
-    color: rgba(255,255,255,0.65);
+    color: var(--text-2);
     max-width: 560px;
     line-height: 1.65;
     margin: 0;
@@ -393,6 +399,7 @@
     font-size: 0.68rem;
     letter-spacing: 0.14em;
     margin-top: 12px;
+    color: var(--blue);
   }
   .card-hero .article-num {
     position: absolute;
@@ -401,14 +408,14 @@
     font-family: var(--f-display);
     font-size: 8rem;
     font-weight: 700;
-    color: rgba(255,255,255,0.05);
+    color: rgba(0,0,0,0.04);
     line-height: 1;
     z-index: 2;
     letter-spacing: -0.06em;
     user-select: none;
     transition: color 0.4s;
   }
-  .card-hero:hover .article-num { color: rgba(255,255,255,0.09); }
+  .card-hero:hover .article-num { color: rgba(0,113,227,0.07); }
 
   /* LARGE card (span 8) */
   .card-large .card-img {
@@ -436,12 +443,12 @@
   .card-small p { display: none; }
   .card-small .card-body { padding: 18px 22px 22px; gap: 8px; }
 
-  /* Image gradient overlay on all non-hero cards */
+  /* Image gradient overlay on all non-hero cards — subtle for light mode */
   .card-img::after {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent 50%, rgba(6,6,8,0.5) 100%);
+    background: linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.08) 100%);
     pointer-events: none;
   }
 
@@ -498,9 +505,8 @@
     background: var(--border);
   }
 
-  /* ── Editorial Thumbnails — reemplaza imágenes ficticias ── */
+  /* ── Editorial Thumbnails — light pastel gradients ── */
   .card-img-inner {
-    background-image: none !important;
     position: relative;
     overflow: hidden;
   }
@@ -514,17 +520,17 @@
       -45deg,
       transparent,
       transparent 28px,
-      rgba(255,255,255,0.018) 28px,
-      rgba(255,255,255,0.018) 29px
+      rgba(0,0,0,0.025) 28px,
+      rgba(0,0,0,0.025) 29px
     );
     z-index: 1;
   }
 
-  /* Color de fondo por categoría */
-  .blog-card[data-cat="ia"]             .card-img-inner { background: linear-gradient(135deg, #060E1F 0%, #0D1E3A 100%); }
-  .blog-card[data-cat="finanzas"]       .card-img-inner { background: linear-gradient(135deg, #04100A 0%, #0A1E12 100%); }
-  .blog-card[data-cat="sistemas"]       .card-img-inner { background: linear-gradient(135deg, #0D0818 0%, #17102A 100%); }
-  .blog-card[data-cat="emprendimiento"] .card-img-inner { background: linear-gradient(135deg, #130C04 0%, #221508 100%); }
+  /* Color de fondo por categoría — light pastels */
+  .blog-card[data-cat="ia"]             .card-img-inner { background: linear-gradient(135deg, #EBF4FF 0%, #DBEAFE 100%) !important; }
+  .blog-card[data-cat="finanzas"]       .card-img-inner { background: linear-gradient(135deg, #EAFAF1 0%, #D5F5E3 100%) !important; }
+  .blog-card[data-cat="sistemas"]       .card-img-inner { background: linear-gradient(135deg, #F5EEF8 0%, #EDE1F5 100%) !important; }
+  .blog-card[data-cat="emprendimiento"] .card-img-inner { background: linear-gradient(135deg, #FEF9E7 0%, #FEF3C7 100%) !important; }
 
   /* Número grande como marca de agua visual */
   .card-num {
@@ -536,7 +542,7 @@
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.04em;
-    color: rgba(255,255,255,0.07);
+    color: rgba(0,0,0,0.08);
     z-index: 2;
     pointer-events: none;
     user-select: none;
@@ -550,10 +556,10 @@
     height: 2px;
     z-index: 3;
   }
-  .blog-card[data-cat="ia"]             .card-img-inner::after { background: rgba(36,96,232,0.5); }
-  .blog-card[data-cat="finanzas"]       .card-img-inner::after { background: rgba(34,197,94,0.45); }
-  .blog-card[data-cat="sistemas"]       .card-img-inner::after { background: rgba(167,139,250,0.45); }
-  .blog-card[data-cat="emprendimiento"] .card-img-inner::after { background: rgba(245,158,11,0.45); }
+  .blog-card[data-cat="ia"]             .card-img-inner::after { background: rgba(0,113,227,0.35); }
+  .blog-card[data-cat="finanzas"]       .card-img-inner::after { background: rgba(29,131,72,0.35); }
+  .blog-card[data-cat="sistemas"]       .card-img-inner::after { background: rgba(108,52,131,0.35); }
+  .blog-card[data-cat="emprendimiento"] .card-img-inner::after { background: rgba(154,125,10,0.35); }
 
   /* Ocultar videos ficticios — reemplazados por gradientes editoriales */
   .card-video { display: none !important; }
